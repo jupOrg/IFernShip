@@ -1,3 +1,3 @@
-import { IntroPage } from "./intro/IntroPage";
+import { IntroPage } from "./intro/introPage";
 
 export default IntroPage;

@@ -4,6 +4,7 @@ export function IntroPage() {
       <img src="/ifpb-logo.svg" alt="logo" width={100} height={100} />
       <div className="gap-2 items-center max-w-xl">
         <h1 className="font-bold text-3xl">Vagas de Estágios</h1>
+        {/* TODO replace the "baixe agora" */}
         <div>
           Encontre o estágio dos seus sonhos e comece a trilhar o caminho para o
           sucesso profissional! Não perca mais tempo procurando vagas
