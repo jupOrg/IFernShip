@@ -1,0 +1,4 @@
+{
+  "/internships": "/internships?_expand=enterprise",
+  "/internships/:id": "/internships/:id?_expand=enterprise"
+}

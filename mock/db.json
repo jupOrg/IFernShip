@@ -1,16 +1,16 @@
 {
-  "enterprise": [
+  "enterprises": [
     {
       "id": "sonhin",
       "name": "Sonhin",
       "picture": "/enterprise mock cover.svg"
     }
   ],
-  "internship": [
+  "internships": [
     {
       "id": "1",
       "position": "Rockstar",
-      "enterprise": "sonhin"
+      "enterpriseId": "sonhin"
     }
   ]
 }
