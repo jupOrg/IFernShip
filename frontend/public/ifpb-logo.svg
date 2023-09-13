@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
+   version="1.1"
+   viewBox="0 0 512 512"
+   id="svg24"
+   sodipodi:docname="ifpb-logo.svg"
    width="512"
    height="512"
-   id="svg2"
-   version="1.1"
    inkscape:version="1.3 (1:1.3+202307231459+0e150ed6c4)"
-   sodipodi:docname="ifpb-logo.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -15,292 +14,190 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <title
-     id="title3188">Logotipo IFET</title>
   <defs
-     id="defs4">
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="0 : 521.15301 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_z="744.09448 : 521.15301 : 1"
-       inkscape:persp3d-origin="372.04724 : 345.75931 : 1"
-       id="perspective10" />
-    <inkscape:perspective
-       id="perspective2847"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2847-7"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2847-0"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2887"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2915"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2937"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2937-5"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2971"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2999"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2999-2"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective2999-6"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3044"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3044-2"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3044-22"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3044-6"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3093"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3124"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3170"
-       inkscape:persp3d-origin="0.5 : -4.6947428 : 1"
-       inkscape:vp_z="1 : -4.5280762 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : -4.5280762 : 1"
-       sodipodi:type="inkscape:persp3d" />
-  </defs>
+     id="defs24" />
   <sodipodi:namedview
-     id="base"
+     id="namedview24"
      pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.56919567"
-     inkscape:cx="455.90649"
-     inkscape:cy="780.92653"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.1985706"
+     inkscape:cx="423.02336"
+     inkscape:cy="118.34582"
      inkscape:window-width="1366"
      inkscape:window-height="731"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:snap-page="true"
-     inkscape:showpageshadow="2"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1" />
+     inkscape:current-layer="svg24" />
+  <title
+     id="title1">Instituto Federal da Paraíba - Marca Vertical 2015</title>
+  <g
+     id="g25"
+     transform="matrix(2.9207513,0,0,2.9207513,-54.857021,-8.7622547)">
+    <g
+       fill="#2f9e41"
+       transform="translate(24)"
+       id="g9">
+      <rect
+         x="72"
+         y="4"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         id="rect1" />
+      <rect
+         x="96"
+         y="4"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         id="rect2" />
+      <rect
+         x="48"
+         y="28"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         id="rect3" />
+      <rect
+         x="72"
+         y="28"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         id="rect4" />
+      <rect
+         x="48"
+         y="52"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         id="rect5" />
+      <rect
+         x="72"
+         y="52"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         id="rect6" />
+      <rect
+         x="96"
+         y="52"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         id="rect7" />
+      <rect
+         x="48"
+         y="76"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         id="rect8" />
+      <rect
+         x="72"
+         y="76"
+         width="20"
+         height="20"
+         rx="2"
+         ry="2"
+         id="rect9" />
+    </g>
+    <circle
+       cx="82"
+       cy="14"
+       r="11"
+       fill="#cd191e"
+       id="circle9" />
+    <g
+       transform="translate(24)"
+       id="g17">
+      <path
+         d="m 10.031,130 v -19.988 h 4.2383 V 130 Z"
+         id="path9" />
+      <path
+         d="M 37.061,130 H 31.6743 L 22.979,114.879 h -0.12305 q 0.25976,4.0059 0.25976,5.7148 V 130 h -3.7871 v -19.988 h 5.3457 l 8.6816,14.971 h 0.0957 q -0.20508,-3.8965 -0.20508,-5.5098 v -9.4609 h 3.8145 z"
+         id="path10" />
+      <path
+         d="m 53.877,124.45 q 0,2.707 -1.9551,4.2656 -1.9414,1.5586 -5.4141,1.5586 -3.1992,0 -5.6602,-1.2031 v -3.9375 q 2.0234,0.90235 3.418,1.2715 1.4082,0.36914 2.5703,0.36914 1.3945,0 2.1328,-0.53321 0.75195,-0.5332 0.75195,-1.5859 0,-0.58789 -0.32812,-1.0391 -0.32812,-0.46484 -0.9707,-0.88867 -0.62891,-0.42383 -2.584,-1.3535 -1.832,-0.86133 -2.748,-1.6543 -0.91602,-0.79297 -1.4629,-1.8457 -0.54688,-1.0527 -0.54688,-2.4609 0,-2.6523 1.791,-4.1699 1.8047,-1.5176 4.9766,-1.5176 1.5586,0 2.9668,0.36914 1.4219,0.36914 2.9668,1.0391 l -1.3672,3.2949 q -1.5996,-0.65625 -2.6523,-0.91601 -1.0391,-0.25977 -2.0508,-0.25977 -1.2031,0 -1.8457,0.56055 -0.6426,0.56055 -0.64258,1.4629 0,0.56055 0.25977,0.98438 0.25976,0.41015 0.82031,0.80664 0.57422,0.38281 2.6934,1.3945 2.8027,1.3398 3.8418,2.6934 1.0391,1.3398 1.0391,3.2949 z"
+         id="path11" />
+      <path
+         d="M 65.211,130 H 60.9727 V 113.539 H 55.545 v -3.5273 h 15.094 v 3.5273 h -5.4277 z"
+         id="path12" />
+      <path
+         d="m 73.742,130 v -19.988 h 4.2383 V 130 Z"
+         id="path13" />
+      <path
+         d="M 90.75,130 H 86.5117 V 113.539 H 81.084 v -3.5273 h 15.094 v 3.5273 h -5.4277 z"
+         id="path14" />
+      <path
+         d="m 115.55,110.01 v 12.934 q 0,2.2148 -0.99805,3.8828 -0.98437,1.668 -2.8574,2.5566 -1.873,0.88867 -4.4297,0.88867 -3.8555,0 -5.9883,-1.9688 -2.1328,-1.9824 -2.1328,-5.4141 v -12.879 h 4.2246 v 12.236 q 0,2.3105 0.92969,3.3906 0.92969,1.0801 3.0762,1.0801 2.0781,0 3.0078,-1.0801 0.94336,-1.0938 0.94336,-3.418 v -12.209 z"
+         id="path15" />
+      <path
+         d="m 128.16,130 h -4.2383 v -16.461 h -5.4277 v -3.5273 h 15.094 v 3.5273 h -5.4277 z"
+         id="path16" />
+      <path
+         d="m 154.83,119.98 q 0,4.9629 -2.4609,7.6289 -2.4609,2.666 -7.0547,2.666 -4.5938,0 -7.0547,-2.666 -2.4609,-2.666 -2.4609,-7.6562 0,-4.9902 2.4609,-7.6152 2.4746,-2.6387 7.082,-2.6387 4.6074,0 7.041,2.6523 2.4473,2.6523 2.4473,7.6289 z m -14.588,0 q 0,3.3496 1.2715,5.0449 1.2715,1.6953 3.8008,1.6953 5.0723,0 5.0723,-6.7402 0,-6.7539 -5.0449,-6.7539 -2.5293,0 -3.8145,1.709 -1.2852,1.6953 -1.2852,5.0449 z"
+         id="path17" />
+    </g>
+    <g
+       transform="translate(24)"
+       id="g24">
+      <path
+         d="m 28.146,154 h -4.1699 v -19.988 h 11.457 v 3.4726 H 28.146 v 5.1543 h 6.7812 v 3.459 H 28.146 Z"
+         id="path18" />
+      <path
+         d="M 50.855,154 H 39.343 v -19.988 h 11.512 v 3.4726 h -7.2734 v 4.3887 h 6.7676 v 3.4726 h -6.7676 v 5.1543 h 7.2734 z"
+         id="path19" />
+      <path
+         d="m 71.623,143.81 q 0,4.9356 -2.8164,7.5606 -2.8027,2.625 -8.1074,2.625 H 55.039 v -19.988 h 6.2754 q 4.8945,0 7.6016,2.584 2.707,2.584 2.707,7.2188 z m -4.4023,0.10938 q 0,-6.4395 -5.6875,-6.4395 h -2.2559 v 13.016 h 1.8184 q 6.125,0 6.125,-6.5762 z"
+         id="path20" />
+      <path
+         d="M 87.277,154 H 75.765 v -19.988 h 11.512 v 3.4726 h -7.2734 v 4.3887 h 6.7676 v 3.4726 h -6.7676 v 5.1543 h 7.2734 z"
+         id="path21" />
+      <path
+         d="m 95.699,142.88 h 1.3672 q 2.0098,0 2.9668,-0.66993 0.95703,-0.66992 0.95703,-2.1055 0,-1.4219 -0.98437,-2.0234 -0.9707,-0.60157 -3.0215,-0.60157 h -1.2852 z m 0,3.4453 v 7.6699 h -4.2383 v -19.988 h 5.8242 q 4.0742,0 6.0293,1.4902 1.9551,1.4766 1.9551,4.498 0,1.7637 -0.9707,3.1445 -0.9707,1.3672 -2.748,2.1465 4.5117,6.7402 5.8789,8.709 h -4.7031 l -4.7715,-7.6699 z"
+         id="path22" />
+      <path
+         d="m 122.18,154 -1.4492,-4.7578 h -7.2871 L 111.9945,154 h -4.5664 l 7.0547,-20.07 h 5.1816 l 7.082,20.07 z m -2.4609,-8.3125 q -2.0098,-6.4668 -2.2695,-7.3144 -0.24609,-0.84766 -0.35547,-1.3398 -0.45117,1.75 -2.584,8.6543 z"
+         id="path23" />
+      <path
+         d="m 129.25,154 v -19.988 h 4.2383 V 150.5 h 8.1074 v 3.5 z"
+         id="path24" />
+    </g>
+    <text
+       x="106"
+       y="178"
+       fill="#000000"
+       font-family="'Open Sans'"
+       font-size="21px"
+       text-anchor="middle"
+       style="line-height:1"
+       id="text24"><tspan
+         x="106"
+         y="178"
+         id="tspan24">Paraíba</tspan></text>
+  </g>
   <metadata
-     id="metadata7">
+     id="metadata25">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>Logotipo IFET</dc:title>
-        <dc:date>2010-08-06</dc:date>
-        <dc:creator>
-          <cc:Agent>
-            <dc:title>Anderson Batista Evangelista Lima</dc:title>
-          </cc:Agent>
-        </dc:creator>
-        <cc:license
-           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:title>Instituto Federal da Paraíba - Marca Vertical 2015</dc:title>
       </cc:Work>
-      <cc:License
-         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
-        <cc:permits
-           rdf:resource="http://creativecommons.org/ns#Reproduction" />
-        <cc:permits
-           rdf:resource="http://creativecommons.org/ns#Distribution" />
-        <cc:permits
-           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
-      </cc:License>
     </rdf:RDF>
   </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-535.33413)">
-    <g
-       id="g1"
-       transform="matrix(0.99027509,0,0,0.99027509,64.989359,5.2060747)">
-      <rect
-         style="fill:#71c837;fill-rule:evenodd;stroke:none"
-         id="rect2816-4-4-5-1-7"
-         width="124"
-         height="124"
-         x="131.16647"
-         y="538.33813"
-         ry="28.10984"
-         rx="24.596111" />
-      <rect
-         style="fill:#71c837;fill-rule:evenodd"
-         id="rect2816-4-4-5-1-7-4"
-         width="124"
-         height="124"
-         x="131.16647"
-         y="668.34613"
-         ry="28.10984"
-         rx="24.596111" />
-      <rect
-         style="fill:#71c837;fill-rule:evenodd"
-         id="rect2816-4-4-5-1-7-3"
-         width="124"
-         height="124"
-         x="131.16647"
-         y="798.35419"
-         ry="28.10984"
-         rx="24.596111" />
-      <rect
-         style="fill:#71c837;fill-rule:evenodd"
-         id="rect2816-4-4-5-1-7-1"
-         width="124"
-         height="124"
-         x="131.16647"
-         y="928.36218"
-         ry="28.10984"
-         rx="24.596111" />
-      <rect
-         style="fill:#71c837;fill-rule:evenodd;stroke:none"
-         id="rect2816-4-4-5-1-7-8"
-         width="124"
-         height="124"
-         x="261.77289"
-         y="538.33813"
-         ry="28.10984"
-         rx="24.596111" />
-      <rect
-         style="fill:#71c837;fill-rule:evenodd"
-         id="rect2816-4-4-5-1-7-4-9"
-         width="124"
-         height="124"
-         x="0"
-         y="668.34613"
-         ry="28.10984"
-         rx="24.596111" />
-      <rect
-         style="fill:#71c837;fill-rule:evenodd"
-         id="rect2816-4-4-5-1-7-3-2"
-         width="124"
-         height="124"
-         x="0"
-         y="798.35419"
-         ry="28.10984"
-         rx="24.596111" />
-      <rect
-         style="fill:#71c837;fill-rule:evenodd"
-         id="rect2816-4-4-5-1-7-1-7"
-         width="124"
-         height="124"
-         x="0"
-         y="928.36218"
-         ry="28.10984"
-         rx="24.596111" />
-      <rect
-         style="fill:#71c837;fill-rule:evenodd"
-         id="rect2816-4-4-5-1-7-8-2"
-         width="124"
-         height="124"
-         x="261.77289"
-         y="796.59729"
-         ry="28.10984"
-         rx="24.596111" />
-      <ellipse
-         style="fill:#d40000"
-         id="path3184"
-         transform="translate(-90.847257,349.10644)"
-         cx="151.09039"
-         cy="246.83954"
-         rx="59.733414"
-         ry="60.611847" />
-    </g>
-  </g>
 </svg>
