@@ -4,12 +4,17 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import "./index.css";
+import { InternshipsPage } from "./internship/internshipsPage";
 import { IntroPage } from "./intro/introPage";
 
 const router = createBrowserRouter([
   {
     path: "/intro",
     element: <IntroPage />,
+  },
+  {
+    path: "/internships",
+    element: <InternshipsPage />,
   },
   {
     path: "/",
