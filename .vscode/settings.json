@@ -1,7 +1,8 @@
 {
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
-  "editor.foldingImportsByDefault": true
+  "editor.foldingImportsByDefault": true,
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.organizeImports"
+  ]
 }

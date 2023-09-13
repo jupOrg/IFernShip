@@ -1,3 +1,15 @@
+import { InternshipsItem } from "./internshipItem";
+
 export function InternshipsPage() {
-  return <div>internships</div>;
+  return (
+    <div>
+      <InternshipsItem
+        internship={{
+          enterprise: {
+            name: "Sonhin",
+          },
+        }}
+      ></InternshipsItem>
+    </div>
+  );
 }
