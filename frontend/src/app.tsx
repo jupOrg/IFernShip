@@ -1,9 +1,3 @@
-import { useState } from "react";
+import { IntroPage } from "./intro/IntroPage";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="bg-red-500">hello</div>;
-}
-
-export default App;
+export default IntroPage;
