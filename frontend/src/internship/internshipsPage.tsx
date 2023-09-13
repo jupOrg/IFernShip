@@ -8,6 +8,7 @@ export function InternshipsPage() {
           return (
             <InternshipsItem
               internship={{
+                id: "randomId",
                 position: "Rockstar",
                 enterprise: {
                   name: "Sonhin",
