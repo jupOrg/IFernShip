@@ -6,11 +6,11 @@ type Props = {
 
 export function InternshipsItem({ internship }: Props) {
   return (
-    <div className="bg-white rounded-xl p-2 max-w-lg">
+    <div className="bg-white rounded-xl p-2">
       <img
         src="/enterprise mock.svg"
         alt="enterprise"
-        className="max-h-32 rounded-lg object-cover mb-2"
+        className="max-h-36 rounded-lg object-cover mb-2"
       />
       <div className="flex-row justify-between">
         <div className="font-semibold text-xl">
