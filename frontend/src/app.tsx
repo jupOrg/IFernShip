@@ -1,3 +1,14 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
 import { IntroPage } from "./intro/introPage";
 
-export default IntroPage;
+const router = createBrowserRouter([
+  {
+    path: "/intro",
+    element: <IntroPage />,
+  },
+]);
+
+export function App() {
+  return <RouterProvider router={router} />;
+}
