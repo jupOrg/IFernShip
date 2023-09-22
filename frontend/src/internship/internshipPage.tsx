@@ -6,7 +6,7 @@ export function InternshipPage() {
   return (
     <div className="items-center p-2">
       <div className="w-full max-w-xl gap-4">
-        <h1 className="font-semibold text-xl text-green-800">
+        <h1 className="font-semibold text-xl text-green-700">
           {internship.enterprise.name}
         </h1>
         <div>
@@ -16,6 +16,10 @@ export function InternshipPage() {
             className="max-h-40 rounded-lg object-cover mb-2"
           />
         </div>
+        <h1 className="font-semibold text-xl text-green-700">
+          Sobre a empresa
+        </h1>
+        <div>{internship.enterprise.description}</div>
       </div>
     </div>
   );
