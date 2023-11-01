@@ -22,7 +22,7 @@ export function InternshipsPage() {
   return (
     <div className="items-center p-2">
       <GradientCurve />
-      <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl">
+      <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl">
         {internships.map((internship) => {
           return <InternshipsItem internship={internship} />;
         })}
