@@ -16,11 +16,11 @@ export const router = createBrowserRouter([
     element: <InternshipsPage />,
   },
   {
-    path: "/estagio/criar",
+    path: "/estagios/criar",
     element: <CreateInternshipPage />,
   },
   {
-    path: "/estagio/:id",
+    path: "/estagios/:id",
     loader: internshipLoader,
     element: <InternshipPage />,
   },
