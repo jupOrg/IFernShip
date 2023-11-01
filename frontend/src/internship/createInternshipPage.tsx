@@ -7,7 +7,7 @@ export function CreateInternshipPage() {
   return (
     <div>
       <GradientCurve />
-      <div className="items-center">
+      <div className="items-center p-4">
         <div className="w-full max-w-xl gap-6">
           <h1 className="font-semibold text-2xl text-green-700">
             Adicionar Estágio
