@@ -2,6 +2,7 @@ import { GradientCurve } from "../common/gradientCurve";
 
 export function CreateInternshipPage() {
   const companies = ["company 1", "company 2", "company 3"];
+  const courses = ["course 1", "course 2", "course 3"];
 
   return (
     <div>
@@ -34,6 +35,14 @@ export function CreateInternshipPage() {
               <option value="isPerson">Presencial</option>
               <option value="remote">Remoto</option>
             </select>
+            <select className="default-input">
+              <option value="" disabled selected>
+                Curso
+              </option>
+              {courses.map((course) => (
+                <option value={course}>{course}</option>
+              ))}
+            </select>
             <input type="text" className="default-input" placeholder="Cargo" />
             <input
               type="number"
@@ -45,7 +54,7 @@ export function CreateInternshipPage() {
                 Empresa
               </option>
               {companies.map((company) => (
-                <option value="isPerson">{company}</option>
+                <option value={company}>{company}</option>
               ))}
             </select>
             <button type="submit" className="default-submit">
