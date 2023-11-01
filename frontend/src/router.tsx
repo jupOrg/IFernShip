@@ -7,20 +7,20 @@ import { IntroPage } from "./intro/introPage";
 
 export const router = createBrowserRouter([
   {
-    path: "/intro",
+    path: "/introducao",
     element: <IntroPage />,
   },
   {
-    path: "/internships",
+    path: "/estagios",
     element: <InternshipsPage />,
   },
   {
-    path: "/internships/:id",
+    path: "/estagio/:id",
     loader: internshipLoader,
     element: <InternshipPage />,
   },
   {
     path: "/",
-    element: <Navigate to="/intro"></Navigate>,
+    element: <Navigate to="/introducao"></Navigate>,
   },
 ]);
