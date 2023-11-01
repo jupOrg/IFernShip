@@ -21,7 +21,7 @@ export function InternshipPage() {
         <h1 className="font-semibold text-xl text-green-700">
           Sobre a empresa
         </h1>
-        <div>{internship.enterprise.description}</div>G
+        <div>{internship.enterprise.description}</div>
       </div>
     </div>
   );
