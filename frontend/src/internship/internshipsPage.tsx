@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/api";
+import { GradientCurve } from "../common/gradientCurve";
 import { Internship } from "../types/internship";
 import { InternshipsItem } from "./internshipItem";
 
@@ -20,7 +21,8 @@ export function InternshipsPage() {
 
   return (
     <div className="items-center p-2">
-      <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl">
+      <GradientCurve />
+      <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl">
         {internships.map((internship) => {
           return <InternshipsItem internship={internship} />;
         })}
