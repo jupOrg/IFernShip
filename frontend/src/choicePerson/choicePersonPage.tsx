@@ -3,12 +3,12 @@ import { Logo } from "../common/logo";
 
 export function ChoicePersonMd() {
   return (
-    <div className="flex-row min-h-screen">
+    <div className="flex-row min-h-screen bg-curve-rigth">
       {/* Trocar para ficar no BG depois */}
-      <img
+      {/* <img
         src="/gradient_curve_rigth.svg"
-        className="fixed right-0 top-0 bottom-0 h-full w-[55%] -z-10 object-cover"
-      />
+        className="fixed right-0 top-0 bottom-0 h-full w-[55%] z-10 object-cover"
+      /> */}
 
       <div className="w-1/2 pl-24 min-h-full py-16 justify-between">
         <Logo />
@@ -25,7 +25,7 @@ export function ChoicePersonMd() {
         </div>
       </div>
       <div className="w-1/2">
-        <span className="text-white ml-48 mt-16">
+        <span className="text-white ml-60 mt-16">
           <h1 className="font-bold text-6xl">Quem é Você?</h1>
           <p className="font-light mt-16 text-4xl text-center w-80">
             Selecione o botão correspondente ao seu título na instituição:
