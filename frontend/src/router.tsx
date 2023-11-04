@@ -4,12 +4,14 @@ import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { internshipLoader } from "./internship/internshipLoader";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
-import { IntroPage } from "./intro/introPage";
+import { IntroPageMd } from "./intro/IntroPageMd";
+
+import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
 
 export const router = createBrowserRouter([
   {
-    path: "/introducao",
-    element: <IntroPage />,
+    path: "/intro",
+    element: <IntroPageMd />,
   },
   {
     path: "/estagios",
@@ -26,6 +28,10 @@ export const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Navigate to="/introducao"></Navigate>,
+    element: <Navigate to="/intro" />,
+  },
+  {
+    path: "/choice-person",
+    element: <ChoicePersonMd />,
   },
 ]);
