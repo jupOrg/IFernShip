@@ -1,4 +1,5 @@
 import { CardChoicePerson } from "./choicePersonCard";
+import { Logo } from "../common/logo";
 
 export function ChoicePersonMd() {
   return (
@@ -10,7 +11,7 @@ export function ChoicePersonMd() {
       />
 
       <div className="w-1/2 pl-24 min-h-full py-16 justify-between">
-        <img src="./ifpb-logo-dark.svg" alt="logo" width={93} height={113} />
+        <Logo />
         <div className="flex-row w-14 gap-14 h-96">
           <CardChoicePerson
             text="Coordenador"

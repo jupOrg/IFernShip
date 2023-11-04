@@ -1,7 +1,9 @@
+import { Logo } from "../common/logo";
+
 export function SignInPage() {
   return (
     <div className="min-h-screen to-green-500 from-cyan-500 bg-gradient-to-b justify-between items-center p-4">
-      <img src="/ifpb logo.svg" alt="logo" width={100} height={100} />
+      <Logo />
       <div className="gap-2 items-center max-w-xl">
         <h1 className="font-bold text-3xl">Vagas de Estágios</h1>
         {/* TODO replace the "baixe agora" */}
