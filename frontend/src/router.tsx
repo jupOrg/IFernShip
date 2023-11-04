@@ -1,12 +1,19 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
 import "./index.css";
+
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { internshipLoader } from "./internship/internshipLoader";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
 import { IntroPageMd } from "./intro/IntroPageMd";
 
-import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
+import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
+import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
+
+const choseVersion = (PageMd, PageSm) => {
+  const width = window.innerWidth
+  return width > 640 ? <PageMd /> : <PageSm />
+}
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +39,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/choice-person",
-    element: <ChoicePersonMd />,
+    element: choseVersion(ChoicePersonMD, ChoicePersonSM),
   },
 ]);

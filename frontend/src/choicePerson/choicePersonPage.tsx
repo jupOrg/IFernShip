@@ -1,18 +1,12 @@
 import { CardChoicePerson } from "./choicePersonCard";
 import { Logo } from "../common/logo";
 
-export function ChoicePersonMd() {
+export function ChoicePersonMD() {
   return (
     <div className="flex-row min-h-screen bg-curve-rigth">
-      {/* Trocar para ficar no BG depois */}
-      {/* <img
-        src="/gradient_curve_rigth.svg"
-        className="fixed right-0 top-0 bottom-0 h-full w-[55%] z-10 object-cover"
-      /> */}
-
       <div className="w-1/2 pl-24 min-h-full py-16 justify-between">
         <Logo />
-        <div className="flex-row w-14 gap-14 h-96">
+        <div className="flex-row gap-14 h-96">
           <CardChoicePerson
             text="Coordenador"
             urlImage="/image-chose-coordinator.svg"
