@@ -9,10 +9,24 @@ import { IntroPageMd } from "./intro/IntroPageMd";
 
 import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
 import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
+import { useEffect, useState } from "react";
 
-const choseVersion = (PageMd, PageSm) => {
-  const width = window.innerWidth
-  return width > 640 ? <PageMd /> : <PageSm />
+type RenderVersionProps = {
+  PageMd: React.ComponentType;
+  PageSm: React.ComponentType;
+};
+
+function RenderVersion({ PageMd, PageSm }: RenderVersionProps) {
+  const [width, setWidth] = useState<number>(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+  }, []);
+
+  return width > 640 ? <PageMd /> : <PageSm />;
 }
 
 export const router = createBrowserRouter([
@@ -39,6 +53,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/choice-person",
-    element: choseVersion(ChoicePersonMD, ChoicePersonSM),
+    element: <RenderVersion PageMd={ChoicePersonMD} PageSm={ChoicePersonSM} />,
   },
 ]);
