@@ -6,12 +6,17 @@ import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
 import { IntroPageMd } from "./intro/IntroPageMd";
 
+import { LoginPage } from "./auth/loginPage";
 import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
 
 export const router = createBrowserRouter([
   {
     path: "/intro",
     element: <IntroPageMd />,
+  },
+  {
+    path: "/entrar",
+    element: <LoginPage />,
   },
   {
     path: "/estagios",
@@ -27,11 +32,11 @@ export const router = createBrowserRouter([
     element: <InternshipPage />,
   },
   {
-    path: "/",
-    element: <Navigate to="/intro" />,
-  },
-  {
     path: "/choice-person",
     element: <ChoicePersonMd />,
+  },
+  {
+    path: "/",
+    element: <Navigate to="/intro" />,
   },
 ]);
