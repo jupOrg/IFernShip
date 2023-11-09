@@ -1,7 +1,12 @@
+import { FormEvent } from "react";
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export function LoginPage() {
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+  }
+
   return (
     <div className="items-center gap-4 p-4">
       <img src="/ifpb-logo.svg" alt="IFPB" width={100} />
@@ -11,17 +16,17 @@ export function LoginPage() {
         nosso aplicativo de vagas de estágio. Não perca mais tempo, comece agora
         a buscar a vaga perfeita para você!
       </div>
-      <form className="flex flex-col gap-2 w-full">
-        <div className="relative flex-row items-center">
-          <FaUser className="absolute left-3 opacity-50"></FaUser>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
+        <div className="input-icon-container">
+          <FaUser className="input-icon"></FaUser>
           <input
             type="email"
             placeholder="Email"
             className="default-input rounded-full flex-1 pl-8"
           />
         </div>
-        <div className="relative flex-row items-center">
-          <FaLock className="absolute left-3 opacity-50"></FaLock>
+        <div className="input-icon-container">
+          <FaLock className="input-icon"></FaLock>
           <input
             type="password"
             placeholder="Senha"

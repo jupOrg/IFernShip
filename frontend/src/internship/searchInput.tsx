@@ -2,11 +2,8 @@ import { FaSearch } from "react-icons/fa";
 
 export function SearchInput() {
   return (
-    <div className="relative items-center flex-row">
-      <FaSearch
-        size={20}
-        className="absolute left-3 opacity-50 pointer-events-none"
-      />
+    <div className="input-icon-container">
+      <FaSearch size={20} className="input-icon" />
       <input
         type="text"
         name=""
