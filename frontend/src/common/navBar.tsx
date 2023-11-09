@@ -11,7 +11,7 @@ export function NavBar() {
       <img
         alt="user image"
         // TODO replace by real image
-        src={`https://github.com/${user.image}.png`}
+        src={`https://github.com/${user.picture}.png`}
         className="rounded-full w-24 aspect-square border-2 border-white"
       />
       <div className="text-lg font-medium">{user.name}</div>
