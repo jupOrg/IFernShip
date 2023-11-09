@@ -1,4 +1,5 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
+import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
 import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
 import "./index.css";
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
   {
     path: "/entrar",
     element: <LoginPage />,
+  },
+  {
+    path: "/recuperar-senha",
+    element: <ForgotPasswordPage />,
   },
   {
     path: "/estagios",

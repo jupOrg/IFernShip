@@ -33,7 +33,7 @@ export function LoginPage() {
             className="default-input rounded-full flex-1 pl-8"
           />
         </div>
-        <Link className="self-end" to="/cadastro">
+        <Link className="self-end" to="/recuperar-senha">
           Esqueceu a senha?
         </Link>
         <button type="submit" className="default-submit">
