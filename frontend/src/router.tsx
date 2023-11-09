@@ -1,18 +1,22 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
+import { LoginPage } from "./auth/loginPage";
+import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
 import "./index.css";
 import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { internshipLoader } from "./internship/internshipLoader";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
-import { IntroPageMd } from "./intro/IntroPageMd";
-
-import { LoginPage } from "./auth/loginPage";
-import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
+import { IntroPage } from "./intro/introPage";
+import { SplashPage } from "./intro/splashPage";
 
 export const router = createBrowserRouter([
   {
+    path: "/splash",
+    element: <SplashPage />,
+  },
+  {
     path: "/intro",
-    element: <IntroPageMd />,
+    element: <IntroPage />,
   },
   {
     path: "/entrar",
@@ -37,6 +41,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Navigate to="/intro" />,
+    element: <Navigate to="/estagios" />,
   },
 ]);
