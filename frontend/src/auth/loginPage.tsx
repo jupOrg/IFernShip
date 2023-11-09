@@ -15,8 +15,8 @@ export function LoginPage() {
         <div className="relative flex-row items-center">
           <FaUser className="absolute left-3 opacity-50"></FaUser>
           <input
-            type="text"
-            placeholder="Nome"
+            type="email"
+            placeholder="Email"
             className="default-input rounded-full flex-1 pl-8"
           />
         </div>
