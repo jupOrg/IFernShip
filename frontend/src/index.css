@@ -25,7 +25,7 @@ html {
   }
 
   .default-submit {
-    @apply text-white p-2 bg-sky-600 hover:brightness-110 rounded-full;
+    @apply text-white p-2 bg-sky-600 hover:brightness-110 rounded-full font-medium;
   }
 
   .badge {
