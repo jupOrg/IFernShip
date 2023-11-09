@@ -1,12 +1,12 @@
-import { CardChoicePerson } from "./choicePersonCard";
 import { Logo } from "../common/logo";
+import { CardChoicePerson } from "./choicePersonCard";
 
 export function ChoicePersonMd() {
   return (
     <div className="flex-row min-h-screen">
       {/* Trocar para ficar no BG depois */}
       <img
-        src="/gradient_curve_rigth.svg"
+        src="/gradient-curve-rigth.svg"
         className="fixed right-0 top-0 bottom-0 h-full w-[55%] -z-10 object-cover"
       />
 

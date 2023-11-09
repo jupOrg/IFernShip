@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export function LoginPage() {
   return (
     <div className="items-center gap-4 p-4">
-      <img src="/ifpb logo.svg" alt="IFPB" width={100} />
+      <img src="/ifpb-logo.svg" alt="IFPB" width={100} />
       <h1 className="font-semibold text-2xl">Bem-Vindo de Volta</h1>
       <div className="text-center">
         Faça login e tenha acesso a um mundo de oportunidades profissionais com
