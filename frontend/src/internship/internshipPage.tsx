@@ -1,4 +1,5 @@
-import { useLoaderData } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { Link, useLoaderData } from "react-router-dom";
 import { GradientCurve } from "../common/gradientCurve";
 import { Internship } from "../types/internship";
 
@@ -8,9 +9,14 @@ export function InternshipPage() {
     <div className="items-center p-2">
       <GradientCurve offset="large" />
       <div className="w-full max-w-xl gap-4">
-        <h1 className="font-semibold text-xl text-green-700">
-          {internship.enterprise.name}
-        </h1>
+        <div className="flex-row items-center text-green-700">
+          <Link to="/internships" className="inline p-2">
+            <FaArrowLeft />
+          </Link>
+          <h1 className="font-semibold text-xl">
+            {internship.enterprise.name}
+          </h1>
+        </div>
         <div>
           <img
             alt="enterprise"
