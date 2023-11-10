@@ -15,7 +15,7 @@ export function InternshipsItem({ internship }: Props) {
           className="max-h-36 w-full h-40 rounded-lg object-fit mb-2"
         />
         <div className="flex-row justify-between">
-          <div className="font-semibold text-xl">
+          <div className="font-semibold text-lg">
             {internship.enterprise.name}
           </div>
           <div className="border border-green-500 rounded-full px-2">Ativo</div>
