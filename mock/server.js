@@ -10,7 +10,12 @@ server.use((req, res, next) => {
 
 server.use(middlewares);
 
-// Custom POST route for /login
+server.get("/me", (req, res) => {
+  const users = router.db.get("users").value();
+  const firstUser = users[0];
+  res.json(firstUser);
+});
+
 server.post("/login", (req, res) => {
   const users = router.db.get("users").value();
   const firstUser = users[0];
