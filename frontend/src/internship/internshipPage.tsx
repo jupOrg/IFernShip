@@ -21,7 +21,11 @@ export function InternshipPage() {
         <h1 className="font-semibold text-xl text-green-700">
           Sobre a empresa
         </h1>
-        <div>{internship.enterprise.description}</div>
+        <div className="gap-2">
+          {internship.enterprise.description.split("\n").map((text) => (
+            <p key={text}>{text}</p>
+          ))}
+        </div>
       </div>
     </div>
   );
