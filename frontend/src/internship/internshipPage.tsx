@@ -14,8 +14,8 @@ export function InternshipPage() {
         <div>
           <img
             alt="enterprise"
-            src="/enterprise-mock.svg"
-            className="max-h-40 rounded-lg object-cover mb-2"
+            src={internship.enterprise.picture}
+            className="w-full h-20 max-h-40 rounded-lg object-fit mb-2"
           />
         </div>
         <h1 className="font-semibold text-xl text-green-700">

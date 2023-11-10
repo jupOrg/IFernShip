@@ -3,8 +3,14 @@
     {
       "id": "sonhin",
       "name": "Sonhin",
-      "picture": "/enterprise-mock-cover.svg",
+      "picture": "https://res.cloudinary.com/dlwoimstk/image/upload/v1699619046/ifernship/sonhin.svg",
       "description": "Sonhin é uma empresa visionária de criação de música com inteligência artificial. Tem como missão elevar a música para novos patamares, através de big data e interfaces simples para sintetizadores poderosos. Foi fundada por @yolisses em sua jornada para ganhar capital inicial para criar nano robôs autorreplicantes de uso geral."
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "picture": "https://res.cloudinary.com/dlwoimstk/image/upload/v1699619046/ifernship/microsoft.svg",
+      "description": "Microsoft Corporation is an American multinational technology corporation headquartered in Redmond, Washington. Microsoft's best-known software products are the Windows line of operating systems, the Microsoft 365 suite of productivity applications, and the Edge web browser. Its flagship hardware products are the Xbox video game consoles and the Microsoft Surface lineup of touchscreen personal computers. Microsoft ranked No. 14 in the 2022 Fortune 500 rankings of the largest United States corporations by total revenue; it was the world's largest software maker by revenue as of 2022. It is considered one of the Big Five American information technology companies, alongside Alphabet (parent company of Google), Amazon, Apple, and Meta.\nMicrosoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800. It rose to dominate the personal computer operating system market with MS-DOS in the mid-1980s, followed by Windows. The company's 1986 initial public offering (IPO) and subsequent rise in its share price created three billionaires and an estimated 12,000 millionaires among Microsoft employees. Since the 1990s, it has increasingly diversified from the operating system market and has made several corporate acquisitions, the largest being the acquisition of Activision Blizzard for $68.7 billion in October 2023, followed by its acquisition of LinkedIn for $26.2 billion in December 2016, and its acquisition of Skype Technologies for $8.5 billion in May 2011."
     }
   ],
   "internships": [
@@ -12,6 +18,11 @@
       "id": "1",
       "position": "Rockstar",
       "enterpriseId": "sonhin"
+    },
+    {
+      "id": "2",
+      "position": "Engenheiro de Software",
+      "enterpriseId": "microsoft"
     }
   ],
   "users": [

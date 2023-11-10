@@ -11,8 +11,8 @@ export function InternshipsItem({ internship }: Props) {
       <div className="bg-white rounded-xl p-2 hover:shadow-xl transition duration-75">
         <img
           alt="enterprise"
-          src="/enterprise-mock.svg"
-          className="max-h-36 rounded-lg object-cover mb-2"
+          src={internship.enterprise.picture}
+          className="max-h-36 w-full h-40 rounded-lg object-fit mb-2"
         />
         <div className="flex-row justify-between">
           <div className="font-semibold text-xl">
