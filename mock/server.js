@@ -3,8 +3,12 @@ const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
+server.use((req, res, next) => {
+  router.db.read();
+  next();
+});
+
 server.use(middlewares);
-server.use(jsonServer.bodyParser);
 
 // Custom POST route for /login
 server.post("/login", (req, res) => {
