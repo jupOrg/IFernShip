@@ -1,4 +1,9 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+import { useAuth } from "./auth/authContext";
 import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
 import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
@@ -10,7 +15,7 @@ import { InternshipsPage } from "./internship/internshipsPage";
 import { IntroPage } from "./intro/introPage";
 import { SplashPage } from "./intro/splashPage";
 
-export const router = createBrowserRouter([
+const publicRoutes = createBrowserRouter([
   {
     path: "/splash",
     element: <SplashPage />,
@@ -27,6 +32,13 @@ export const router = createBrowserRouter([
     path: "/recuperar-senha",
     element: <ForgotPasswordPage />,
   },
+  {
+    path: "/*",
+    element: <Navigate to="/entrar" />,
+  },
+]);
+
+const protectedRoutes = createBrowserRouter([
   {
     path: "/estagios",
     element: <InternshipsPage />,
@@ -45,7 +57,15 @@ export const router = createBrowserRouter([
     element: <ChoicePersonMd />,
   },
   {
-    path: "/",
+    path: "/*",
     element: <Navigate to="/estagios" />,
   },
 ]);
+
+export function Router() {
+  const { isLogged, isLoading } = useAuth();
+
+  if (isLoading) return <SplashPage />;
+
+  return <RouterProvider router={isLogged ? protectedRoutes : publicRoutes} />;
+}

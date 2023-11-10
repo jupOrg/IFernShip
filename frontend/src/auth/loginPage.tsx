@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { FaLock, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { GradientCurve } from "../common/gradientCurve";
 import { useAuth } from "./authContext";
 
 type FieldValues = {
@@ -11,13 +12,16 @@ type FieldValues = {
 export function LoginPage() {
   const { login } = useAuth();
   const { register, handleSubmit } = useForm<FieldValues>();
+  const navigate = useNavigate();
 
   async function submit({ email, password }: FieldValues) {
     await login(email, password);
+    navigate("/estagios");
   }
 
   return (
     <div className="items-center p-4">
+      <GradientCurve />
       <div className="items-center gap-4 max-w-md">
         <img src="/ifpb-logo.svg" alt="IFPB" width={100} />
         <h1 className="font-semibold text-2xl">Bem-Vindo de Volta</h1>

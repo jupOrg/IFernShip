@@ -22,6 +22,10 @@ server.post("/login", (req, res) => {
   res.json(firstUser);
 });
 
+server.post("/logout", (req, res) => {
+  res.json({});
+});
+
 const routes = jsonServer.rewriter(require("./routes.json"));
 server.use(routes);
 

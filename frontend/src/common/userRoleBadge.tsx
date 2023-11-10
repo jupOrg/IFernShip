@@ -10,5 +10,5 @@ export function UserRoleBadge({ role }: Props) {
     student: "Estudante",
   };
 
-  return <div className="badge">{displayTexts[role]}</div>;
+  return <div>{displayTexts[role]}</div>;
 }

@@ -19,6 +19,12 @@ html {
   @apply bg-gray-200;
 }
 
+@layer base {
+  button {
+    @apply flex flex-row items-center;
+  }
+}
+
 @layer components {
   .default-input {
     @apply rounded-lg p-2 border border-gray-400 shadow-md placeholder-gray-500;

@@ -7,6 +7,7 @@ type AuthContext = {
   user?: User;
   isLogged: boolean;
   isLoading: boolean;
+  logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
 };
 
@@ -28,6 +29,11 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     setIsLoading(false);
   }
 
+  async function logout() {
+    await api.post("/logout");
+    setUser(undefined);
+  }
+
   const isLogged = !!user;
 
   useEffect(() => {
@@ -39,6 +45,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
       value={{
         user,
         login,
+        logout,
         isLogged,
         isLoading,
       }}

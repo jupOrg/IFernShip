@@ -23,7 +23,7 @@ export function InternshipsPage() {
 
   return (
     <div className="flex flex-row">
-      <NavBar></NavBar>
+      <NavBar />
       <div className="items-center p-4 gap-4 flex-1">
         <h1 className="font-semibold text-xl">Lista de Estágios Ativos</h1>
         <SearchInput />
