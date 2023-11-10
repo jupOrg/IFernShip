@@ -1,10 +1,19 @@
-import { FormEvent } from "react";
+import { useForm } from "react-hook-form";
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useAuth } from "./authContext";
+
+type FieldValues = {
+  email: string;
+  password: string;
+};
 
 export function LoginPage() {
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault();
+  const { login } = useAuth();
+  const { register, handleSubmit } = useForm<FieldValues>();
+
+  async function submit({ email, password }: FieldValues) {
+    await login(email, password);
   }
 
   return (
@@ -16,12 +25,16 @@ export function LoginPage() {
         nosso aplicativo de vagas de estágio. Não perca mais tempo, comece agora
         a buscar a vaga perfeita para você!
       </div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
+      <form
+        onSubmit={handleSubmit(submit)}
+        className="flex flex-col gap-2 w-full"
+      >
         <div className="input-icon-container">
           <FaUser className="input-icon"></FaUser>
           <input
             type="email"
             placeholder="Email"
+            {...register("email")}
             className="default-input rounded-full flex-1 pl-8"
           />
         </div>
@@ -30,6 +43,7 @@ export function LoginPage() {
           <input
             type="password"
             placeholder="Senha"
+            {...register("password")}
             className="default-input rounded-full flex-1 pl-8"
           />
         </div>
