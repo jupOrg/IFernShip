@@ -13,5 +13,13 @@
       "position": "Rockstar",
       "enterpriseId": "sonhin"
     }
+  ],
+  "users": [
+    {
+      "id": "default",
+      "role": "coordinator",
+      "picture": "torvalds",
+      "name": "Linus Torvalds"
+    }
   ]
 }
