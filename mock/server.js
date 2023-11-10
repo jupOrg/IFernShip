@@ -17,6 +17,9 @@ server.post("/login", (req, res) => {
   res.json(firstUser);
 });
 
+const routes = jsonServer.rewriter(require("./routes.json"));
+server.use(routes);
+
 server.use(router);
 
 const port = 3000;
