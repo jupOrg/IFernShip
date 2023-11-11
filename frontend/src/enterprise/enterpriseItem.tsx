@@ -14,9 +14,7 @@ export function EnterprisesItem({ enterprise }: Props) {
           src={enterprise.picture}
           className="max-h-36 w-full h-40 rounded-lg object-fit mb-2"
         />
-        <div className="flex-row justify-between">
-          <div className="font-semibold text-lg">{enterprise.name}</div>
-        </div>
+        <div className="font-semibold text-lg">{enterprise.name}</div>
       </div>
     </Link>
   );
