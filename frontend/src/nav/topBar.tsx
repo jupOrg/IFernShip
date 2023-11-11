@@ -3,9 +3,9 @@ import { Tabs } from "./tabs";
 
 export function TopBar() {
   return (
-    <div className="flex-row w-full justify-evenly">
-      <Tabs />
+    <div className="md:flex-row-reverse items-center w-full justify-evenly">
       <SearchInput />
+      <Tabs />
     </div>
   );
 }
