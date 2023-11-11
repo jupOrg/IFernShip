@@ -25,12 +25,10 @@ export function InternshipPage() {
     <div className="items-center p-2">
       <GradientCurve />
       <div className="w-full max-w-xl gap-4">
-        <div className="flex-row items-center text-green-700">
+        <h1 className="page-header">
           <GoBackArrow to="/estagios" />
-          <h1 className="font-semibold text-xl">
-            {internship.enterprise.name}
-          </h1>
-        </div>
+          {internship.enterprise.name}
+        </h1>
         <div>
           <img
             alt="enterprise"

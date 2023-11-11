@@ -21,10 +21,20 @@ export function NavBar() {
         <div className="text-lg font-medium">{user.name}</div>
         <UserRoleBadge role={user.role} />
       </div>
-      <div>
-        <Link to="/empresas/criar" className="flex flex-row items-center badge">
+      <div className="gap-2">
+        <Link
+          to="/empresas/criar"
+          className="flex flex-row justify-center items-center badge"
+        >
           <FaPlus />
           Adicionar empresa
+        </Link>
+        <Link
+          to="/estagios/criar"
+          className="flex flex-row justify-center items-center badge"
+        >
+          <FaPlus />
+          Adicionar estágio
         </Link>
       </div>
 
