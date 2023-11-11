@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { api } from "../api/api";
+import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
 import { Internship } from "../types/internship";
 
@@ -26,9 +26,7 @@ export function InternshipPage() {
       <GradientCurve />
       <div className="w-full max-w-xl gap-4">
         <div className="flex-row items-center text-green-700">
-          <Link to="/internships" className="inline p-2">
-            <FaArrowLeft />
-          </Link>
+          <GoBackArrow to="/estagios" />
           <h1 className="font-semibold text-xl">
             {internship.enterprise.name}
           </h1>
