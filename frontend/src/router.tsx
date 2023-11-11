@@ -7,6 +7,7 @@ import { useAuth } from "./auth/authContext";
 import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
 import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
+import { NotFoundPage } from "./common/notFoundPage";
 import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
 import { EnterprisesPage } from "./enterprise/enterprisesPage";
 import "./index.css";
@@ -33,10 +34,13 @@ const publicRoutes = createBrowserRouter([
     path: "/recuperar-senha",
     element: <ForgotPasswordPage />,
   },
-  // TODO create a 404 page instead of this
+  {
+    path: "/",
+    element: <Navigate to="/estagios" />,
+  },
   {
     path: "/*",
-    element: <Navigate to="/entrar" />,
+    element: <NotFoundPage />,
   },
 ]);
 
@@ -65,11 +69,14 @@ const protectedRoutes = createBrowserRouter([
     path: "/choice-person",
     element: <ChoicePersonMd />,
   },
-  // TODO create a 404 page instead of this
   // TODO add login and sign up redirects
   {
-    path: "/*",
+    path: "/",
     element: <Navigate to="/estagios" />,
+  },
+  {
+    path: "/*",
+    element: <NotFoundPage />,
   },
 ]);
 

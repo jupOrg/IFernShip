@@ -14,9 +14,15 @@ html {
   font-family: "Outfit", sans-serif;
   font-weight: 300;
 }
-
 html {
   @apply bg-gray-200;
+}
+
+body {
+  min-height: 100dvh;
+}
+body {
+  @apply flex flex-col;
 }
 
 @layer base {
