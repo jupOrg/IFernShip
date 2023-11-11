@@ -8,6 +8,7 @@ import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
 import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
 import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
+import { EnterprisesPage } from "./enterprise/enterprisesPage";
 import "./index.css";
 import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { InternshipPage } from "./internship/internshipPage";
@@ -40,6 +41,10 @@ const publicRoutes = createBrowserRouter([
 ]);
 
 const protectedRoutes = createBrowserRouter([
+  {
+    path: "/empresas",
+    element: <EnterprisesPage />,
+  },
   {
     path: "/empresas/criar",
     element: <CreateEnterprisePage />,
