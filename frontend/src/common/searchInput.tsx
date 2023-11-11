@@ -6,8 +6,7 @@ export function SearchInput() {
       <FaSearch size={20} className="input-icon" />
       <input
         type="text"
-        name=""
-        id=""
+        placeholder="Pesquisar"
         className="default-input rounded-full pl-9"
       />
     </div>
