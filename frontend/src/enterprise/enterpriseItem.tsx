@@ -16,7 +16,6 @@ export function EnterprisesItem({ enterprise }: Props) {
         />
         <div className="flex-row justify-between">
           <div className="font-semibold text-lg">{enterprise.name}</div>
-          <div className="border border-green-500 rounded-full px-2">Ativo</div>
         </div>
       </div>
     </Link>
