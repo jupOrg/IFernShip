@@ -7,7 +7,7 @@ export function InternshipPage() {
   const internship = useLoaderData() as Internship;
   return (
     <div className="items-center p-2">
-      <GradientCurve offset="large" />
+      <GradientCurve />
       <div className="w-full max-w-xl gap-4">
         <div className="flex-row items-center text-green-700">
           <Link to="/internships" className="inline p-2">

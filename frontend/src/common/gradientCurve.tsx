@@ -1,15 +1,9 @@
-type Props = {
-  offset?: "small" | "large";
-};
-
-export function GradientCurve({ offset = "small" }: Props) {
+export function GradientCurve() {
   return (
     <img
       alt=""
       src="/gradient-curve.svg"
-      className={`fixed ${
-        offset === "small" ? "left-0" : "-left-44"
-      } top-0 bottom-0 h-full -z-10 object-cover hidden md:flex`}
+      className="fixed left-0 top-0 bottom-0 h-full -z-10 object-cover hidden md:flex select-none pointer-events-none"
     />
   );
 }
