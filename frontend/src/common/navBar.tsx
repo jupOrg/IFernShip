@@ -1,3 +1,5 @@
+import { FaPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { useAuth } from "../auth/authContext";
 import { LogoutButton } from "./logoutButton";
 import { UserRoleBadge } from "./userRoleBadge";
@@ -19,6 +21,13 @@ export function NavBar() {
         <div className="text-lg font-medium">{user.name}</div>
         <UserRoleBadge role={user.role} />
       </div>
+      <div>
+        <Link to="/empresas/criar" className="flex flex-row items-center badge">
+          <FaPlus />
+          Adicionar empresa
+        </Link>
+      </div>
+
       <LogoutButton />
     </div>
   );

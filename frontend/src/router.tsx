@@ -7,6 +7,7 @@ import { useAuth } from "./auth/authContext";
 import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
 import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
+import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
 import "./index.css";
 import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { InternshipPage } from "./internship/internshipPage";
@@ -39,6 +40,10 @@ const publicRoutes = createBrowserRouter([
 ]);
 
 const protectedRoutes = createBrowserRouter([
+  {
+    path: "/empresas/criar",
+    element: <CreateEnterprisePage />,
+  },
   {
     path: "/estagios",
     element: <InternshipsPage />,
