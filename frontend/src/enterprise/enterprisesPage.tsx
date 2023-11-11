@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/api";
 import { GradientCurve } from "../common/gradientCurve";
-import { SearchInput } from "../common/searchInput";
 import { NavBar } from "../nav/navBar";
+import { TopBar } from "../nav/topBar";
 import { Enterprise } from "../types/enterprise";
 import { EnterprisesItem } from "./enterpriseItem";
 
@@ -24,9 +24,8 @@ export function EnterprisesPage() {
   return (
     <div className="flex flex-row">
       <NavBar />
-      <div className="items-center p-4 gap-4 flex-1">
-        <h1 className="font-semibold text-xl">Lista de Estágios Ativos</h1>
-        <SearchInput />
+      <div className="items-center p-2 gap-4 flex-1">
+        <TopBar />
         <GradientCurve />
         <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl">
           {enterprises.map((enterprise) => {
