@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Internship } from "../types/internship";
+import { IsActiveLabel } from "./isActiveLabel";
 
 type Props = {
   internship: Internship;
@@ -18,7 +19,7 @@ export function InternshipsItem({ internship }: Props) {
           <div className="font-semibold text-lg">
             {internship.enterprise.name}
           </div>
-          <div className="border border-green-500 rounded-full px-2">Ativo</div>
+          <IsActiveLabel isActive={internship.isActive} />
         </div>
         <div>{internship.position}</div>
       </div>
