@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { api } from "../api/api";
 import { GradientCurve } from "../common/gradientCurve";
 import { NavBar } from "../common/navBar";
+import { SearchInput } from "../common/searchInput";
 import { Internship } from "../types/internship";
 import { InternshipsItem } from "./internshipItem";
-import { SearchInput } from "./searchInput";
 
 export function InternshipsPage() {
   const [internships, setInternships] = useState<Internship[]>();
