@@ -1,8 +1,8 @@
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/authContext";
-import { LogoutButton } from "./logoutButton";
-import { UserRoleBadge } from "./userRoleBadge";
+import { LogoutButton } from "../common/logoutButton";
+import { UserRoleBadge } from "../common/userRoleBadge";
 
 export function NavBar() {
   const { user } = useAuth();

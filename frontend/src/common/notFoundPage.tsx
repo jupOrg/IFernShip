@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
+import { NavBar } from "../nav/navBar";
 import { GradientCurve } from "./gradientCurve";
-import { NavBar } from "./navBar";
 
 export function NotFoundPage() {
   return (
