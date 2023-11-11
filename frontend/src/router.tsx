@@ -31,6 +31,7 @@ const publicRoutes = createBrowserRouter([
     path: "/recuperar-senha",
     element: <ForgotPasswordPage />,
   },
+  // TODO create a 404 page instead of this
   {
     path: "/*",
     element: <Navigate to="/entrar" />,
@@ -54,6 +55,8 @@ const protectedRoutes = createBrowserRouter([
     path: "/choice-person",
     element: <ChoicePersonMd />,
   },
+  // TODO create a 404 page instead of this
+  // TODO add login and sign up redirects
   {
     path: "/*",
     element: <Navigate to="/estagios" />,
