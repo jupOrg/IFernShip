@@ -14,7 +14,7 @@ export function CreateInternshipPage() {
             <GoBackArrow to="/estagios" />
             Cadastrar estágio
           </h1>
-          <form action="" className="gap-2 flex flex-col">
+          <form className="gap-2 flex flex-col">
             <textarea
               rows={3}
               className="default-input"
