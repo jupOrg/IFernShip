@@ -3,15 +3,60 @@
     {
       "id": "sonhin",
       "name": "Sonhin",
-      "picture": "/enterprise mock cover.svg",
+      "picture": "https://res.cloudinary.com/dlwoimstk/image/upload/v1699619046/ifernship/sonhin.svg",
       "description": "Sonhin é uma empresa visionária de criação de música com inteligência artificial. Tem como missão elevar a música para novos patamares, através de big data e interfaces simples para sintetizadores poderosos. Foi fundada por @yolisses em sua jornada para ganhar capital inicial para criar nano robôs autorreplicantes de uso geral."
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "picture": "https://res.cloudinary.com/dlwoimstk/image/upload/v1699619046/ifernship/microsoft.svg",
+      "description": "Microsoft Corporation is an American multinational technology corporation headquartered in Redmond, Washington. Microsoft's best-known software products are the Windows line of operating systems, the Microsoft 365 suite of productivity applications, and the Edge web browser. Its flagship hardware products are the Xbox video game consoles and the Microsoft Surface lineup of touchscreen personal computers. Microsoft ranked No. 14 in the 2022 Fortune 500 rankings of the largest United States corporations by total revenue; it was the world's largest software maker by revenue as of 2022. It is considered one of the Big Five American information technology companies, alongside Alphabet (parent company of Google), Amazon, Apple, and Meta.\nMicrosoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800. It rose to dominate the personal computer operating system market with MS-DOS in the mid-1980s, followed by Windows. The company's 1986 initial public offering (IPO) and subsequent rise in its share price created three billionaires and an estimated 12,000 millionaires among Microsoft employees. Since the 1990s, it has increasingly diversified from the operating system market and has made several corporate acquisitions, the largest being the acquisition of Activision Blizzard for $68.7 billion in October 2023, followed by its acquisition of LinkedIn for $26.2 billion in December 2016, and its acquisition of Skype Technologies for $8.5 billion in May 2011."
+    },
+    {
+      "id": "samsung",
+      "name": "Samsung",
+      "picture": "https://res.cloudinary.com/dlwoimstk/image/upload/v1699619046/ifernship/samsung.svg",
+      "description": "Samsung Electronics Co., Ltd. (hangul: 삼성전자; hanja: 三星電子; rr: Samseong Jeonja lit: Tristar Electronics, às vezes abreviado para SEC e estilizado como SΛMSUNG) é uma empresa multinacional sul-coreana de eletrônicos com sede em Yeongtong-gu, Suwon na Coreia do Sul. É o auge do chaebol da Samsung, respondendo por 70% da receita do grupo em 2012. A Samsung Electronics desempenhou um papel fundamental na governança corporativa do grupo devido à propriedade circular. A Samsung Electronics tem fábricas de montagem e redes de vendas em 74 países e emprega cerca de 290.000 pessoas. É de propriedade majoritária de investidores estrangeiros. Em 2019, a Samsung Electronics é a segunda maior empresa de tecnologia do mundo em receita, e sua capitalização de mercado era de US$ 520,65 bilhões, a 12ª maior do mundo.\nA Samsung é uma importante fabricante de componentes eletrônicos, como baterias de íons de lítio, semicondutores, sensores de imagem, módulos de câmera e displays para clientes como Apple, Sony, HTC e Nokia. É o maior fabricante mundial de telefones celulares e smartphones, começando com o original Samsung Solstice e mais tarde, a popularidade de sua linha de dispositivos Samsung Galaxy. A empresa é também um importante fornecedor de computadores tablet, particularmente sua coleção Samsung Galaxy Tab com Android, e é considerada por desenvolver o mercado de phablet com a família de dispositivos Samsung Galaxy Note. Também desenvolveu smartphones com capacidade para 5G, incluindo o Galaxy S22, e telefones dobráveis, incluindo o Galaxy Z Fold 4. A Samsung é a maior fabricante de televisores do mundo desde 2006, e a maior fabricante mundial de telefones celulares desde 2011, quando ultrapassou a Apple até 2021. É também a maior fabricante de chips de memória do mundo, e de 2017 a 2018, foi a maior empresa de semicondutores do mundo, destronando brevemente a Intel, a campeã de décadas.\nEm 2012, Kwon Oh-Hyun foi nomeado CEO da empresa. Ele anunciou em outubro de 2017 que renunciaria em março de 2018, citando uma “crise sem precedentes”. A empresa teve 3 CEOs (Ki Nam Kim, Hyun Suk Kim e Dong-Jin Koh) de março de 2018 até dezembro de 2021, quando as unidades de negócios foram reorganizadas e eles foram substituídos por Kyung Kye-Hyun e Han Jong-hee. Também teve um CEO regional separado, HC Hong, que liderou os negócios no sudoeste da Ásia a partir de 2015 e depois se mudou para a América Latina em 2020. A receita da Samsung em 2019 é de US$ 305 bilhões, em 2020 é de US$ 107 bilhões e em 2021 é de US$ 236 bilhões.\nEm 2022, a empresa ocupava o quinto lugar no ranking elaborado pela Interbrand, consultoria global de marcas. O ranking reúne as 100 marcas mais valiosas do mundo."
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "picture": "https://res.cloudinary.com/dlwoimstk/image/upload/v1699619046/ifernship/meta.svg",
+      "description": "Meta Platforms, Inc. (anteriormente Facebook, Inc.) é um conglomerado estadunidense de tecnologia e mídia social com sede em Menlo Park, Califórnia. Foi fundado por Mark Zuckerberg, junto com seus colegas de quarto e alunos de Harvard, que eram Eduardo Saverin, Andrew McCollum, Dustin Moskovitz e Chris Hughes, originalmente como TheFacebook.com - hoje Facebook, um popular site de rede social global. O Facebook é uma das empresas mais valiosas do mundo. É considerada uma das cinco grandes empresas de tecnologia, juntamente com a Microsoft, Amazon, Apple e Google.\nA Meta oferece outros produtos e serviços além de sua plataforma de rede social Facebook, incluindo Facebook Messenger, Facebook Watch e Facebook Portal. Também adquiriu Instagram, WhatsApp, Oculus VR, Giphy e Mapillary, e tem 9,9% de participação na Jio Platforms.\nEm maio de 2019, funda a Libra Networks, supostamente, a fim de desenvolver sua própria criptomoeda. Em desenvolvimentos recentes, foi relatado que Libra está sendo apoiado por empresas como Visa, Mastercard, PayPal e Uber. Além da criptomoeda, também está em desenvolvimento uma carteira de criptomoedas (inicialmente denominada \"Calibra\", mudou o nome para \"Novi\") e uma rede de criptomoedas.\nEm dezembro de 2020, a Meta mudou o nome de sua criptomoeda de \"Libra\" para Diem. Em janeiro de 2022, o projeto foi cancelado e os direitos vendidos ao banco Silvergate Capital."
     }
   ],
   "internships": [
     {
       "id": "1",
+      "isActive": true,
       "position": "Rockstar",
       "enterpriseId": "sonhin"
+    },
+    {
+      "id": "2",
+      "isActive": true,
+      "position": "Engenheiro de Software",
+      "enterpriseId": "microsoft"
+    },
+    {
+      "id": "3",
+      "isActive": false,
+      "position": "Engenheiro de Software",
+      "enterpriseId": "samsung"
+    },
+    {
+      "id": "4",
+      "isActive": true,
+      "position": "TechLead",
+      "enterpriseId": "meta"
+    }
+  ],
+  "users": [
+    {
+      "id": "default",
+      "role": "coordinator",
+      "picture": "torvalds",
+      "name": "Linus Torvalds"
     }
   ]
 }

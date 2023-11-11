@@ -1,27 +1,49 @@
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { api } from "../api/api";
+import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
 import { Internship } from "../types/internship";
 
 export function InternshipPage() {
-  const internship = useLoaderData() as Internship;
+  const { id } = useParams();
+  const [internship, setInternship] = useState<Internship>();
+
+  async function getInternship() {
+    const res = await api.get<Internship>("/internships/" + id);
+    setInternship(res.data);
+  }
+
+  useEffect(() => {
+    getInternship();
+  }, []);
+
+  // TODO replace it
+  if (!internship) return <div>loading</div>;
+
   return (
     <div className="items-center p-2">
       <GradientCurve />
       <div className="w-full max-w-xl gap-4">
-        <h1 className="font-semibold text-xl text-green-700">
+        <h1 className="page-header">
+          <GoBackArrow to="/estagios" />
           {internship.enterprise.name}
         </h1>
         <div>
           <img
             alt="enterprise"
-            src="/enterprise mock.svg"
-            className="max-h-40 rounded-lg object-cover mb-2"
+            src={internship.enterprise.picture}
+            className="w-full h-32 max-h-40 rounded-lg object-fit mb-2 shadow"
           />
         </div>
         <h1 className="font-semibold text-xl text-green-700">
           Sobre a empresa
         </h1>
-        <div>{internship.enterprise.description}</div>
+        <div className="gap-2">
+          {internship.enterprise.description.split("\n").map((text) => (
+            <p key={text}>{text}</p>
+          ))}
+        </div>
       </div>
     </div>
   );

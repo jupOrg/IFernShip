@@ -1,11 +1,20 @@
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+import { useAuth } from "./auth/authContext";
+import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
+import { LoginPage } from "./auth/loginPage";
+import { NotFoundPage } from "./common/notFoundPage";
+import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
+import { EnterprisesPage } from "./enterprise/enterprisesPage";
 import "./index.css";
 
-import { Navigate, createBrowserRouter } from "react-router-dom";
 import { CreateInternshipPage } from "./internship/createInternshipPage";
-import { internshipLoader } from "./internship/internshipLoader";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
-import { IntroPageMd } from "./intro/IntroPageMd";
+import { SplashPage } from "./intro/splashPage";
 
 import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
 import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
@@ -29,10 +38,37 @@ function RenderVersion({ PageMd, PageSm }: RenderVersionProps) {
   return width > 640 ? <PageMd /> : <PageSm />;
 }
 
-export const router = createBrowserRouter([
+export const publicRoutes = createBrowserRouter([
   {
-    path: "/intro",
-    element: <IntroPageMd />,
+    path: "/splash",
+    element: <SplashPage />,
+  },
+  {
+    path: "/entrar",
+    element: <LoginPage />,
+  },
+  {
+    path: "/recuperar-senha",
+    element: <ForgotPasswordPage />,
+  },
+  {
+    path: "/",
+    element: <Navigate to="/estagios" />,
+  },
+  {
+    path: "/*",
+    element: <NotFoundPage />,
+  },
+]);
+
+const protectedRoutes = createBrowserRouter([
+  {
+    path: "/empresas",
+    element: <EnterprisesPage />,
+  },
+  {
+    path: "/empresas/criar",
+    element: <CreateEnterprisePage />,
   },
   {
     path: "/estagios",
@@ -44,15 +80,27 @@ export const router = createBrowserRouter([
   },
   {
     path: "/estagios/:id",
-    loader: internshipLoader,
     element: <InternshipPage />,
-  },
-  {
-    path: "/",
-    element: <Navigate to="/intro" />,
   },
   {
     path: "/choice-person",
     element: <RenderVersion PageMd={ChoicePersonMD} PageSm={ChoicePersonSM} />,
   },
+  // TODO add login and sign up redirects
+  {
+    path: "/",
+    element: <Navigate to="/estagios" />,
+  },
+  {
+    path: "/*",
+    element: <NotFoundPage />,
+  },
 ]);
+
+export function Router() {
+  const { isLogged, isLoading } = useAuth();
+
+  if (isLoading) return <SplashPage />;
+
+  return <RouterProvider router={isLogged ? protectedRoutes : publicRoutes} />;
+}

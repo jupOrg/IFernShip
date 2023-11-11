@@ -1,6 +1,8 @@
+import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
 
 export function CreateInternshipPage() {
+  // TODO load real companies
   const companies = ["company 1", "company 2", "company 3"];
   const courses = ["course 1", "course 2", "course 3"];
 
@@ -9,10 +11,11 @@ export function CreateInternshipPage() {
       <GradientCurve />
       <div className="items-center p-4">
         <div className="w-full max-w-xl gap-6">
-          <h1 className="font-semibold text-2xl text-green-700">
-            Adicionar Estágio
+          <h1 className="page-header">
+            <GoBackArrow to="/estagios" />
+            Cadastrar estágio
           </h1>
-          <form action="" className="gap-2 flex flex-col">
+          <form className="gap-2 flex flex-col">
             <textarea
               rows={3}
               className="default-input"

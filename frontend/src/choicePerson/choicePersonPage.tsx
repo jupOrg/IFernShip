@@ -1,5 +1,5 @@
-import { CardChoicePerson } from "./choicePersonCard";
 import { Logo } from "../common/logo";
+import { CardChoicePerson } from "./choicePersonCard";
 
 export function ChoicePersonMD() {
   return (

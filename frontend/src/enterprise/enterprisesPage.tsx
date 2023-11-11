@@ -3,23 +3,23 @@ import { api } from "../api/api";
 import { GradientCurve } from "../common/gradientCurve";
 import { NavBar } from "../nav/navBar";
 import { TopBar } from "../nav/topBar";
-import { Internship } from "../types/internship";
-import { InternshipsItem } from "./internshipItem";
+import { Enterprise } from "../types/enterprise";
+import { EnterprisesItem } from "./enterpriseItem";
 
-export function InternshipsPage() {
-  const [internships, setInternships] = useState<Internship[]>();
+export function EnterprisesPage() {
+  const [enterprises, setEnterprises] = useState<Enterprise[]>();
 
-  async function getInternships() {
-    const res = await api.get<Internship[]>("/internships");
-    setInternships(res.data);
+  async function getEnterprises() {
+    const res = await api.get<Enterprise[]>("/enterprises");
+    setEnterprises(res.data);
   }
 
   useEffect(() => {
-    getInternships();
+    getEnterprises();
   }, []);
 
   // TODO replace this
-  if (!internships) return <div>loading</div>;
+  if (!enterprises) return <div>loading</div>;
 
   return (
     <div className="flex flex-row">
@@ -28,9 +28,9 @@ export function InternshipsPage() {
         <TopBar />
         <GradientCurve />
         <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl">
-          {internships.map((internship) => {
+          {enterprises.map((enterprise) => {
             return (
-              <InternshipsItem internship={internship} key={internship.id} />
+              <EnterprisesItem enterprise={enterprise} key={enterprise.id} />
             );
           })}
         </div>

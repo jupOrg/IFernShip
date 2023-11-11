@@ -15,9 +15,22 @@ html {
   font-weight: 300;
   font-size: 85%
 }
-
 html {
   @apply bg-gray-200;
+}
+
+body {
+  min-height: 100dvh;
+}
+body {
+  @apply flex flex-col;
+}
+
+@layer base {
+  button,
+  .button {
+    @apply flex flex-row items-center justify-center;
+  }
 }
 
 @layer components {
@@ -26,11 +39,28 @@ html {
   }
 
   .default-submit {
-    @apply text-white p-2 bg-sky-600 hover:brightness-110 rounded-full;
+    @apply text-white p-2 bg-sky-600 hover:brightness-110 rounded-full font-medium;
+  }
+
+  .badge {
+    @apply py-1 px-2 rounded-full border border-black;
+  }
+
+  .input-icon {
+    @apply absolute left-3 opacity-50 pointer-events-none;
+  }
+
+  .input-icon-container {
+    @apply relative items-center flex-row;
+  }
+
+  .page-header {
+    @apply flex flex-row items-center font-semibold text-xl text-green-700;
   }
 }
 .shadow-cards {
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 @media (min-width: 2000px) {
@@ -69,9 +99,13 @@ html {
   }
 }
 
+.gradient-page {
+  background: linear-gradient(180deg, #00ADB4 0%, #62C751 100%);
+}
+
 @media (min-width: 640px) {
   .bg-curve-rigth {
-    background-image: url('/public/gradient_curve_rigth.svg');
+    background-image: url('/public/gradient-curve-rigth.svg');
     background-repeat: no-repeat;
     background-position: right;
     background-size: 65% calc(100% + 10rem);

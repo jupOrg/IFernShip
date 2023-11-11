@@ -5,7 +5,7 @@ type Props = {
 };
 
 export function CardChoicePerson({ text, urlImage, className }: Props) {
-  const classCard = "shadow-cards bg-[#63c7513f] justify-between max-h-64 rounded-3xl py-8 px-10 gap-6"
+  const classCard = "shadow-cards bg-[#F2F5F9] sm:bg-[#63c7513f] justify-between max-h-64 rounded-3xl py-8 px-10 gap-6"
   return (
     <div className={classCard + " " + className}>
       <img src={urlImage} className="w-40" />
