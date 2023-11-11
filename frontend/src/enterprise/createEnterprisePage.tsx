@@ -5,7 +5,7 @@ import { GradientCurve } from "../common/gradientCurve";
 import { ImageInput } from "../common/imageInput";
 import { Enterprise } from "../types/enterprise";
 
-type FieldValues = Omit<Enterprise, "picture">;
+type FieldValues = Omit<Enterprise, "picture" | "id">;
 
 export function CreateEnterprisePage() {
   const { register, handleSubmit } = useForm<FieldValues>();
