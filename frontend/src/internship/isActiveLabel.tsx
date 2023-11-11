@@ -7,7 +7,7 @@ export function IsActiveLabel({ isActive }: Props) {
   return (
     <div
       className={
-        "border rounded-full px-2  " +
+        "border-2 rounded-full px-2 self-start " +
         (isActive ? "border-green-500" : "border-gray-500")
       }
     >
