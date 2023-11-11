@@ -26,7 +26,8 @@ body {
 }
 
 @layer base {
-  button {
+  button,
+  .button {
     @apply flex flex-row items-center justify-center;
   }
 }

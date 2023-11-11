@@ -22,17 +22,11 @@ export function NavBar() {
         <UserRoleBadge role={user.role} />
       </div>
       <div className="gap-2">
-        <Link
-          to="/empresas/criar"
-          className="flex flex-row justify-center items-center badge"
-        >
+        <Link to="/empresas/criar" className="button badge">
           <FaPlus />
           Adicionar empresa
         </Link>
-        <Link
-          to="/estagios/criar"
-          className="flex flex-row justify-center items-center badge"
-        >
+        <Link to="/estagios/criar" className="button badge">
           <FaPlus />
           Adicionar estágio
         </Link>
