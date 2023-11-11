@@ -2,6 +2,7 @@ import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
 
 export function CreateInternshipPage() {
+  // TODO load real companies
   const companies = ["company 1", "company 2", "company 3"];
   const courses = ["course 1", "course 2", "course 3"];
 
