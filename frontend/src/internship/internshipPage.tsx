@@ -1,10 +1,26 @@
+import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { api } from "../api/api";
 import { GradientCurve } from "../common/gradientCurve";
 import { Internship } from "../types/internship";
 
 export function InternshipPage() {
-  const internship = useLoaderData() as Internship;
+  const { id } = useParams();
+  const [internship, setInternship] = useState<Internship>();
+
+  async function getInternship() {
+    const res = await api.get<Internship>("/internships/" + id);
+    setInternship(res.data);
+  }
+
+  useEffect(() => {
+    getInternship();
+  }, []);
+
+  // TODO replace it
+  if (!internship) return <div>loading</div>;
+
   return (
     <div className="items-center p-2">
       <GradientCurve />

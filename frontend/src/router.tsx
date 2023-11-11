@@ -9,7 +9,6 @@ import { LoginPage } from "./auth/loginPage";
 import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
 import "./index.css";
 import { CreateInternshipPage } from "./internship/createInternshipPage";
-import { internshipLoader } from "./internship/internshipLoader";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
 import { IntroPage } from "./intro/introPage";
@@ -49,7 +48,6 @@ const protectedRoutes = createBrowserRouter([
   },
   {
     path: "/estagios/:id",
-    loader: internshipLoader,
     element: <InternshipPage />,
   },
   {
