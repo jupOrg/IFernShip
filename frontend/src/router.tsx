@@ -35,7 +35,7 @@ function RenderVersion({ PageMd, PageSm }: RenderVersionProps) {
     window.addEventListener("resize", handleResize);
   }, []);
 
-  return width > 640 ? <PageMd /> : <PageSm />;
+  return width > 768 ? <PageMd /> : <PageSm />;
 }
 
 export const publicRoutes = createBrowserRouter([

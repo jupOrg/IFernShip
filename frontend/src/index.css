@@ -13,7 +13,7 @@ div {
 html {
   font-family: "Outfit", sans-serif;
   font-weight: 300;
-  font-size: 85%
+  font-size: 85%;
 }
 html {
   @apply bg-gray-200;
@@ -57,7 +57,16 @@ body {
   .page-header {
     @apply flex flex-row items-center font-semibold text-xl text-green-700;
   }
+
+  .bg-curve-left-primary {
+    @apply md:bg-gradient-left-img bg-no-repeat bg-left;
+  }
+
+  .bg-curve-right {
+    @apply md:bg-gradient-right-img bg-gradient-right-static lg:bg-gradient-right bg-no-repeat bg-right;
+  }
 }
+
 .shadow-cards {
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25),
     0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -100,14 +109,5 @@ body {
 }
 
 .gradient-page {
-  background: linear-gradient(180deg, #00ADB4 0%, #62C751 100%);
-}
-
-@media (min-width: 640px) {
-  .bg-curve-rigth {
-    background-image: url('/public/gradient-curve-rigth.svg');
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 65% calc(100% + 10rem);
-  }
+  background: linear-gradient(180deg, #00adb4 0%, #62c751 100%);
 }
