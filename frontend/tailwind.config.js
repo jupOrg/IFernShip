@@ -9,7 +9,7 @@ export default {
       },
       backgroundSize: {
         'gradient-left': '50vmax 100%',
-        'gradient-left-static': '20rem calc(100% + 25rem)',
+        'gradient-left-static': '10rem 100%',
         'gradient-right': '65vmax calc(100% + 10rem)',
         'gradient-right-static': '60rem calc(100% + 10rem)',
       },
