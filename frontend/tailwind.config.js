@@ -8,7 +8,8 @@ export default {
         'gradient-right-img': "url('/public/gradient-curve-right.svg')",
       },
       backgroundSize: {
-        'gradient-left': '40vmax calc(100% + 25rem)',
+        'gradient-left': '50vmax 100%',
+        'gradient-left-static': '20rem calc(100% + 25rem)',
         'gradient-right': '65vmax calc(100% + 10rem)',
         'gradient-right-static': '60rem calc(100% + 10rem)',
       },

@@ -22,7 +22,8 @@ export function InternshipsPage() {
   if (!internships) return <div>loading</div>;
 
   return (
-    <div className="flex flex-row bg-curve-left-primary min-h-screen">
+    <div className="flex flex-row min-h-screen bg-curve-left-primary">
+      {/* <GradientCurve /> */}
       <NavBar />
       <div className="items-center p-2 gap-4 flex-1">
         <TopBar />

@@ -61,7 +61,7 @@ body {
   }
 
   .bg-curve-left-primary {
-    @apply md:bg-gradient-left-img  bg-no-repeat bg-left;
+    @apply md:bg-gradient-left-img bg-gradient-right-static xl:bg-gradient-left bg-no-repeat bg-left;
   }
 
   .bg-curve-right {
