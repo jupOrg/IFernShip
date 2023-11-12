@@ -13,15 +13,17 @@ div {
 html {
   font-family: "Outfit", sans-serif;
   font-weight: 300;
-  font-size: 85%;
 }
+
 html {
   @apply bg-gray-200;
+  @apply text-[55%] sm:text-[60%] md:text-[65%] lg:text-[70%] xl:text-[75%] 2xl:text-[85%] 4xl:text-[100%]
 }
 
 body {
   min-height: 100dvh;
 }
+
 body {
   @apply flex flex-col;
 }
@@ -59,7 +61,7 @@ body {
   }
 
   .bg-curve-left-primary {
-    @apply md:bg-gradient-left-img bg-no-repeat bg-left;
+    @apply md:bg-gradient-left-img  bg-no-repeat bg-left;
   }
 
   .bg-curve-right {
@@ -70,42 +72,6 @@ body {
 .shadow-cards {
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25),
     0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-@media (min-width: 2000px) {
-  html {
-    font-size: 100%;
-  }
-}
-
-@media (max-width: 1440px) {
-  html {
-    font-size: 75%;
-  }
-}
-
-@media (max-width: 1280px) {
-  html {
-    font-size: 70%;
-  }
-}
-
-@media (max-width: 1024px) {
-  html {
-    font-size: 65%;
-  }
-}
-
-@media (max-width: 768px) {
-  html {
-    font-size: 60%;
-  }
-}
-
-@media (max-width: 640px) {
-  html {
-    font-size: 55%;
-  }
 }
 
 .gradient-page {

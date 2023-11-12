@@ -12,6 +12,10 @@ export default {
         'gradient-right': '65vmax calc(100% + 10rem)',
         'gradient-right-static': '60rem calc(100% + 10rem)',
       },
+      screens: {
+        '2xl': '1536px',
+        '4xl': '2000px',
+      },
     },
   },
 };
