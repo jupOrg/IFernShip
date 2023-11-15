@@ -52,8 +52,12 @@ export const publicRoutes = createBrowserRouter([
     element: <ForgotPasswordPage />,
   },
   {
+    path: "/choice-person",
+    element: <RenderVersion PageMd={ChoicePersonMD} PageSm={ChoicePersonSM} />,
+  },
+  {
     path: "/",
-    element: <Navigate to="/estagios" />,
+    element: <Navigate to="/choice-person" />,
   },
   {
     path: "/*",
@@ -81,10 +85,6 @@ const protectedRoutes = createBrowserRouter([
   {
     path: "/estagios/:id",
     element: <InternshipPage />,
-  },
-  {
-    path: "/choice-person",
-    element: <RenderVersion PageMd={ChoicePersonMD} PageSm={ChoicePersonSM} />,
   },
   // TODO add login and sign up redirects
   {

@@ -14,7 +14,7 @@ export function ChoicePersonMD() {
           <CardChoicePerson
             text="Estudante"
             urlImage="/image-chose-student.svg"
-            className="self-end"
+            position="self-end"
           />
         </div>
       </div>

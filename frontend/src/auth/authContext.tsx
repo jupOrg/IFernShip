@@ -24,9 +24,15 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   }
 
   async function getUser() {
-    const res = await api.get<User | undefined>("/me");
-    setUser(res.data);
-    setIsLoading(false);
+    try {
+      const res = await api.get<User | undefined>("/me");
+      setUser(res.data);
+      setIsLoading(false);
+    } catch (error) {
+      if (error.response.status === 401) {
+        setIsLoading(false)
+      }
+    }
   }
 
   async function logout() {
