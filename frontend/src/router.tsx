@@ -6,25 +6,42 @@ import {
 import { useAuth } from "./auth/authContext";
 import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
-import { ChoicePersonMd } from "./choicePerson/choicePersonPage";
 import { NotFoundPage } from "./common/notFoundPage";
 import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
 import { EnterprisesPage } from "./enterprise/enterprisesPage";
 import "./index.css";
+
 import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
-import { IntroPage } from "./intro/introPage";
 import { SplashPage } from "./intro/splashPage";
 
-const publicRoutes = createBrowserRouter([
+import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
+import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
+import { useEffect, useState } from "react";
+
+type RenderVersionProps = {
+  PageMd: React.ComponentType;
+  PageSm: React.ComponentType;
+};
+
+function RenderVersion({ PageMd, PageSm }: RenderVersionProps) {
+  const [width, setWidth] = useState<number>(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+  }, []);
+
+  return width > 768 ? <PageMd /> : <PageSm />;
+}
+
+export const publicRoutes = createBrowserRouter([
   {
     path: "/splash",
     element: <SplashPage />,
-  },
-  {
-    path: "/intro",
-    element: <IntroPage />,
   },
   {
     path: "/entrar",
@@ -67,7 +84,7 @@ const protectedRoutes = createBrowserRouter([
   },
   {
     path: "/choice-person",
-    element: <ChoicePersonMd />,
+    element: <RenderVersion PageMd={ChoicePersonMD} PageSm={ChoicePersonSM} />,
   },
   // TODO add login and sign up redirects
   {

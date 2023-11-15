@@ -22,11 +22,11 @@ export function InternshipsPage() {
   if (!internships) return <div>loading</div>;
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row min-h-screen bg-curve-left-primary">
+      {/* <GradientCurve /> */}
       <NavBar />
       <div className="items-center p-2 gap-4 flex-1">
         <TopBar />
-        <GradientCurve />
         <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl">
           {internships.map((internship) => {
             return (
