@@ -40,6 +40,18 @@ body {
     @apply rounded-lg p-2 border border-gray-400 shadow-md placeholder-gray-500;
   }
 
+  .btn {
+    @apply text-white rounded-full py-2.5 px-4 w-full text-xl font-bold duration-100 ease-in
+  }
+
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-700
+  }
+
+  .btn-secondary {
+    @apply bg-gray-500 hover:bg-gray-700
+  }
+
   .default-submit {
     @apply text-white p-2 bg-sky-600 hover:brightness-110 rounded-full font-medium;
   }

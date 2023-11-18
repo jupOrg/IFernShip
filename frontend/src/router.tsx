@@ -18,6 +18,10 @@ import { SplashPage } from "./intro/splashPage";
 
 import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
 import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
+
+import { ChoiceAuthenticateMD } from "./choiceAuthenticate/choiceAuthenticatePage";
+import { ChoiceAuthenticateSM } from "./choiceAuthenticate/choiceAuthenticatePageSm";
+
 import { useEffect, useState } from "react";
 
 type RenderVersionProps = {
@@ -52,12 +56,21 @@ export const publicRoutes = createBrowserRouter([
     element: <ForgotPasswordPage />,
   },
   {
-    path: "/choice-person",
+    path: "/escolher-autenticacao",
+    element: (
+      <RenderVersion
+        PageMd={ChoiceAuthenticateMD}
+        PageSm={ChoiceAuthenticateSM}
+      />
+    ),
+  },
+  {
+    path: "/escolher-pessoa",
     element: <RenderVersion PageMd={ChoicePersonMD} PageSm={ChoicePersonSM} />,
   },
   {
     path: "/",
-    element: <Navigate to="/choice-person" />,
+    element: <Navigate to="/escolher-autenticacao" />,
   },
   {
     path: "/*",
