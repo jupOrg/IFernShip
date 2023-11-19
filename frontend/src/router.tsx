@@ -23,6 +23,7 @@ import { ChoiceAuthenticateMD } from "./choiceAuthenticate/choiceAuthenticatePag
 import { ChoiceAuthenticateSM } from "./choiceAuthenticate/choiceAuthenticatePageSm";
 
 import { useEffect, useState } from "react";
+import { RegisterPage } from "./auth/registerPage";
 
 type RenderVersionProps = {
   PageMd: React.ComponentType;
@@ -50,6 +51,10 @@ export const publicRoutes = createBrowserRouter([
   {
     path: "/entrar",
     element: <LoginPage />,
+  },
+  {
+    path: "/cadastro",
+    element: <RegisterPage />,
   },
   {
     path: "/recuperar-senha",

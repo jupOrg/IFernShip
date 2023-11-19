@@ -64,6 +64,10 @@ body {
     @apply absolute left-3 opacity-50 pointer-events-none;
   }
 
+  .input-icon-rigth {
+    @apply absolute right-3 opacity-50 pointer-events-none;
+  }
+
   .input-icon-container {
     @apply relative items-center flex-row;
   }

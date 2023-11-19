@@ -3,11 +3,9 @@ import { FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { GradientCurve } from "../common/gradientCurve";
 import { useAuth } from "./authContext";
+import { User } from "../types/user";
 
-type FieldValues = {
-  email: string;
-  password: string;
-};
+type FieldValues = Pick<User, 'email' | 'password'>
 
 export function LoginPage() {
   const { login } = useAuth();
