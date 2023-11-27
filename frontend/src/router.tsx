@@ -6,44 +6,21 @@ import {
 import { useAuth } from "./auth/authContext";
 import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
+import { RegisterPage } from "./auth/registerPage";
+import { ChoiceAuthenticateMD } from "./choiceAuthenticate/choiceAuthenticatePage";
+import { ChoiceAuthenticateSM } from "./choiceAuthenticate/choiceAuthenticatePageSm";
+import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
+import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
 import { NotFoundPage } from "./common/notFoundPage";
 import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
 import { EnterprisesPage } from "./enterprise/enterprisesPage";
-import "./index.css";
-
 import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
 import { SplashPage } from "./intro/splashPage";
+import { RenderVersion } from "./renderVersion";
 
-import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
-import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
-
-import { ChoiceAuthenticateMD } from "./choiceAuthenticate/choiceAuthenticatePage";
-import { ChoiceAuthenticateSM } from "./choiceAuthenticate/choiceAuthenticatePageSm";
-
-import { useEffect, useState } from "react";
-import { RegisterPage } from "./auth/registerPage";
-
-type RenderVersionProps = {
-  PageMd: React.ComponentType;
-  PageSm: React.ComponentType;
-};
-
-function RenderVersion({ PageMd, PageSm }: RenderVersionProps) {
-  const [width, setWidth] = useState<number>(window.innerWidth);
-
-  useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-  }, []);
-
-  return width > 768 ? <PageMd /> : <PageSm />;
-}
-
-export const publicRoutes = createBrowserRouter([
+const publicRoutes = createBrowserRouter([
   {
     path: "/splash",
     element: <SplashPage />,
@@ -64,14 +41,16 @@ export const publicRoutes = createBrowserRouter([
     path: "/escolher-autenticacao",
     element: (
       <RenderVersion
-        PageMd={ChoiceAuthenticateMD}
-        PageSm={ChoiceAuthenticateSM}
+        PageMd={<ChoiceAuthenticateMD />}
+        PageSm={<ChoiceAuthenticateSM />}
       />
     ),
   },
   {
     path: "/escolher-pessoa",
-    element: <RenderVersion PageMd={ChoicePersonMD} PageSm={ChoicePersonSM} />,
+    element: (
+      <RenderVersion PageMd={<ChoicePersonMD />} PageSm={<ChoicePersonSM />} />
+    ),
   },
   {
     path: "/",
