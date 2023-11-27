@@ -15,8 +15,8 @@ model User {
 
   role     Role
   name     String
-  email    String @unique
-  picture  String
+  email    String  @unique
+  picture  String?
   password String
 }
 
