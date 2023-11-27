@@ -11,7 +11,7 @@ export function RegisterPage() {
   const navigate = useNavigate();
 
   async function submit({ name, role, email, password }: FieldValues) {
-    await api.post("/sign-up", { name, role, email, password });
+    await api.post("/auth/sign-up", { name, role, email, password });
     navigate("/estagios");
   }
 
