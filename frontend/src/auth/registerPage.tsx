@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { FaArrowDown, FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { api } from "../api/api";
 import { User } from "../types/user";
-import { registerUser } from "./userServices";
 
 type FieldValues = Pick<User, "email" | "name" | "role" | "password">;
 
@@ -11,7 +11,7 @@ export function RegisterPage() {
   const navigate = useNavigate();
 
   async function submit({ name, role, email, password }: FieldValues) {
-    await registerUser({ name, role, email, password } as User);
+    await api.post("/sign-up", { name, role, email, password });
     navigate("/estagios");
   }
 
