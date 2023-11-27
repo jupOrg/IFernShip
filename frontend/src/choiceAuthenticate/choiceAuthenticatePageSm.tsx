@@ -18,7 +18,9 @@ export function ChoiceAuthenticateSM() {
         <Link to={"/entrar"} className="button btn btn-primary">
           Entrar
         </Link>
-        <button className="btn btn-secondary">Registrar-se</button>
+        <Link to={"/cadastro"} className="button btn btn-secondary">
+          Se cadastrar
+        </Link>
       </div>
     </div>
   );
