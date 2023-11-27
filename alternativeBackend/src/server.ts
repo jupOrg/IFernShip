@@ -1,8 +1,10 @@
+import cors from "cors";
+import express from "express";
 import "./env";
 
-import express from "express";
-
 const app = express();
+app.use(cors());
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json({ hello: "world" });
