@@ -17,8 +17,8 @@ export function RegisterPage() {
 
   return (
     <div className="items-center bg-curve-left-primary flex-1 justify-center p-4">
-      <div className="items-center gap-4 flex-grow-1 w-full">
-        <div className="max-w-4xl items-center gap-8">
+      <div className="items-center gap-4 flex-grow-1 w-full max-w-sm">
+        <div className="items-center gap-8">
           <div className="gap-4">
             <h1 className="font-semibold text-center">Cadastre-se</h1>
             <p className="text-black text-center">
@@ -29,7 +29,7 @@ export function RegisterPage() {
           </div>
           <form
             onSubmit={handleSubmit(submit)}
-            className="flex flex-col gap-2 w-full max-w-xs"
+            className="flex flex-col gap-2 w-full"
           >
             <div className="input-icon-container">
               <FaUser className="input-icon"></FaUser>
