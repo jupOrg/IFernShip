@@ -13,11 +13,16 @@ datasource db {
 model User {
   id String @id @default(uuid())
 
-  role     String
+  role     Role
   name     String
   email    String @unique
   picture  String
   password String
+}
+
+enum Role {
+  STUDENT
+  COORDINATOR
 }
 
 model Enterprise {
