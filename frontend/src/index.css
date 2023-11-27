@@ -17,7 +17,6 @@ html {
 
 html {
   @apply bg-gray-200;
-  @apply text-[55%] sm:text-[60%] md:text-[65%] lg:text-[70%] xl:text-[75%] 2xl:text-[85%] 4xl:text-[100%]
 }
 
 body {
@@ -41,15 +40,15 @@ body {
   }
 
   .btn {
-    @apply text-white rounded-full py-2.5 px-4 w-full text-xl font-bold duration-100 ease-in
+    @apply text-white rounded-full py-2 px-4 w-full font-bold duration-100 ease-in;
   }
 
   .btn-primary {
-    @apply bg-blue-500 hover:bg-blue-700
+    @apply bg-blue-500 hover:bg-blue-700;
   }
 
   .btn-secondary {
-    @apply bg-gray-500 hover:bg-gray-700
+    @apply bg-gray-500 hover:bg-gray-700;
   }
 
   .default-submit {
