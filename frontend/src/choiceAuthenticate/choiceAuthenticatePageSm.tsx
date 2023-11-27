@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 export function ChoiceAuthenticateSM() {
   return (
-    <div className="min-h-screen gradient-page items-center p-4 gap-40">
+    <div className="min-h-screen gradient-page items-center p-2 justify-between">
       <picture className="w-full flex">
-        <img src="./ifpb-logo-white.svg" alt="logo" className="w-[6.5rem]" />
+        <img src="./ifpb-logo-white.svg" alt="logo" className="w-20" />
       </picture>
       <div className="gap-2 items-center max-w-lg">
         <h1 className="font-bold text-2xl">Vagas de Estágios</h1>
@@ -14,11 +14,11 @@ export function ChoiceAuthenticateSM() {
           manualmente, baixe agora e comece a construir seu futuro!
         </p>
       </div>
-      <div className="w-full gap-4 max-w-xl">
-        <Link to={"/entrar"} className="button btn btn-primary py-4">
+      <div className="w-full gap-2">
+        <Link to={"/entrar"} className="button btn btn-primary">
           Entrar
         </Link>
-        <button className="btn btn-secondary py-4">Registrar-se</button>
+        <button className="btn btn-secondary">Registrar-se</button>
       </div>
     </div>
   );
