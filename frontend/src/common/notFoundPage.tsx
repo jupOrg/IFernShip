@@ -4,7 +4,7 @@ import { GradientCurve } from "./gradientCurve";
 
 export function NotFoundPage() {
   return (
-    <div className="flex-row flex-1">
+    <div className="flex-row flex-1 p-4 text-center">
       <NavBar />
       <GradientCurve />
       <div className="items-center justify-center relative flex-1 gap-6">
