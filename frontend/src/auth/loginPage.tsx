@@ -55,7 +55,7 @@ export function LoginPage() {
           </button>
         </form>
       </div>
-      <div className="flex-row justify-around w-full">
+      <div className="w-full grid grid-cols-2 text-center">
         <Link className="self-end" to="/recuperar-senha">
           Esqueceu a senha?
         </Link>
