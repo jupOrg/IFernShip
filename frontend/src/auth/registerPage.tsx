@@ -20,9 +20,9 @@ export function RegisterPage() {
       <div className="items-center gap-4 flex-grow-1 w-full max-w-sm">
         <div className="items-center gap-8">
           <div className="gap-4">
-            <h1 className="font-semibold text-center">Cadastre-se</h1>
+            <h1 className="font-semibold text-center">Se cadastre</h1>
             <p className="text-black text-center">
-              Cadastre-se e tenha acesso a um mundo de oportunidades
+              Se cadastre e tenha acesso a um mundo de oportunidades
               profissionais com nosso aplicativo de vagas de estágio. Não perca
               mais tempo, comece agora a buscar a vaga perfeita para você!
             </p>
