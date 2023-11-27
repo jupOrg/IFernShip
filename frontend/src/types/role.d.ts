@@ -1,1 +1,1 @@
-export type Role = "student" | "coordinator";
+export type Role = "STUDENT" | "COORDINATOR";
