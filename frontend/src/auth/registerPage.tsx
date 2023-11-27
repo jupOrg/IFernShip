@@ -2,15 +2,19 @@ import { useForm } from "react-hook-form";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../api/api";
+import { Role } from "../types/role";
 import { User } from "../types/user";
 
-type FieldValues = Pick<User, "email" | "name" | "role" | "password">;
+type FieldValues = Pick<User, "email" | "name" | "password">;
 
 export function RegisterPage() {
   const { register, handleSubmit } = useForm<FieldValues>();
   const navigate = useNavigate();
 
-  async function submit({ name, role, email, password }: FieldValues) {
+  async function submit({ name, email, password }: FieldValues) {
+    // TODO use real role
+    const role: Role = "STUDENT";
+
     await api.post("/auth/sign-up", { name, role, email, password });
     navigate("/estagios");
   }
