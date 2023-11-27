@@ -20,11 +20,11 @@ export function RegisterPage() {
   }
 
   return (
-    <div className="items-center bg-curve-left-primary flex-1 justify-center p-4">
+    <div className="items-center bg-curve-left-primary flex-1 justify-around p-4">
       <div className="items-center gap-4 flex-grow-1 w-full max-w-sm">
         <div className="items-center gap-8">
           <div className="gap-4">
-            <h1 className="font-semibold text-center">Se cadastre</h1>
+            <h1 className="font-semibold text-center text-2xl">Se cadastre</h1>
             <p className="text-black text-center">
               Se cadastre e tenha acesso a um mundo de oportunidades
               profissionais com nosso aplicativo de vagas de estágio. Não perca
@@ -62,14 +62,16 @@ export function RegisterPage() {
                 className="default-input rounded-full flex-1 pl-8"
               />
             </div>
-            <Link className="self-end" to="/recuperar-senha">
-              Esqueceu a senha?
-            </Link>
             <button type="submit" className="default-submit btn mt-8">
               Entrar
             </button>
           </form>
         </div>
+      </div>
+      <div>
+        <Link className="self-end" to="/entrar">
+          Já possui uma conta?
+        </Link>
       </div>
     </div>
   );

@@ -18,10 +18,9 @@ export function LoginPage() {
   }
 
   return (
-    <div className="items-center p-4 flex-1 justify-between">
+    <div className="items-center p-4 flex-1 justify-around">
       <GradientCurve />
       <div className="items-center gap-4 max-w-md">
-        <img src="/ifpb-logo.svg" alt="IFPB" width={100} />
         <h1 className="font-semibold text-2xl">Bem-Vindo de Volta</h1>
         <div className="text-center">
           Faça login e tenha acesso a um mundo de oportunidades profissionais
@@ -59,7 +58,7 @@ export function LoginPage() {
         <Link className="self-end" to="/recuperar-senha">
           Esqueceu a senha?
         </Link>
-        <Link className="self-end" to="/recuperar-senha">
+        <Link className="self-end" to="/cadastro">
           Se cadastrar
         </Link>
       </div>
