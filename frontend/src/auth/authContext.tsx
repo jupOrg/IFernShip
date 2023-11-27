@@ -25,12 +25,12 @@ export function AuthContextProvider({ children }: ChildrenProps) {
 
   async function getUser() {
     try {
-      const res = await api.get<User | undefined>("/me");
+      const res = await api.get<User | undefined>("/users/me");
       setUser(res.data);
       setIsLoading(false);
     } catch (error) {
       if (error.response.status === 401) {
-        setIsLoading(false)
+        setIsLoading(false);
       }
     }
   }
