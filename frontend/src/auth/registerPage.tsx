@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { FaArrowDown, FaLock, FaUser } from "react-icons/fa";
+import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../api/api";
 import { User } from "../types/user";
@@ -42,20 +42,12 @@ export function RegisterPage() {
             </div>
             <div className="input-icon-container">
               <input
-                type="text"
-                placeholder="Curso"
-                {...register("role")}
-                className="default-input rounded-full flex-1 pl-4"
-              />
-            </div>
-            <div className="input-icon-container">
-              <input
                 type="email"
                 placeholder="E-mail"
                 {...register("email")}
-                className="default-input rounded-full flex-1 pl-4 pr-8"
+                className="default-input rounded-full flex-1 pl-8"
               />
-              <FaArrowDown className="input-icon-rigth"></FaArrowDown>
+              <FaEnvelope className="input-icon" />
             </div>
             <div className="input-icon-container">
               <FaLock className="input-icon"></FaLock>
