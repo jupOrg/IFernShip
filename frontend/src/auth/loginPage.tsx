@@ -2,10 +2,10 @@ import { useForm } from "react-hook-form";
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { GradientCurve } from "../common/gradientCurve";
-import { useAuth } from "./authContext";
 import { User } from "../types/user";
+import { useAuth } from "./authContext";
 
-type FieldValues = Pick<User, 'email' | 'password'>
+type FieldValues = Pick<User, "email" | "password">;
 
 export function LoginPage() {
   const { login } = useAuth();
@@ -18,7 +18,7 @@ export function LoginPage() {
   }
 
   return (
-    <div className="items-center p-4">
+    <div className="items-center p-4 flex-1 justify-between">
       <GradientCurve />
       <div className="items-center gap-4 max-w-md">
         <img src="/ifpb-logo.svg" alt="IFPB" width={100} />
@@ -50,13 +50,18 @@ export function LoginPage() {
               className="default-input rounded-full flex-1 pl-8"
             />
           </div>
-          <Link className="self-end" to="/recuperar-senha">
-            Esqueceu a senha?
-          </Link>
           <button type="submit" className="default-submit">
             Entrar
           </button>
         </form>
+      </div>
+      <div className="flex-row justify-around w-full">
+        <Link className="self-end" to="/recuperar-senha">
+          Esqueceu a senha?
+        </Link>
+        <Link className="self-end" to="/recuperar-senha">
+          Se cadastrar
+        </Link>
       </div>
     </div>
   );
