@@ -20,5 +20,9 @@ export function errorMiddleware(
     return res.send(error.message);
   }
 
+  if (typeof error.inner?.message === "string") {
+    return res.send(error.inner.message);
+  }
+
   return res.status(500).send("Unknown server error");
 }
