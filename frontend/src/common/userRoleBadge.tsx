@@ -10,5 +10,9 @@ export function UserRoleBadge({ role }: Props) {
     student: "Estudante",
   };
 
-  return <div>{displayTexts[role]}</div>;
+  return (
+    <div className="border border-solid border-white rounded-full py-0.5 px-2 text-white font-medium">
+      {displayTexts[role]}
+    </div>
+  );
 }

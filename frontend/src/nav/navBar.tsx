@@ -23,7 +23,7 @@ export function NavBar() {
         <div className="text-lg font-medium">{user.name}</div>
         <UserRoleBadge role={user.role} />
       </div>
-      
+
       {user.role === "coordinator" && (
         <div className="gap-2">
           <Link to="/empresas/criar" className="button badge">
