@@ -18,12 +18,12 @@ const schema = mongoose.Schema(
     course: {
       type: String,
     },
-    type: {
+    role: {
       type: String,
       required: [true, "Tipo de usuário deve ser informado"],
       enum: {
-        values: ["estagiário", "coordenador"],
-        message: "O tipo de usuário deve ser estagiário ou coordenador",
+        values: ["student", "coordinator"],
+        message: "O tipo de usuário deve ser estudante ou coordenador",
       },
     },
     image: {

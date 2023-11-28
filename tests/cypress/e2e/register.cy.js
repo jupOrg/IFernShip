@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 describe("Testes envolvendo registro de usuário", () => {
     beforeEach(() => {
         cy.visit("/cadastro");
+        cy.pathRegister()
     });
 
     it("Registrando novo usuário com sucesso", () => {

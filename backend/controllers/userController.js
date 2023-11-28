@@ -36,7 +36,7 @@ const findUser = async (req, res) => {
 
 const register = async (req, res) => {
   try {
-    const { name, email, password, confirmPassword, course, type } = req.body;
+    const { name, email, password, confirmPassword, course, role } = req.body;
 
     const user = await User.findOne({
       email: email,
@@ -57,7 +57,7 @@ const register = async (req, res) => {
       email,
       password: passwordHash,
       course,
-      type,
+      role,
     });
 
     return res.status(201).json("Usuário criado com sucesso.");
@@ -95,7 +95,7 @@ const login = async (req, res) => {
     }
   );
 
-  return res.status(200).json({ token, user });
+  return res.status(201).json({ token, user });
 };
 
 const edit = async (req, res) => {
@@ -120,7 +120,7 @@ const edit = async (req, res) => {
       email,
       password: passwordHash,
       course,
-      type,
+      role,
       image: image
         ? {
             data: fs.readFileSync(join(__dirname, "..", "uploads", imagePath)),

@@ -2,10 +2,11 @@ import { v4 as uuidv4 } from "uuid";
 
 describe("Testes envolvendo realizar login", () => {
     beforeEach(() => {
-        cy.visit("/cadastro");
+        cy.visit("/");
     });
-
+    
     it("Realizando login com sucesso", () => {
+        cy.pathRegister()
         const email = `${uuidv4()}@gmail.com`;
 
         cy.intercept({ method: "POST" }).as("routerPost");

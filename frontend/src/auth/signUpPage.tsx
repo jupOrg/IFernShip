@@ -1,6 +1,6 @@
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 
@@ -25,19 +25,21 @@ export function RegisterPage() {
   const { register, handleSubmit } = useForm<FieldValues>({
     resolver: yupResolver(schema),
   });
+
   const navigate = useNavigate();
   const { login } = useAuth();
 
+  const { state } = useLocation();
+  console.log(state)
+
   async function submit({ name, email, password }: FieldValues) {
-    const role: Role = "STUDENT";
     const res = await api.post("/register", {
       name,
-      role,
+      role: state,
       email,
       password,
       confirmPassword: password,
       course: "ADS",
-      type: "estagiário",
     });
     const response = await login(email, password);
     if (response.token) {
