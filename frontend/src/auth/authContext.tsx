@@ -48,6 +48,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   async function logout() {
     await api.post("/logout");
     setUser(undefined);
+    setToken("")
   }
 
   const isLogged = !!user;

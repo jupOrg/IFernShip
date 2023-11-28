@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export function LogoutButton() {
   const { logout } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function handleClick() {
     logout();
@@ -12,7 +12,11 @@ export function LogoutButton() {
   }
 
   return (
-    <button onClick={handleClick} className="badge flex-row gap-1">
+    <button
+      onClick={handleClick}
+      className="badge flex-row gap-1"
+      data-cy="button-logout"
+    >
       <FaDoorOpen /> Sair
     </button>
   );
