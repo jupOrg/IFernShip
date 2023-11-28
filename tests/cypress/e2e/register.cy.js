@@ -22,6 +22,13 @@ describe("Testes envolvendo registro de usuário", () => {
         cy.register(email);
 
         cy.wait("@routerPost").its("response.statusCode").should("eq", 201);
-        cy.url().should("not.include", "/register");
+        cy.wait(500);
+        
+        cy.get(`[data-cy="button-logout"]`).click();
+
+        cy.visit("/cadastro");
+        cy.register(email);
+
+        cy.wait("@routerPost").its("response.statusCode").should("not.eq", 201);
     });
 });

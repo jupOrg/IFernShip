@@ -8,17 +8,17 @@ describe("Testes envolvendo realizar login", () => {
     it("Realizando login com sucesso", () => {
         const email = `${uuidv4()}@gmail.com`;
 
-        cy.intercept({ method: "POST" }).as("methodPost");
+        cy.intercept({ method: "POST" }).as("routerPost");
         cy.register(email);
 
-        cy.wait("@methodPost").its("response.statusCode").should("eq", 201);
+        cy.wait("@routerPost").its("response.statusCode").should("eq", 201);
         cy.wait(500);
 
-        cy.get(`a:contains("Sair"))`).click();
+        cy.get(`[data-cy="button-logout"]`).click();
         cy.visit("/entrar");
         cy.login(email);
 
-        cy.wait("@methodPost").its("response.statusCode").should("eq", 201);
+        cy.wait("@routerPost").its("response.statusCode").should("eq", 201);
         cy.wait(500);
     });
 });
