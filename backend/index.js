@@ -6,6 +6,7 @@ import error from "./middlewares/error.js";
 import { enterpriseRouter } from "./routes/enterpriseRouter.js";
 import { internshipRouter } from "./routes/internshipRouter.js";
 import { userRouter } from "./routes/userRouter.js";
+import { authRouter } from "./routes/authRoutes.js";
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,7 @@ app.use(error);
 app.use("/internship", internshipRouter);
 app.use("/enterprise", enterpriseRouter);
 app.use("/user", userRouter);
+app.use("/", authRouter);
 
 const port = 3000;
 

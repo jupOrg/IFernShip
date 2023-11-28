@@ -21,7 +21,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
 
   async function login(email: string, password: string) {
     // This is not a GET because of the body encryption
-    const res = await api.post("/user/login", { email, password });
+    const res = await api.post("/login", { email, password });
     const { user, token } = res.data;
     setUser(user);
     setToken(token);

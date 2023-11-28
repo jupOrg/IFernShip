@@ -29,7 +29,7 @@ export function RegisterPage() {
 
   async function submit({ name, email, password }: FieldValues) {
     const role: Role = "STUDENT";
-    const res = await api.post("/user/register", {
+    const res = await api.post("/register", {
       name,
       role,
       email,
