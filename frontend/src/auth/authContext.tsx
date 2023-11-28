@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { api } from "../api/api";
+
+import { createApiInstance } from "../api/api";
 import { ChildrenProps } from "../common/childrenProps";
 import { User } from "../types/user";
 
@@ -16,15 +17,19 @@ const authContext = createContext({} as AuthContext);
 
 export function AuthContextProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<User>();
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
+
+  const api = createApiInstance(token);
 
   async function login(email: string, password: string) {
     // This is not a GET because of the body encryption
     const res = await api.post("/login", { email, password });
     const { user, token } = res.data;
-    setUser(user);
+    
     setToken(token);
+    setUser(user);
+
     return res.data;
   }
 

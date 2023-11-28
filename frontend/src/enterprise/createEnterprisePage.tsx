@@ -1,14 +1,18 @@
 import { useForm } from "react-hook-form";
-import { api } from "../api/api";
+import { createApiInstance } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
 import { ImageInput } from "../common/imageInput";
 import { Enterprise } from "../types/enterprise";
+import { useAuth } from "../auth/authContext";
 
 type FieldValues = Omit<Enterprise, "picture" | "id">;
 
 export function CreateEnterprisePage() {
   const { register, handleSubmit } = useForm<FieldValues>();
+
+  const { token } = useAuth();
+  const api = createApiInstance(token);
 
   async function submit(fields: FieldValues) {
     const res = await api.post("/enterprises", fields);

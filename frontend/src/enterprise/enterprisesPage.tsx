@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import { api } from "../api/api";
+import { createApiInstance } from "../api/api";
 import { GradientCurve } from "../common/gradientCurve";
 import { NavBar } from "../nav/navBar";
 import { TopBar } from "../nav/topBar";
 import { Enterprise } from "../types/enterprise";
 import { EnterprisesItem } from "./enterpriseItem";
+import { useAuth } from "../auth/authContext";
 
 export function EnterprisesPage() {
   const [enterprises, setEnterprises] = useState<Enterprise[]>();
+
+  const { token } = useAuth();
+  const api = createApiInstance(token);
 
   async function getEnterprises() {
     const res = await api.get<Enterprise[]>("/enterprises");

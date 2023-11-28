@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { api } from "../api/api";
+import { createApiInstance } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
 import { Internship } from "../types/internship";
+import { useAuth } from "../auth/authContext";
 
 export function InternshipPage() {
   const { id } = useParams();
   const [internship, setInternship] = useState<Internship>();
 
+  const { token } = useAuth();
+  const api = createApiInstance(token);
+
   async function getInternship() {
-    const res = await api.get<Internship>("/internships/" + id);
+    const res = await api.get<Internship>("/internship/" + id);
     setInternship(res.data);
   }
 

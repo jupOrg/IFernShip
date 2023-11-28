@@ -2,10 +2,9 @@ import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import cookie from "cookiejs";
 import * as yup from "yup";
 
-import { api } from "../api/api";
+import { createApiInstance } from "../api/api";
 import { Role } from "../types/role";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
@@ -19,6 +18,8 @@ const schema = yup.object({
     .required("É nescessário informar um email"),
   password: yup.string().required("É nescessário informar a senha"),
 });
+
+const api = createApiInstance();
 
 export function RegisterPage() {
   const { register, handleSubmit } = useForm<FieldValues>({
@@ -38,7 +39,6 @@ export function RegisterPage() {
       course: "ADS",
       type: "estagiário",
     });
-    console.log(res);
     const response = await login(email, password);
     if (response.token) {
       navigate("/estagios");
