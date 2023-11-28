@@ -7,7 +7,7 @@ export function LogoutButton() {
   const navigate = useNavigate();
 
   async function handleClick() {
-    logout();
+    await logout();
     navigate("/");
   }
 

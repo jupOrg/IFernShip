@@ -14,7 +14,7 @@ export function EnterprisesPage() {
   const api = createApiInstance(token);
 
   async function getEnterprises() {
-    const res = await api.get<Enterprise[]>("/enterprises");
+    const res = await api.get<Enterprise[]>("/enterprise");
     setEnterprises(res.data);
   }
 

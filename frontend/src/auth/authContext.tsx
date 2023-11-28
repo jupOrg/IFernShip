@@ -52,6 +52,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   }
 
   const isLogged = !!user;
+  console.log(isLogged)
 
   useEffect(() => {
     getUser();

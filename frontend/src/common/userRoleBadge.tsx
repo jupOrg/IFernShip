@@ -6,8 +6,8 @@ type Props = {
 
 export function UserRoleBadge({ role }: Props) {
   const displayTexts: Record<Role, string> = {
-    COORDINATOR: "Coordenador",
-    STUDENT: "Estudante",
+    coordinator: "Coordenador",
+    student: "Estudante",
   };
 
   return <div>{displayTexts[role]}</div>;

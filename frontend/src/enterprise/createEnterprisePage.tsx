@@ -15,7 +15,7 @@ export function CreateEnterprisePage() {
   const api = createApiInstance(token);
 
   async function submit(fields: FieldValues) {
-    const res = await api.post("/enterprises", fields);
+    const res = await api.post("/enterprise", fields);
     console.log(res.data);
   }
 

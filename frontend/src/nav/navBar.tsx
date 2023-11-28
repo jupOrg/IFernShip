@@ -9,6 +9,8 @@ export function NavBar() {
 
   if (!user) return null;
 
+  console.log(user);
+
   return (
     <div className="items-center justify-between w-full max-w-[14rem] p-6 hidden md:flex">
       <div className="items-center">
@@ -21,16 +23,19 @@ export function NavBar() {
         <div className="text-lg font-medium">{user.name}</div>
         <UserRoleBadge role={user.role} />
       </div>
-      <div className="gap-2">
-        <Link to="/empresas/criar" className="button badge">
-          <FaPlus />
-          Adicionar empresa
-        </Link>
-        <Link to="/estagios/criar" className="button badge">
-          <FaPlus />
-          Adicionar estágio
-        </Link>
-      </div>
+      
+      {user.role === "coordinator" && (
+        <div className="gap-2">
+          <Link to="/empresas/criar" className="button badge">
+            <FaPlus />
+            Adicionar empresa
+          </Link>
+          <Link to="/estagios/criar" className="button badge">
+            <FaPlus />
+            Adicionar estágio
+          </Link>
+        </div>
+      )}
 
       <LogoutButton />
     </div>
