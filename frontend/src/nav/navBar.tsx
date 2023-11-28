@@ -10,7 +10,7 @@ export function NavBar() {
   if (!user) return null;
 
   return (
-    <div className="items-center justify-between w-full max-w-[14rem] p-6">
+    <div className="items-center justify-between w-full max-w-[14rem] p-6 hidden sm:flex">
       <div className="items-center">
         <img
           alt="user image"
