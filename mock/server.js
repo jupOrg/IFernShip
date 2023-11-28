@@ -3,8 +3,6 @@ const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
-let isLogged = false
-
 server.use((req, res, next) => {
   router.db.read();
   next();
@@ -20,21 +18,9 @@ server.get("/me", (req, res) => {
   } else {
     res.status(401).json({
       message: "Unauthorized",
-      status: false
-    })
+      status: false,
+    });
   }
-});
-
-server.post("/login", (req, res) => {
-  const users = router.db.get("users").value();
-  const firstUser = users[0];
-  isLogged = true
-  res.json(firstUser);
-});
-
-server.post("/logout", (req, res) => {
-  isLogged = false
-  res.json({});
 });
 
 const routes = jsonServer.rewriter(require("./routes.json"));

@@ -5,12 +5,13 @@ type Props = {
 };
 
 export function CardChoicePerson({ text, urlImage, position }: Props) {
-  const classCard = "shadow-cards bg-[#F2F5F9] md:bg-[#63c7513f] justify-between max-h-64 rounded-3xl py-8 px-10 gap-6"
+  const classCard =
+    "shadow-cards bg-white justify-between max-h-64 rounded-3xl py-2 px-6 gap-2";
   return (
     <a href="/cadastro" className={position}>
       <div className={classCard}>
-        <img src={urlImage} className="w-40" />
-        <p className="text-black text-2xl w-40 text-center">{text}</p>
+        <img src={urlImage} className="w-40 aspect-square" />
+        <p className="text-black text-lg w-40 text-center">{text}</p>
       </div>
     </a>
   );
