@@ -3,6 +3,7 @@ import internshipController from "../controllers/internshipController.js";
 import { verifyTokenAuthentication } from "../middlewares/authentication.js";
 
 const router = Router();
+export const internshipRouter = router;
 
 router.get(
   "/",
@@ -29,5 +30,3 @@ router.put(
   verifyTokenAuthentication,
   internshipController.updateInternship
 );
-
-export default router;

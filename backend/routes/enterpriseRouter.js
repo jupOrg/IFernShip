@@ -1,9 +1,10 @@
 import { Router } from "express";
+import upload from "../config/upload.js";
 import enterpriseController from "../controllers/enterpriseController.js";
 import { verifyTokenAuthentication } from "../middlewares/authentication.js";
-import upload from "../config/upload.js";
 
 const router = Router();
+export const enterpriseRouter = router;
 
 router.get(
   "/",
@@ -32,5 +33,3 @@ router.put(
   upload.single("image"),
   enterpriseController.updateEnterprise
 );
-
-export default router;
