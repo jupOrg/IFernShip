@@ -1,4 +1,5 @@
 import jsonWebToken from "jsonwebtoken";
+import { TOKEN_SECRET } from "../env";
 
 export function verifyTokenAuthentication(request, response, next) {
   const authorization = request.headers.authorization;
@@ -10,7 +11,7 @@ export function verifyTokenAuthentication(request, response, next) {
   const token = authorization.split(" ")[1];
 
   try {
-    const { sub, name } = jsonWebToken.verify(token, process.env.KEY_TOKEN);
+    const { sub, name } = jsonWebToken.verify(token, TOKEN_SECRET);
 
     request.user = {
       id: Number(sub),

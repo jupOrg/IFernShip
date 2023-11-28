@@ -1,4 +1,4 @@
 import { config } from "dotenv";
 config();
 
-export const { DATABASE_URL } = process.env;
+export const { DATABASE_URL, TOKEN_SECRET } = process.env;

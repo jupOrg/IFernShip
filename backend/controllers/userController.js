@@ -1,8 +1,9 @@
-import User from "../models/userModel.js";
-import { hash, compare } from "bcrypt";
+import { compare, hash } from "bcrypt";
 import jsonWebToken from "jsonwebtoken";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import { TOKEN_SECRET } from "../env.js";
+import User from "../models/userModel.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -86,7 +87,7 @@ const login = async (req, res) => {
     {
       name: user.name,
     },
-    process.env.KEY_TOKEN,
+    TOKEN_SECRET,
     {
       expiresIn: "1d",
       algorithm: "HS256",
