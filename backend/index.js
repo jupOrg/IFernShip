@@ -1,15 +1,11 @@
-import "express-async-errors";
-import dotenv from "dotenv";
-import express from "express";
 import cors from "cors";
+import express from "express";
+import "express-async-errors";
 import connect from "./database/index.js";
-import internshipRouter from "./routes/internshipRouter.js";
-import enterpriseRouter from "./routes/enterpriseRouter.js";
-import userRouter from "./routes/userRouter.js";
 import error from "./middlewares/error.js";
-dotenv.config();
-
-const PORT = process.env.API_PORT || 8080;
+import enterpriseRouter from "./routes/enterpriseRouter.js";
+import internshipRouter from "./routes/internshipRouter.js";
+import userRouter from "./routes/userRouter.js";
 
 const app = express();
 app.use(express.json());
@@ -20,15 +16,17 @@ app.use("/internship", internshipRouter);
 app.use("/enterprise", enterpriseRouter);
 app.use("/user", userRouter);
 
+const port = 3000;
+
 async function start() {
   try {
     await connect();
 
     console.log("Successfully connected to DB");
-    console.log(`App listening on port ${PORT}`);
+    console.log(`App listening on port ${port}`);
   } catch (err) {
     console.log(`Not connected to DB. Error: ${err}`);
   }
 }
 
-app.listen(PORT, process.env.IP_HOST, start);
+app.listen(port, start);
