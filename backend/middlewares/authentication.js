@@ -1,5 +1,5 @@
 import jsonWebToken from "jsonwebtoken";
-import { TOKEN_SECRET } from "../env";
+import { TOKEN_SECRET } from "../env.js";
 
 export function verifyTokenAuthentication(request, response, next) {
   const authorization = request.headers.authorization;
