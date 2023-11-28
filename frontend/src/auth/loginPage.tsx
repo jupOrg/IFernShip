@@ -13,8 +13,10 @@ export function LoginPage() {
   const navigate = useNavigate();
 
   async function submit({ email, password }: FieldValues) {
-    await login(email, password);
-    navigate("/estagios");
+    const response = await login(email, password);
+    if (response.token) {
+      navigate("/estagios");
+    }
   }
 
   return (
@@ -36,6 +38,7 @@ export function LoginPage() {
             <input
               type="email"
               placeholder="Email"
+              data-cy="login-email"
               {...register("email")}
               className="default-input rounded-full flex-1 pl-8"
             />
@@ -45,11 +48,12 @@ export function LoginPage() {
             <input
               type="password"
               placeholder="Senha"
+              data-cy="login-password"
               {...register("password")}
               className="default-input rounded-full flex-1 pl-8"
             />
           </div>
-          <button type="submit" className="default-submit">
+          <button type="submit" className="default-submit" data-cy="login-save">
             Entrar
           </button>
         </form>
