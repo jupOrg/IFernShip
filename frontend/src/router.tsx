@@ -12,6 +12,7 @@ import { ChoiceAuthenticateSM } from "./choiceAuthenticate/choiceAuthenticatePag
 import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
 import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
 import { NotFoundPage } from "./common/notFoundPage";
+import { DevPage } from "./dev/devPage";
 import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
 import { EnterprisesPage } from "./enterprise/enterprisesPage";
 import { CreateInternshipPage } from "./internship/createInternshipPage";
@@ -21,6 +22,10 @@ import { SplashPage } from "./intro/splashPage";
 import { RenderVersion } from "./renderVersion";
 
 const publicRoutes = createBrowserRouter([
+  {
+    path: "/dev",
+    element: <DevPage />,
+  },
   {
     path: "/splash",
     element: <SplashPage />,
