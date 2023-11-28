@@ -100,9 +100,11 @@ const protectedRoutes = createBrowserRouter([
 ]);
 
 export function Router() {
-  const { isLogged, isLoading } = useAuth();
-
-  // if (isLoading) return <SplashPage />;
-
-  return <RouterProvider router={isLogged ? protectedRoutes : publicRoutes} />;
+  const { isLogged } = useAuth();
+  return (
+    <RouterProvider
+      router={isLogged ? protectedRoutes : publicRoutes}
+      fallbackElement={<SplashPage />}
+    />
+  );
 }
