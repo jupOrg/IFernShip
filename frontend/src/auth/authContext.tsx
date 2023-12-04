@@ -10,7 +10,6 @@ type AuthContext = {
   user?: User;
   token?: string;
   isLogged: boolean;
-  isLoading: boolean;
   logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<responseLogin>;
   handleModalError?: (props: ModalProps) => void;
@@ -21,7 +20,6 @@ const authContext = createContext({} as AuthContext);
 export function AuthContextProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<User>();
   const [token, setToken] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(true);
   const [modalData, setModalData] = useState<ModalProps>({
     message: "",
     isVisible: false,
@@ -54,10 +52,9 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     try {
       const res = await api.get<User | undefined>("/users/me");
       setUser(res.data);
-      setIsLoading(false);
     } catch (error) {
       if (error.response.status === 401) {
-        setIsLoading(false);
+        console.error(error)
       }
     }
   }
@@ -69,7 +66,6 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   }
 
   const isLogged = !!user;
-  console.log(isLogged);
 
   useEffect(() => {
     getUser();
@@ -83,7 +79,6 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         login,
         logout,
         isLogged,
-        isLoading,
         handleModalError,
       }}
     >

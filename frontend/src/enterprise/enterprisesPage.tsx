@@ -6,6 +6,7 @@ import { TopBar } from "../nav/topBar";
 import { Enterprise } from "../types/enterprise";
 import { EnterprisesItem } from "./enterpriseItem";
 import { useAuth } from "../auth/authContext";
+import { SplashPage } from "../intro/splashPage";
 
 export function EnterprisesPage() {
   const [enterprises, setEnterprises] = useState<Enterprise[]>();
@@ -23,7 +24,7 @@ export function EnterprisesPage() {
   }, []);
 
   // TODO replace this
-  if (!enterprises) return <div>loading</div>;
+  if (!enterprises) return <SplashPage />;
 
   return (
     <div className="flex flex-row">

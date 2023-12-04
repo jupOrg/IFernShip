@@ -6,6 +6,7 @@ import { TopBar } from "../nav/topBar";
 import { Internship } from "../types/internship";
 import { InternshipsItem } from "./internshipItem";
 import { useAuth } from "../auth/authContext";
+import { SplashPage } from "../intro/splashPage";
 
 export function InternshipsPage() {
   const [internships, setInternships] = useState<Internship[]>();
@@ -23,7 +24,7 @@ export function InternshipsPage() {
   }, []);
 
   // TODO replace this
-  if (!internships) return <div>loading</div>;
+  if (!internships) return <SplashPage />;
 
   return (
     <div className="flex flex-row min-h-screen">

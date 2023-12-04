@@ -5,6 +5,7 @@ import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
 import { Internship } from "../types/internship";
 import { useAuth } from "../auth/authContext";
+import { SplashPage } from "../intro/splashPage";
 
 export function InternshipPage() {
   const { id } = useParams();
@@ -23,7 +24,7 @@ export function InternshipPage() {
   }, []);
 
   // TODO replace it
-  if (!internship) return <div>loading</div>;
+  if (!internship) return <SplashPage />;
 
   return (
     <div className="items-center p-2">
