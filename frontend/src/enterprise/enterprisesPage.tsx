@@ -27,7 +27,7 @@ export function EnterprisesPage() {
   if (!enterprises) return <SplashPage />;
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row min-h-screen">
       <NavBar />
       <div className="items-center p-2 gap-4 flex-1">
         <TopBar />
