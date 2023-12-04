@@ -8,14 +8,26 @@ import { useAuth } from "./authContext";
 type FieldValues = Pick<User, "email" | "password">;
 
 export function LoginPage() {
-  const { login } = useAuth();
+  const { login, setMessageError, setModalVisible } = useAuth();
   const { register, handleSubmit } = useForm<FieldValues>();
+  
   const navigate = useNavigate();
 
   async function submit({ email, password }: FieldValues) {
-    const response = await login(email, password);
-    if (response.token) {
-      navigate("/estagios");
+    try {
+      const response = await login(email, password);
+      if (response.token) {
+        navigate("/estagios");
+      }
+    } catch (error) {
+      if (error.name === "AxiosError") {
+        const { data, status } = error.response;
+        if (status !== 201) {
+          const { message } = data;
+          setMessageError(message);
+          setModalVisible(true);
+        }
+      }
     }
   }
 

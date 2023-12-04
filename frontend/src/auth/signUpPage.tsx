@@ -8,6 +8,7 @@ import { createApiInstance } from "../api/api";
 import { Role } from "../types/role";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
+import { responseLogin } from "../types/responseLogin";
 
 type FieldValues = Pick<User, "email" | "name" | "password">;
 
@@ -27,23 +28,34 @@ export function RegisterPage() {
   });
 
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, setModalVisible, setMessageError } = useAuth();
 
   const { state } = useLocation();
-  console.log(state)
+  const role: Role = state ? state : "student";
 
   async function submit({ name, email, password }: FieldValues) {
-    const res = await api.post("/register", {
-      name,
-      role: state,
-      email,
-      password,
-      confirmPassword: password,
-      course: "ADS",
-    });
-    const response = await login(email, password);
-    if (response.token) {
-      navigate("/estagios");
+    try {
+      await api.post("/register", {
+        name,
+        role,
+        email,
+        password,
+        confirmPassword: password,
+        course: "ADS",
+      });
+      const response = await login(email, password);
+      if (response.token) {
+        navigate("/estagios");
+      }
+    } catch (error) {
+      if (error.name === "AxiosError") {
+        const { data, status } = error.response;
+        if (status !== 201) {
+          const { message } = data;
+          setMessageError(message);
+          setModalVisible(true);
+        }
+      }
     }
   }
 

@@ -17,6 +17,9 @@ export default {
         "2xl": "1536px",
         "4xl": "2000px",
       },
+      transitionProperty: {
+        'modal': 'opacity, visibility',
+      }
     },
   },
 };
