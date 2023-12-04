@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { createApiInstance } from "../api/api";
 import { ChildrenProps } from "../common/childrenProps";
 import { User } from "../types/user";
-import { Modal } from "../common/Modal";
+import { Modal, ModalProps } from "../common/Modal";
 import { responseLogin } from "../types/responseLogin";
 
 type AuthContext = {
@@ -13,8 +13,7 @@ type AuthContext = {
   isLoading: boolean;
   logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<responseLogin>;
-  setMessageError?: (message: string) => void;
-  setModalVisible?: (isVisible: boolean) => void;
+  handleModalError?: (props: ModalProps) => void;
 };
 
 const authContext = createContext({} as AuthContext);
@@ -23,12 +22,26 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<User>();
   const [token, setToken] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [messageError, setMessageError] = useState("");
+  const [modalData, setModalData] = useState<ModalProps>({
+    message: "",
+    isVisible: false,
+    callbackClose: closeModalError,
+  });
 
   const api = createApiInstance(token);
 
-  async function login(email: string, password: string): Promise<responseLogin> {
+  function handleModalError(props: ModalProps) {
+    setModalData({ ...modalData, ...props });
+  }
+
+  function closeModalError() {
+    setModalData({ ...modalData, isVisible: false })
+  }
+
+  async function login(
+    email: string,
+    password: string
+  ): Promise<responseLogin> {
     // This is not a GET because of the body encryption
     const res = await api.post("/login", { email, password });
     const { user, token } = res.data;
@@ -71,16 +84,11 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         logout,
         isLogged,
         isLoading,
-        setMessageError,
-        setModalVisible,
+        handleModalError,
       }}
     >
       {children}
-      <Modal
-        message={messageError}
-        isVisible={modalVisible}
-        callbackClose={() => setModalVisible(false)}
-      />
+      <Modal {...modalData} />
     </authContext.Provider>
   );
 }

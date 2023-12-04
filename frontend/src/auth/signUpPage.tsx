@@ -28,7 +28,7 @@ export function RegisterPage() {
   });
 
   const navigate = useNavigate();
-  const { login, setModalVisible, setMessageError } = useAuth();
+  const { login, handleModalError } = useAuth();
 
   const { state } = useLocation();
   const role: Role = state ? state : "student";
@@ -52,8 +52,7 @@ export function RegisterPage() {
         const { data, status } = error.response;
         if (status !== 201) {
           const { message } = data;
-          setMessageError(message);
-          setModalVisible(true);
+          handleModalError({ message, isVisible: true })
         }
       }
     }

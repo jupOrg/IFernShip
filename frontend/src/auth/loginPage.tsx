@@ -8,9 +8,9 @@ import { useAuth } from "./authContext";
 type FieldValues = Pick<User, "email" | "password">;
 
 export function LoginPage() {
-  const { login, setMessageError, setModalVisible } = useAuth();
+  const { login, handleModalError } = useAuth();
   const { register, handleSubmit } = useForm<FieldValues>();
-  
+
   const navigate = useNavigate();
 
   async function submit({ email, password }: FieldValues) {
@@ -23,9 +23,8 @@ export function LoginPage() {
       if (error.name === "AxiosError") {
         const { data, status } = error.response;
         if (status !== 201) {
-          const { message } = data;
-          setMessageError(message);
-          setModalVisible(true);
+          const message = data;
+          handleModalError({ message, isVisible: true });
         }
       }
     }
