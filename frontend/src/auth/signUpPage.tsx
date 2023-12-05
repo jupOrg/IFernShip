@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 import { createApiInstance } from "../api/api";
+import { Logo } from "../common/logo";
 import { Role } from "../types/role";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
@@ -58,65 +59,73 @@ export function RegisterPage() {
   }
 
   return (
-    <div className="items-center bg-curve-left-primary flex-1 justify-around p-4">
-      <div className="items-center gap-6 flex-grow-1 w-full max-w-sm 2xl:max-w-xl  2xl:my-auto 2xl:ml-[34rem]">
-        <div className="items-center gap-10">
-          <div className="gap-4">
-            <h1 className="font-semibold text-center text-2xl 2xl:text-4xl">Se cadastre</h1>
-            <p className="text-black text-center 2xl:text-2xl">
-              Se cadastre e tenha acesso a um mundo de oportunidades
-              profissionais com nosso aplicativo de vagas de estágio. Não perca
-              mais tempo, comece agora a buscar a vaga perfeita para você!
-            </p>
-          </div>
-          <form
-            onSubmit={handleSubmit(submit)}
-            className="flex flex-col gap-6 w-full"
-          >
-            <div className="input-icon-container">
-              <FaUser className="input-icon"></FaUser>
-              <input
-                type="text"
-                placeholder="Nome"
-                data-cy="register-name"
-                {...register("name")}
-                className="default-input rounded-full flex-1 pl-8 2xl:h-"
-              />
+    <div className="pl-24 py-16 min-h-screen bg-curve-left-primary">
+      <picture className="self-start ">
+        <Logo />
+      </picture>
+      <div className="w-full items-center">
+        <div className="items-center gap-6 flex-grow-1 w-full max-w-sm 2xl:max-w-xl 2xl:my-auto 2xl:ml-[34rem]">
+          <div className="items-center gap-10">
+            <div className="gap-4">
+              <h1 className="font-semibold text-center text-2xl 2xl:text-4xl">
+                Se cadastre
+              </h1>
+              <p className="text-black text-center 2xl:text-2xl">
+                Se cadastre e tenha acesso a um mundo de oportunidades
+                profissionais com nosso aplicativo de vagas de estágio. Não
+                perca mais tempo, comece agora a buscar a vaga perfeita para
+                você!
+              </p>
             </div>
-            <div className="input-icon-container">
-              <input
-                type="email"
-                placeholder="E-mail"
-                data-cy="register-email"
-                {...register("email")}
-                className="default-input rounded-full flex-1 pl-8"
-              />
-              <FaEnvelope className="input-icon" />
-            </div>
-            <div className="input-icon-container">
-              <FaLock className="input-icon"></FaLock>
-              <input
-                type="password"
-                placeholder="Senha"
-                data-cy="register-password"
-                {...register("password")}
-                className="default-input rounded-full flex-1 pl-8"
-              />
-            </div>
-            <button
-              type="submit"
-              className="default-submit btn mt-8"
-              data-cy="register-save"
+            <form
+              onSubmit={handleSubmit(submit)}
+              className="flex flex-col gap-6 w-full"
             >
-              Entrar
-            </button>
-          </form>
+              <div className="input-icon-container">
+                <FaUser className="input-icon"></FaUser>
+                <input
+                  type="text"
+                  placeholder="Nome"
+                  data-cy="register-name"
+                  {...register("name")}
+                  className="default-input rounded-full flex-1 pl-8 2xl:h-"
+                />
+              </div>
+              <div className="input-icon-container">
+                <input
+                  type="email"
+                  placeholder="E-mail"
+                  data-cy="register-email"
+                  {...register("email")}
+                  className="default-input rounded-full flex-1 pl-8"
+                />
+                <FaEnvelope className="input-icon" />
+              </div>
+              <div className="input-icon-container">
+                <FaLock className="input-icon"></FaLock>
+                <input
+                  type="password"
+                  placeholder="Senha"
+                  data-cy="register-password"
+                  {...register("password")}
+                  className="default-input rounded-full flex-1 pl-8"
+                />
+              </div>
+              <button
+                type="submit"
+                className="default-submit btn mt-8"
+                data-cy="register-save"
+              >
+                Entrar
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-      <div className="w-full 2xl:max-w-xl  2xl:mb-10 2xl:ml-[34rem]">
-        <Link className="self-center" to="/entrar">
-          Já possui uma conta?
-        </Link>
+        <div className="w-full 2xl:max-w-xl 2xl:mb-10 2xl:mt-10 2xl:ml-[34rem]">
+          <Link className="self-center" to="/entrar">
+            Já possui uma conta?
+          </Link>
+        </div>
       </div>
     </div>
   );
