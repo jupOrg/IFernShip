@@ -1,4 +1,7 @@
 import { useForm } from "react-hook-form";
+import { Logo } from "../common/logo";
+
+
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { GradientCurve } from "../common/gradientCurve";
@@ -31,7 +34,9 @@ export function LoginPage() {
   }
 
   return (
-    <div className="items-center p-4 flex-1 justify-around">
+    <div className="pl-24 py-16 min-h-screen">
+      <Logo />
+      <div className="items-center p-4 flex-1 justify-around">
       <GradientCurve />
       <div className="items-center gap-8 max-w-md 2xl:ml-[34rem]">
         <h1 className="font-semibold text-2xl 2xl:text-4xl">Bem-Vindo de Volta</h1>
@@ -69,14 +74,16 @@ export function LoginPage() {
           </button>
         </form>
         <div className="flex-row justify-around items-center text-center 2xl:mx-auto 2xl:gap-52">
-        <Link className="self-end" to="/recuperar-senha">
+        {/* <Link className="self-end" to="/recuperar-senha">
           Esqueceu a senha?
-        </Link>
+        </Link> */}
         <Link className="self-end" to="/cadastro">
-          Se cadastrar
+          Não tem conta? Cadastre-se
         </Link>
       </div>
       </div>
     </div>
+    </div>
+    
   );
 }
