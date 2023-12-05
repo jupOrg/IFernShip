@@ -10,9 +10,12 @@ import { User } from "../types/user";
 import { useAuth } from "./authContext";
 import { responseLogin } from "../types/responseLogin";
 
+import { Input } from "../common/input";
+
 type FieldValues = Pick<User, "email" | "name" | "password">;
 
 const schema = yup.object({
+  name: yup.string().required("É nescessario informar um nome"),
   email: yup
     .string()
     .email("Digite um email valido")
@@ -52,7 +55,7 @@ export function RegisterPage() {
         const { data, status } = error.response;
         if (status !== 201) {
           const { message } = data;
-          handleModalError({ message, isVisible: true })
+          handleModalError({ message, isVisible: true });
         }
       }
     }
@@ -74,36 +77,32 @@ export function RegisterPage() {
             onSubmit={handleSubmit(submit)}
             className="flex flex-col gap-2 w-full"
           >
-            <div className="input-icon-container">
-              <FaUser className="input-icon"></FaUser>
-              <input
-                type="text"
+            <Input.Root>
+              <Input.Icon icon={FaUser} />
+              <Input.InputText
                 placeholder="Nome"
                 data-cy="register-name"
                 {...register("name")}
-                className="default-input rounded-full flex-1 pl-8"
               />
-            </div>
-            <div className="input-icon-container">
-              <input
+            </Input.Root>
+            <Input.Root>
+              <Input.Icon icon={FaUser} />
+              <Input.InputText
                 type="email"
                 placeholder="E-mail"
                 data-cy="register-email"
                 {...register("email")}
-                className="default-input rounded-full flex-1 pl-8"
               />
-              <FaEnvelope className="input-icon" />
-            </div>
-            <div className="input-icon-container">
-              <FaLock className="input-icon"></FaLock>
-              <input
+            </Input.Root>
+            <Input.Root>
+              <Input.Icon icon={FaLock} />
+              <Input.InputText
                 type="password"
                 placeholder="Senha"
                 data-cy="register-password"
                 {...register("password")}
-                className="default-input rounded-full flex-1 pl-8"
               />
-            </div>
+            </Input.Root>
             <button
               type="submit"
               className="default-submit btn mt-8"

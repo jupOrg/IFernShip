@@ -5,6 +5,8 @@ import { GradientCurve } from "../common/gradientCurve";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
 
+import { Input } from "../common/input";
+
 type FieldValues = Pick<User, "email" | "password">;
 
 export function LoginPage() {
@@ -44,26 +46,24 @@ export function LoginPage() {
           onSubmit={handleSubmit(submit)}
           className="flex flex-col gap-2 w-full"
         >
-          <div className="input-icon-container">
-            <FaUser className="input-icon"></FaUser>
-            <input
+          <Input.Root>
+            <Input.Icon icon={FaUser} />
+            <Input.InputText
               type="email"
-              placeholder="Email"
-              data-cy="login-email"
+              placeholder="E-mail"
+              data-cy="register-email"
               {...register("email")}
-              className="default-input rounded-full flex-1 pl-8"
             />
-          </div>
-          <div className="input-icon-container">
-            <FaLock className="input-icon"></FaLock>
-            <input
+          </Input.Root>
+          <Input.Root>
+            <Input.Icon icon={FaLock} />
+            <Input.InputText
               type="password"
               placeholder="Senha"
-              data-cy="login-password"
+              data-cy="register-password"
               {...register("password")}
-              className="default-input rounded-full flex-1 pl-8"
             />
-          </div>
+          </Input.Root>
           <button type="submit" className="default-submit" data-cy="login-save">
             Entrar
           </button>
