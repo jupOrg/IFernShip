@@ -5,8 +5,8 @@ export function ChoiceAuthenticateMD() {
     <div className="flex-row min-h-screen bg-curve-right">
       <div className="w-1/2 min-h-full pl-24 py-16 justify-between">
         <Logo />
-        <div className="gap-20 items-center max-w-xl">
-          <p className="text-black text-center lg:px-6">
+        <div className="gap-20 mb-48 items-center max-w-xl">
+          <p className="text-black text-center lg:px-6 2xl:text-2xl">
             Encontre o estágio dos seus sonhos e comece a trilhar o caminho para
             o sucesso profissional! Não perca mais tempo procurando vagas
             manualmente, baixe agora e comece a construir seu futuro!
@@ -23,10 +23,10 @@ export function ChoiceAuthenticateMD() {
       </div>
       <div className="w-1/2">
         <div className="h-1/2 justify-center gap-4">
-          <h1 className="text-[#5CFFCE] text-3xl font-bold text-center">
+          <h1 className="text-[#5CFFCE] text-3xl 2xl:text-5xl font-bold text-center">
             IFernShip
           </h1>
-          <h1 className="text-[#C5FFEA] text-3xl font-bold text-center">
+          <h1 className="text-[#C5FFEA] text-3xl 2xl:text-5xl font-bold text-center">
             Vagas de Estágios
           </h1>
         </div>
