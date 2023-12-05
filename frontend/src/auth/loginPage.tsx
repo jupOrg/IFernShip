@@ -33,16 +33,16 @@ export function LoginPage() {
   return (
     <div className="items-center p-4 flex-1 justify-around">
       <GradientCurve />
-      <div className="items-center gap-4 max-w-md">
-        <h1 className="font-semibold text-2xl">Bem-Vindo de Volta</h1>
-        <div className="text-center">
+      <div className="items-center gap-8 max-w-md 2xl:ml-[34rem]">
+        <h1 className="font-semibold text-2xl 2xl:text-4xl">Bem-Vindo de Volta</h1>
+        <div className="text-center 2xl:text-2xl">
           Faça login e tenha acesso a um mundo de oportunidades profissionais
           com nosso aplicativo de vagas de estágio. Não perca mais tempo, comece
           agora a buscar a vaga perfeita para você!
         </div>
         <form
           onSubmit={handleSubmit(submit)}
-          className="flex flex-col gap-2 w-full"
+          className="flex flex-col gap-6 w-full"
         >
           <div className="input-icon-container">
             <FaUser className="input-icon"></FaUser>
@@ -68,14 +68,14 @@ export function LoginPage() {
             Entrar
           </button>
         </form>
-      </div>
-      <div className="w-full grid grid-cols-2 text-center">
+        <div className="flex-row justify-around items-center text-center 2xl:mx-auto 2xl:gap-52">
         <Link className="self-end" to="/recuperar-senha">
           Esqueceu a senha?
         </Link>
         <Link className="self-end" to="/cadastro">
           Se cadastrar
         </Link>
+      </div>
       </div>
     </div>
   );
