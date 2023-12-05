@@ -1,14 +1,13 @@
-import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 import { createApiInstance } from "../api/api";
 import { Role } from "../types/role";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
-import { responseLogin } from "../types/responseLogin";
 
 type FieldValues = Pick<User, "email" | "name" | "password">;
 
@@ -60,11 +59,11 @@ export function RegisterPage() {
 
   return (
     <div className="items-center bg-curve-left-primary flex-1 justify-around p-4">
-      <div className="items-center gap-4 flex-grow-1 w-full max-w-sm">
-        <div className="items-center gap-8">
+      <div className="items-center gap-6 flex-grow-1 w-full max-w-sm 2xl:max-w-xl  2xl:my-auto 2xl:ml-[34rem]">
+        <div className="items-center gap-10">
           <div className="gap-4">
-            <h1 className="font-semibold text-center text-2xl">Se cadastre</h1>
-            <p className="text-black text-center">
+            <h1 className="font-semibold text-center text-2xl 2xl:text-4xl">Se cadastre</h1>
+            <p className="text-black text-center 2xl:text-2xl">
               Se cadastre e tenha acesso a um mundo de oportunidades
               profissionais com nosso aplicativo de vagas de estágio. Não perca
               mais tempo, comece agora a buscar a vaga perfeita para você!
@@ -72,7 +71,7 @@ export function RegisterPage() {
           </div>
           <form
             onSubmit={handleSubmit(submit)}
-            className="flex flex-col gap-2 w-full"
+            className="flex flex-col gap-6 w-full"
           >
             <div className="input-icon-container">
               <FaUser className="input-icon"></FaUser>
@@ -81,7 +80,7 @@ export function RegisterPage() {
                 placeholder="Nome"
                 data-cy="register-name"
                 {...register("name")}
-                className="default-input rounded-full flex-1 pl-8"
+                className="default-input rounded-full flex-1 pl-8 2xl:h-"
               />
             </div>
             <div className="input-icon-container">
@@ -114,8 +113,8 @@ export function RegisterPage() {
           </form>
         </div>
       </div>
-      <div>
-        <Link className="self-end" to="/entrar">
+      <div className="w-full 2xl:max-w-xl  2xl:mb-10 2xl:ml-[34rem]">
+        <Link className="self-center" to="/entrar">
           Já possui uma conta?
         </Link>
       </div>

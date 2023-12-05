@@ -36,7 +36,7 @@ body {
 
 @layer components {
   .default-input {
-    @apply rounded-lg p-2 border border-gray-400 shadow-md placeholder-gray-500;
+    @apply rounded-lg p-2 border border-gray-400 shadow-md placeholder-gray-500 2xl:p-3;
   }
 
   .btn {
