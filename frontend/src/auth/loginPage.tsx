@@ -1,18 +1,34 @@
+import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { Logo } from "../common/logo";
-
-
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import { Logo } from "../common/logo";
 import { GradientCurve } from "../common/gradientCurve";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
 
 type FieldValues = Pick<User, "email" | "password">;
 
+const schema = yup.object({
+  email: yup
+    .string()
+    .email("Digite um email valido")
+    .required("É nescessário informar um email"),
+  password: yup.string().required("É nescessário informar a senha"),
+});
+
 export function LoginPage() {
   const { login, handleModalError } = useAuth();
-  const { register, handleSubmit } = useForm<FieldValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setError
+  } = useForm<FieldValues>({
+    resolver: yupResolver(schema)
+  });
 
   const navigate = useNavigate();
 
@@ -22,12 +38,14 @@ export function LoginPage() {
       if (response.token) {
         navigate("/estagios");
       }
-    } catch (error) {
-      if (error.name === "AxiosError") {
-        const { data, status } = error.response;
+    } catch (err) {
+      if (err.name === "AxiosError" && err.code === "ERR_NETWORK") {
+        handleModalError({ title: "BackEnd desligado", message: "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação", isVisible: true });
+      } else if (err.name === "AxiosError") {
+        const { data, status } = err.response;
         if (status !== 201) {
-          const message = data;
-          handleModalError({ message, isVisible: true });
+          setError("email", { type: "customn", message: "Usuário ou senha incorreto" })
+          setError("password", { type: "customn", message: "Usuário ou senha incorreto" })
         }
       }
     }
@@ -37,53 +55,70 @@ export function LoginPage() {
     <div className="pl-24 py-16 min-h-screen">
       <Logo />
       <div className="items-center p-4 flex-1 justify-around">
-      <GradientCurve />
-      <div className="items-center gap-8 max-w-md 2xl:ml-[34rem]">
-        <h1 className="font-semibold text-2xl 2xl:text-4xl">Bem-Vindo de Volta</h1>
-        <div className="text-center 2xl:text-2xl">
-          Faça login e tenha acesso a um mundo de oportunidades profissionais
-          com nosso aplicativo de vagas de estágio. Não perca mais tempo, comece
-          agora a buscar a vaga perfeita para você!
-        </div>
-        <form
-          onSubmit={handleSubmit(submit)}
-          className="flex flex-col gap-6 w-full"
-        >
-          <div className="input-icon-container">
-            <FaUser className="input-icon"></FaUser>
-            <input
-              type="email"
-              placeholder="Email"
-              data-cy="login-email"
-              {...register("email")}
-              className="default-input rounded-full flex-1 pl-8"
-            />
+        <GradientCurve />
+        <div className="items-center gap-8 max-w-md 2xl:ml-[34rem]">
+          <h1 className="font-semibold text-2xl 2xl:text-4xl">
+            Bem-Vindo de Volta
+          </h1>
+          <div className="text-center 2xl:text-2xl">
+            Faça login e tenha acesso a um mundo de oportunidades profissionais
+            com nosso aplicativo de vagas de estágio. Não perca mais tempo,
+            comece agora a buscar a vaga perfeita para você!
           </div>
-          <div className="input-icon-container">
-            <FaLock className="input-icon"></FaLock>
-            <input
-              type="password"
-              placeholder="Senha"
-              data-cy="login-password"
-              {...register("password")}
-              className="default-input rounded-full flex-1 pl-8"
-            />
-          </div>
-          <button type="submit" className="default-submit" data-cy="login-save">
-            Entrar
-          </button>
-        </form>
-        <div className="flex-row justify-around items-center text-center 2xl:mx-auto 2xl:gap-52">
-        {/* <Link className="self-end" to="/recuperar-senha">
+          <form
+            onSubmit={handleSubmit(submit)}
+            className="flex flex-col gap-6 w-full"
+          >
+            <div className="gap-2">
+              <div className="input-icon-container">
+                <input
+                  type="email"
+                  placeholder="E-mail"
+                  data-cy="login-email"
+                  {...register("email")}
+                  className="default-input rounded-full flex-1 pl-8"
+                />
+                <FaUser className="input-icon"></FaUser>
+              </div>
+              {errors.email && (
+                <p className="text-sm text-red-600">{errors.email.message}</p>
+              )}
+            </div>
+            <div className="gap-2">
+              <div className="input-icon-container">
+                <FaLock className="input-icon"></FaLock>
+                <input
+                  type="password"
+                  placeholder="Senha"
+                  data-cy="login-password"
+                  {...register("password")}
+                  className="default-input rounded-full flex-1 pl-8"
+                />
+              </div>
+              {errors.password && (
+                <p className="text-sm text-red-600">
+                  {errors.password.message}
+                </p>
+              )}
+            </div>
+            <button
+              type="submit"
+              className="default-submit"
+              data-cy="login-save"
+            >
+              Entrar
+            </button>
+          </form>
+          <div className="flex-row justify-around items-center text-center 2xl:mx-auto 2xl:gap-52">
+            {/* <Link className="self-end" to="/recuperar-senha">
           Esqueceu a senha?
         </Link> */}
-        <Link className="self-end" to="/cadastro">
-          Não tem conta? Cadastre-se
-        </Link>
-      </div>
+            <Link className="self-end" to="/cadastro">
+              Não tem conta? Cadastre-se
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    
   );
 }

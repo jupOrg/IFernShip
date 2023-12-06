@@ -13,6 +13,7 @@ import { useAuth } from "./authContext";
 type FieldValues = Pick<User, "email" | "name" | "password">;
 
 const schema = yup.object({
+  name: yup.string().required("É nescessario informar um nome"),
   email: yup
     .string()
     .email("Digite um email valido")
@@ -23,7 +24,12 @@ const schema = yup.object({
 const api = createApiInstance();
 
 export function RegisterPage() {
-  const { register, handleSubmit } = useForm<FieldValues>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setError
+  } = useForm<FieldValues>({
     resolver: yupResolver(schema),
   });
 
@@ -47,12 +53,15 @@ export function RegisterPage() {
       if (response.token) {
         navigate("/estagios");
       }
-    } catch (error) {
-      if (error.name === "AxiosError") {
-        const { data, status } = error.response;
+    } catch (err) {
+      if (err.name === "AxiosError" && err.code === "ERR_NETWORK") {
+        handleModalError({ title: "BackEnd desligado", message: "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação", isVisible: true });
+      } else if (err.name === "AxiosError") {
+        const { data, status } = err.response;
         if (status !== 201) {
-          const { message } = data;
-          handleModalError({ message, isVisible: true })
+          const message = data.message || data
+          console.log(message)
+          setError("email", { type: "customn", message });
         }
       }
     }
@@ -81,35 +90,52 @@ export function RegisterPage() {
               onSubmit={handleSubmit(submit)}
               className="flex flex-col gap-6 w-full"
             >
-              <div className="input-icon-container">
-                <FaUser className="input-icon"></FaUser>
-                <input
-                  type="text"
-                  placeholder="Nome"
-                  data-cy="register-name"
-                  {...register("name")}
-                  className="default-input rounded-full flex-1 pl-8 2xl:h-"
-                />
+              <div className="gap-2">
+                <div className="input-icon-container">
+                  <FaUser className="input-icon"></FaUser>
+                  <input
+                    type="text"
+                    placeholder="Nome"
+                    data-cy="register-name"
+                    {...register("name")}
+                    className="default-input rounded-full flex-1 pl-8 2xl:h-"
+                  />
+                </div>
+                {errors.name && (
+                  <p className="text-sm text-red-600">{errors.name.message}</p>
+                )}
               </div>
-              <div className="input-icon-container">
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  data-cy="register-email"
-                  {...register("email")}
-                  className="default-input rounded-full flex-1 pl-8"
-                />
-                <FaEnvelope className="input-icon" />
+              <div className="gap-2">
+                <div className="input-icon-container">
+                  <input
+                    type="email"
+                    placeholder="E-mail"
+                    data-cy="register-email"
+                    {...register("email")}
+                    className="default-input rounded-full flex-1 pl-8"
+                  />
+                  <FaEnvelope className="input-icon" />
+                </div>
+                {errors.email && (
+                  <p className="text-sm text-red-600">{errors.email.message}</p>
+                )}
               </div>
-              <div className="input-icon-container">
-                <FaLock className="input-icon"></FaLock>
-                <input
-                  type="password"
-                  placeholder="Senha"
-                  data-cy="register-password"
-                  {...register("password")}
-                  className="default-input rounded-full flex-1 pl-8"
-                />
+              <div className="gap-2">
+                <div className="input-icon-container">
+                  <FaLock className="input-icon"></FaLock>
+                  <input
+                    type="password"
+                    placeholder="Senha"
+                    data-cy="register-password"
+                    {...register("password")}
+                    className="default-input rounded-full flex-1 pl-8"
+                  />
+                </div>
+                {errors.password && (
+                  <p className="text-sm text-red-600">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
               <button
                 type="submit"
