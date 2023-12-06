@@ -9,6 +9,7 @@ import { Logo } from "../common/logo";
 import { Role } from "../types/role";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
+import { AxiosError, AxiosResponse } from "axios";
 
 type FieldValues = Pick<User, "email" | "name" | "password">;
 
@@ -28,7 +29,7 @@ export function RegisterPage() {
     register,
     handleSubmit,
     formState: { errors },
-    setError
+    setError,
   } = useForm<FieldValues>({
     resolver: yupResolver(schema),
   });
@@ -54,13 +55,19 @@ export function RegisterPage() {
         navigate("/estagios");
       }
     } catch (err) {
-      if (err.name === "AxiosError" && err.code === "ERR_NETWORK") {
-        handleModalError({ title: "BackEnd desligado", message: "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação", isVisible: true });
-      } else if (err.name === "AxiosError") {
-        const { data, status } = err.response;
+      const error = err as AxiosError;
+      if (error.code === "ERR_NETWORK") {
+        handleModalError?.({
+          title: "BackEnd desligado",
+          message:
+            "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação",
+          isVisible: true,
+        });
+      } else if (error.response) {
+        const { data, status }: AxiosResponse = error.response;
         if (status !== 201) {
-          const message = data.message || data
-          console.log(message)
+          const message = data?.message || data;
+          console.log(message);
           setError("email", { type: "customn", message });
         }
       }

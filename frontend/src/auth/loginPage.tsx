@@ -8,6 +8,7 @@ import { Logo } from "../common/logo";
 import { GradientCurve } from "../common/gradientCurve";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
+import { AxiosError } from "axios";
 
 type FieldValues = Pick<User, "email" | "password">;
 
@@ -25,9 +26,9 @@ export function LoginPage() {
     register,
     handleSubmit,
     formState: { errors },
-    setError
+    setError,
   } = useForm<FieldValues>({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
   });
 
   const navigate = useNavigate();
@@ -39,13 +40,25 @@ export function LoginPage() {
         navigate("/estagios");
       }
     } catch (err) {
-      if (err.name === "AxiosError" && err.code === "ERR_NETWORK") {
-        handleModalError({ title: "BackEnd desligado", message: "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação", isVisible: true });
-      } else if (err.name === "AxiosError") {
-        const { data, status } = err.response;
+      const error = err as AxiosError;
+      if (error.code === "ERR_NETWORK") {
+        handleModalError?.({
+          title: "BackEnd desligado",
+          message:
+            "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação",
+          isVisible: true,
+        });
+      } else if (error.response) {
+        const { status } = error.response;
         if (status !== 201) {
-          setError("email", { type: "customn", message: "Usuário ou senha incorreto" })
-          setError("password", { type: "customn", message: "Usuário ou senha incorreto" })
+          setError("email", {
+            type: "customn",
+            message: "Usuário ou senha incorreto",
+          });
+          setError("password", {
+            type: "customn",
+            message: "Usuário ou senha incorreto",
+          });
         }
       }
     }

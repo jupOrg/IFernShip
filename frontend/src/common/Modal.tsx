@@ -2,7 +2,7 @@ export type ModalProps = {
   title?: string;
   message: string;
   isVisible: boolean;
-  callbackClose: () => void;
+  callbackClose?: () => void;
 };
 
 export function Modal({
