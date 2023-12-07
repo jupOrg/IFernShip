@@ -14,12 +14,13 @@ export function NavBar() {
   return (
     <div className="items-center justify-between w-full max-w-[14rem] p-6 hidden md:flex">
       <div className="items-center">
-        <img
-          alt="user image"
-          // TODO replace by real image
-          src={`https://github.com/${user.picture}.png`}
-          className="rounded-full w-24 aspect-square border-2 border-white"
-        />
+        <Link to="/user/editar">
+          <img
+            alt="user image"
+            src={`https://github.com/${user.picture}.png`}
+            className="rounded-full w-24 aspect-square border-2 border-white"
+          />
+        </Link>
         <div className="text-lg font-medium">{user.name}</div>
         <UserRoleBadge role={user.role} />
       </div>

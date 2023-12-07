@@ -20,6 +20,7 @@ import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
 import { SplashPage } from "./intro/splashPage";
 import { RenderVersion } from "./renderVersion";
+import { UserPage } from "./auth/userPage";
 
 const publicRoutes = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const protectedRoutes = createBrowserRouter([
     path: "/estagios/:id",
     element: <InternshipPage />,
   },
+  {
+    path: "/user/editar",
+    element: <UserPage />,
+  },
   // TODO add login and sign up redirects
   {
     path: "/",
@@ -104,6 +109,7 @@ export function Router() {
   return (
     <RouterProvider
       router={isLogged ? protectedRoutes : publicRoutes}
+      // router={protectedRoutes}
       fallbackElement={<SplashPage />}
     />
   );

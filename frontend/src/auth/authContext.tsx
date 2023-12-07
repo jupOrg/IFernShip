@@ -65,7 +65,8 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     setToken("");
   }
 
-  const isLogged = !!user;
+  console.log(token)
+  const isLogged = !!token;
 
   useEffect(() => {
     getUser();
