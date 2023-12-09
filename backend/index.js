@@ -15,7 +15,7 @@ app.use(error);
 
 app.use("/internship", internshipRouter);
 app.use("/enterprise", enterpriseRouter);
-app.use("/user", userRouter);
+app.use("/users", userRouter);
 app.use("/", authRouter);
 
 const port = 3000;

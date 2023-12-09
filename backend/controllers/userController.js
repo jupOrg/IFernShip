@@ -151,6 +151,23 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const loggedUser = async (req, res) => {
+  try {
+    const { id } = req.user;
+
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).send(`Não há usuário com o ID ${id}.`);
+    }
+
+    res.status(200).send(user);
+  } catch (ex) {
+    console.error(ex)
+    res.status(400).send(ex?.errors || "Falha ao obter usuário.");
+  }
+}
+
 export default {
   listUsers,
   findUser,
@@ -158,4 +175,5 @@ export default {
   login,
   edit,
   deleteUser,
+  loggedUser
 };

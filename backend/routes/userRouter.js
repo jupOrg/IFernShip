@@ -1,11 +1,10 @@
-import { Router } from "express";
-import upload from "../config/upload.js";
+import express from "express";
 import userController from "../controllers/userController.js";
+import { verifyTokenAuthentication } from "../middlewares/authentication.js";
 
-const router = Router();
+const router = express.Router();
+
+router.get("/me", verifyTokenAuthentication, userController.loggedUser);
+router.patch("/:id", verifyTokenAuthentication, userController.edit);
+
 export const userRouter = router;
-
-router.get("/", userController.listUsers);
-router.get("/:id", userController.findUser);
-router.delete("/:id", userController.deleteUser);
-router.put("/edit/:id", upload.single("image"), userController.edit);

@@ -14,11 +14,11 @@ export function verifyTokenAuthentication(request, response, next) {
     const { sub, name } = jsonWebToken.verify(token, TOKEN_SECRET);
 
     request.user = {
-      id: Number(sub),
+      id: sub,
       name,
     };
 
-    return next();
+    next();
   } catch (error) {
     return response.status(403).json("Token inválido.");
   }
