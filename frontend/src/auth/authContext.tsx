@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { AxiosError, AxiosResponse } from "axios";
+import Cookies from "js-cookie";
 
 import { createApiInstance } from "../api/api";
 import { ChildrenProps } from "../common/childrenProps";
@@ -19,13 +21,13 @@ const authContext = createContext({} as AuthContext);
 
 export function AuthContextProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<User>();
-  const [token, setToken] = useState<string>("");
   const [modalData, setModalData] = useState<ModalProps>({
     message: "",
     isVisible: false,
     callbackClose: closeModalError,
   });
 
+  const token = Cookies.get("token");
   const api = createApiInstance(token);
 
   function handleModalError(props: ModalProps) {
@@ -33,7 +35,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   }
 
   function closeModalError() {
-    setModalData({ ...modalData, isVisible: false })
+    setModalData({ ...modalData, isVisible: false });
   }
 
   async function login(
@@ -43,7 +45,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     // This is not a GET because of the body encryption
     const res = await api.post("/login", { email, password });
     const { user, token } = res.data;
-    setToken(token);
+    Cookies.set("token", token);
     setUser(user);
     return res.data;
   }
@@ -52,20 +54,21 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     try {
       const res = await api.get<User | undefined>("/users/me");
       setUser(res.data);
-    } catch (error) {
-      if (error.response.status === 401) {
-        console.error(error)
+    } catch (err) {
+      const error = err as AxiosError;
+      const { status } = error.response as AxiosResponse;
+      if (status === 401) {
+        console.error(error);
       }
     }
   }
 
   async function logout() {
     await api.post("/logout");
+    Cookies.set("token", "");
     setUser(undefined);
-    setToken("");
   }
 
-  console.log(token)
   const isLogged = !!token;
 
   useEffect(() => {
