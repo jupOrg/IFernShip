@@ -120,13 +120,13 @@ export function LoginPage() {
               Entrar
             </button>
           </form>
-          <div className="flex-row justify-around items-center text-center 2xl:mx-auto 2xl:gap-52">
-            {/* <Link className="self-end" to="/recuperar-senha">
-          Esqueceu a senha?
-        </Link> */}
+          <div>
             <Link className="self-end underline" to="/cadastro">
               Não tem conta? Cadastre-se
             </Link>
+            {/* <Link className="self-end" to="/recuperar-senha">
+              Esqueceu a senha?
+            </Link> */}
           </div>
         </div>
       </div>

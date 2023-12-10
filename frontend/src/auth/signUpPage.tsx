@@ -142,18 +142,18 @@ export function RegisterPage() {
               </div>
               <button
                 type="submit"
-                className="default-submit btn mt-8"
+                className="default-submit btn"
                 data-cy="register-save"
               >
                 Entrar
               </button>
             </form>
           </div>
-        </div>
-        <div className="w-full 2xl:max-w-xl 2xl:mb-10 2xl:mt-10 2xl:ml-[34rem]">
-          <Link className="self-center underline" to="/entrar">
-            Já possui uma conta?
-          </Link>
+          <div>
+            <Link className="self-center underline" to="/entrar">
+              Já possui uma conta?
+            </Link>
+          </div>
         </div>
       </div>
     </div>
