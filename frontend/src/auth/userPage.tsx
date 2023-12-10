@@ -81,7 +81,7 @@ export function UserPage() {
   return (
     <div className="items-center justify-between w-full p-6 hidden md:flex">
       <GradientCurve />
-      <div className="w-full max-w-xl gap-6">
+      <div className="w-full max-w-md gap-6">
         <h1 className="page-header">
           <GoBackArrow to="/estagios" />
           Editar dados
@@ -97,7 +97,8 @@ export function UserPage() {
               className="rounded-full w-24 aspect-square border-2 border-white"
             />
             <UserRoleBadge role={user.role} />
-
+          </div>
+          <div className="gap-2">
             <div className="input-icon-container">
               <FaUser className="input-icon"></FaUser>
               <input
