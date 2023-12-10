@@ -12,13 +12,13 @@ type SignUpDto = {
 };
 
 export async function signUp({ name, email, role, password }: SignUpDto) {
-  let alreadySavedUser = await db.user.findUnique({ where: { email } });
+  const alreadySavedUser = await db.user.findUnique({ where: { email } });
 
   if (alreadySavedUser) {
     throw { status: 400, message: "An user with this email already exists" };
   }
 
-  let encryptedPassword = await hash(password, 10);
+  const encryptedPassword = await hash(password, 10);
 
   const user = await db.user.create({
     data: { role, name, email, password: encryptedPassword },
