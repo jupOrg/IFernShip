@@ -4,12 +4,12 @@ import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
+import { AxiosError, AxiosResponse } from "axios";
 import { createApiInstance } from "../api/api";
 import { Logo } from "../common/logo";
 import { Role } from "../types/role";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
-import { AxiosError, AxiosResponse } from "axios";
 
 type FieldValues = Pick<User, "email" | "name" | "password">;
 
@@ -155,7 +155,7 @@ export function RegisterPage() {
           </div>
         </div>
         <div className="w-full 2xl:max-w-xl 2xl:mb-10 2xl:mt-10 2xl:ml-[34rem]">
-          <Link className="self-center" to="/entrar">
+          <Link className="self-center underline" to="/entrar">
             Já possui uma conta?
           </Link>
         </div>

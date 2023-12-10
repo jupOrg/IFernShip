@@ -1,14 +1,14 @@
-import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-import { Logo } from "../common/logo";
+import { AxiosError } from "axios";
 import { GradientCurve } from "../common/gradientCurve";
+import { Logo } from "../common/logo";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
-import { AxiosError } from "axios";
 
 type FieldValues = Pick<User, "email" | "password">;
 
@@ -126,7 +126,7 @@ export function LoginPage() {
             {/* <Link className="self-end" to="/recuperar-senha">
           Esqueceu a senha?
         </Link> */}
-            <Link className="self-end" to="/cadastro">
+            <Link className="self-end underline" to="/cadastro">
               Não tem conta? Cadastre-se
             </Link>
           </div>
