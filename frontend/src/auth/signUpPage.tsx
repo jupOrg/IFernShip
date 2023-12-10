@@ -60,7 +60,7 @@ export function RegisterPage() {
         handleModalError?.({
           title: "BackEnd desligado",
           message:
-            "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação",
+            "A aplicação não consegue se comunicar com nenhum backend, impossibilitando essa operação",
           isVisible: true,
         });
       } else if (error.response) {
