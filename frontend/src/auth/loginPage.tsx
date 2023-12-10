@@ -1,14 +1,14 @@
-import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-import { Logo } from "../common/logo";
+import { AxiosError } from "axios";
 import { GradientCurve } from "../common/gradientCurve";
+import { Logo } from "../common/logo";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
-import { AxiosError } from "axios";
 
 type FieldValues = Pick<User, "email" | "password">;
 
@@ -65,11 +65,13 @@ export function LoginPage() {
   }
 
   return (
-    <div className="pl-24 py-16 min-h-screen">
-      <Logo />
-      <div className="items-center p-4 flex-1 justify-around">
+    <div className="flex-1 bg-curve-left-primary justify-center p-2">
+      <picture className="self-start fixed hidden sm:flex top-5 left-5">
+        <Logo />
+      </picture>
+      <div className="items-center flex-1 justify-around">
         <GradientCurve />
-        <div className="items-center gap-8 max-w-md 2xl:ml-[34rem]">
+        <div className="items-center gap-8 max-w-md">
           <h1 className="font-semibold text-2xl 2xl:text-4xl">
             Bem-Vindo de Volta
           </h1>
@@ -126,7 +128,7 @@ export function LoginPage() {
             {/* <Link className="self-end" to="/recuperar-senha">
           Esqueceu a senha?
         </Link> */}
-            <Link className="self-end" to="/cadastro">
+            <Link className="self-end underline" to="/cadastro">
               Não tem conta? Cadastre-se
             </Link>
           </div>
