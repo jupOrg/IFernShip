@@ -15,6 +15,7 @@ type AuthContext = {
   logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<responseLogin>;
   handleModal?: (props: ModalProps) => void;
+  closeModal?: () => void;
 };
 
 const authContext = createContext({} as AuthContext);
@@ -25,7 +26,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     title: "Ocorreu um error",
     message: "",
     isVisible: false,
-    callbackClose: closeModalError,
+    callbackClose: closeModal,
   });
 
   const token = Cookies.get("token");
@@ -35,7 +36,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     setModalData({ ...modalData, ...props });
   }
 
-  function closeModalError() {
+  function closeModal() {
     setModalData({ ...modalData, isVisible: false });
   }
 
@@ -85,6 +86,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         logout,
         isLogged,
         handleModal,
+        closeModal,
       }}
     >
       {children}

@@ -43,7 +43,7 @@ export function CreateEnterprisePage() {
     resolver: yupResolver(schema),
   });
 
-  const { token, handleModal } = useAuth();
+  const { token, handleModal, closeModal } = useAuth();
   const api = createApiInstance(token);
 
   const navigate = useNavigate();
@@ -59,8 +59,12 @@ export function CreateEnterprisePage() {
 
     if (res.status === 201) {
       handleModal?.({
+        isVisible: true,
         title: "Empressa registrada com Sucesso",
-        callbackClose: () => navigate("/"),
+        callbackClose: () => {
+          navigate("/");
+          closeModal();
+        },
       });
     }
   }
