@@ -75,8 +75,8 @@ export function RegisterPage() {
   }
 
   return (
-    <div className="pl-24 py-16 min-h-screen bg-curve-left-primary">
-      <picture className="self-start ">
+    <div className="flex-1 bg-curve-left-primary justify-center p-2">
+      <picture className="self-start fixed hidden sm:flex top-5 left-5">
         <Logo />
       </picture>
       <div className="w-full items-center">
