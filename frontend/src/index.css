@@ -82,6 +82,10 @@ body {
   .bg-curve-right {
     @apply md:bg-gradient-right-img bg-gradient-right-static lg:bg-gradient-right bg-no-repeat bg-right;
   }
+
+  .error-message {
+    @apply text-red-600 font-medium text-sm;
+  }
 }
 
 .shadow-common {

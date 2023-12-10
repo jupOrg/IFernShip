@@ -107,7 +107,7 @@ export function RegisterPage() {
                   />
                 </div>
                 {errors.name && (
-                  <p className="text-sm text-red-600">{errors.name.message}</p>
+                  <p className="error-message">{errors.name.message}</p>
                 )}
               </div>
               <div className="gap-2">
@@ -122,7 +122,7 @@ export function RegisterPage() {
                   <FaEnvelope className="input-icon" />
                 </div>
                 {errors.email && (
-                  <p className="text-sm text-red-600">{errors.email.message}</p>
+                  <p className="error-message">{errors.email.message}</p>
                 )}
               </div>
               <div className="gap-2">
@@ -137,9 +137,7 @@ export function RegisterPage() {
                   />
                 </div>
                 {errors.password && (
-                  <p className="text-sm text-red-600">
-                    {errors.password.message}
-                  </p>
+                  <p className="error-message">{errors.password.message}</p>
                 )}
               </div>
               <button

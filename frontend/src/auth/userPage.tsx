@@ -1,17 +1,17 @@
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { AxiosError, AxiosResponse } from "axios";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FaEnvelope, FaUser, FaChevronDown } from "react-icons/fa";
+import { AxiosError, AxiosResponse } from "axios";
+import { useForm } from "react-hook-form";
+import { FaChevronDown, FaEnvelope, FaUser } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
 
-import { useAuth } from "./authContext";
-import { User } from "../types/user";
-import { createApiInstance } from "../api/api";
-import { GradientCurve } from "../common/gradientCurve";
-import { GoBackArrow } from "../common/goBackArrow";
-import { UserRoleBadge } from "../common/userRoleBadge";
 import { useState } from "react";
+import { createApiInstance } from "../api/api";
+import { GoBackArrow } from "../common/goBackArrow";
+import { GradientCurve } from "../common/gradientCurve";
+import { UserRoleBadge } from "../common/userRoleBadge";
+import { User } from "../types/user";
+import { useAuth } from "./authContext";
 
 const schema = yup.object({
   name: yup.string().required("É nescessario informar um nome"),
@@ -109,7 +109,7 @@ export function UserPage() {
               />
             </div>
             {errors.name && (
-              <p className="text-sm text-red-600">{errors.name.message}</p>
+              <p className="error-message">{errors.name.message}</p>
             )}
           </div>
           <div className="gap-2">
@@ -125,7 +125,7 @@ export function UserPage() {
               <FaEnvelope className="input-icon" />
             </div>
             {errors.email && (
-              <p className="text-sm text-red-600">{errors.email.message}</p>
+              <p className="error-message">{errors.email.message}</p>
             )}
           </div>
           <div className="gap-2">
@@ -141,7 +141,7 @@ export function UserPage() {
               <FaChevronDown className="input-icon" />
             </div>
             {errors.course && (
-              <p className="text-sm text-red-600">{errors.course.message}</p>
+              <p className="error-message">{errors.course.message}</p>
             )}
           </div>
           <button

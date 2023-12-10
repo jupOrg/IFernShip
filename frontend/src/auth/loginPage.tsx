@@ -94,7 +94,7 @@ export function LoginPage() {
                 <FaUser className="input-icon"></FaUser>
               </div>
               {errors.email && (
-                <p className="text-sm text-red-600">{errors.email.message}</p>
+                <p className="error-message">{errors.email.message}</p>
               )}
             </div>
             <div className="gap-2">
@@ -109,9 +109,7 @@ export function LoginPage() {
                 />
               </div>
               {errors.password && (
-                <p className="text-sm text-red-600">
-                  {errors.password.message}
-                </p>
+                <p className="error-message">{errors.password.message}</p>
               )}
             </div>
             <button
