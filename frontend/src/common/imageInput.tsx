@@ -1,20 +1,7 @@
-import { UseFormRegister, UseFormWatch } from "react-hook-form";
-import { Enterprise } from "../types/enterprise";
-
 type Props = {
   setFile?: (file: File) => void;
   file?: File | null;
-  name: string;
-  register: UseFormRegister<Enterprise>;
-  watch: UseFormWatch<Enterprise>;
 }
-
-// const convert2ForBase64 = () => {
-//   const reader = new FileReader()
-
-//   reader.onloadend = () => {
-//     setImage()
-//   }
 
 export function ImageInput({ file, setFile }: Props) {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +24,6 @@ export function ImageInput({ file, setFile }: Props) {
         accept="image/*"
         className="w-0 h-0 hidden"
         onChange={handleFileChange}
-        // {...register(name)}
       />
     </label>
   );
