@@ -15,7 +15,7 @@ export function InternshipsPage() {
   const api = createApiInstance(token);
 
   async function getInternships() {
-    const res = await api.get<Internship[]>("/internship");
+    const res = await api.get<Internship[]>("/internships");
     setInternships(res.data);
   }
 

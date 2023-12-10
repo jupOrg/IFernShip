@@ -37,7 +37,7 @@ export function UserPage() {
 
   const navigate = useNavigate();
 
-  const { user, handleModalError, token } = useAuth();
+  const { user, handleModal, token } = useAuth();
 
   const api = createApiInstance(token);
 
@@ -45,13 +45,13 @@ export function UserPage() {
     setValue("course", user?.course);
     setValue("email", user?.email);
     setValue("name", user?.name);
-  }, [])
+  }, []);
 
   if (!user) return null;
 
   async function submit({ name, email, course }: FieldValues) {
     try {
-      const response = await api.patch("/register", {
+      const response = await api.patch(`/users/${user?.id}`, {
         name,
         email,
         course,
@@ -62,7 +62,7 @@ export function UserPage() {
     } catch (err) {
       const error = err as AxiosError;
       if (error.code === "ERR_NETWORK") {
-        handleModalError?.({
+        handleModal?.({
           title: "BackEnd desligado",
           message:
             "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação",
@@ -72,7 +72,6 @@ export function UserPage() {
         const { data, status }: AxiosResponse = error.response;
         if (status !== 201) {
           const message = data?.message || data;
-          console.log(message);
           setError("email", { type: "customn", message });
         }
       }
@@ -116,6 +115,7 @@ export function UserPage() {
           <div className="gap-2">
             <div className="input-icon-container">
               <input
+                disabled
                 type="email"
                 placeholder="E-mail"
                 data-cy="edit-email"

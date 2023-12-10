@@ -5,18 +5,35 @@ import { GradientCurve } from "../common/gradientCurve";
 import { ImageInput } from "../common/imageInput";
 import { Enterprise } from "../types/enterprise";
 import { useAuth } from "../auth/authContext";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type FieldValues = Omit<Enterprise, "picture" | "id">;
 
 export function CreateEnterprisePage() {
   const { register, handleSubmit } = useForm<FieldValues>();
 
-  const { token } = useAuth();
+  const [valuePicture, setValuePicture] = useState<File | null>(null);
+
+  const { token, handleModal } = useAuth();
   const api = createApiInstance(token);
 
+  const navigate = useNavigate();
+
   async function submit(fields: FieldValues) {
-    const res = await api.post("/enterprise", fields);
-    console.log(res.data);
+    if (!valuePicture) {
+      return null;
+    }
+    const formData = new FormData();
+    formData.append('image', valuePicture);
+    console.log(formData)
+    const res = await api.post("/enterprises", formData);
+    if (res.status === 201) {
+      handleModal?.({
+        title: "Empressa registrada com Sucesso",
+        callbackClose: () => navigate("/"),
+      });
+    }
   }
 
   return (
@@ -52,9 +69,9 @@ export function CreateEnterprisePage() {
             placeholder="E-mail"
             {...register("email")}
           />
-          <ImageInput />
+          <ImageInput file={valuePicture} setFile={setValuePicture} register={register} name={"picture"} />
           <button type="submit" className="default-submit">
-            Cadastrar
+            Adicionar
           </button>
         </form>
       </div>

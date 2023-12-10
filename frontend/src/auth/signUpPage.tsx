@@ -35,14 +35,14 @@ export function RegisterPage() {
   });
 
   const navigate = useNavigate();
-  const { login, handleModalError } = useAuth();
+  const { login, handleModal } = useAuth();
 
   const { state } = useLocation();
   const role: Role = state ? state : "student";
 
   async function submit({ name, email, password }: FieldValues) {
     try {
-      await api.post("/register", {
+      await api.post("/auth/sign-up", {
         name,
         role,
         email,
@@ -57,7 +57,7 @@ export function RegisterPage() {
     } catch (err) {
       const error = err as AxiosError;
       if (error.code === "ERR_NETWORK") {
-        handleModalError?.({
+        handleModal?.({
           title: "BackEnd desligado",
           message:
             "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação",

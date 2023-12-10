@@ -21,7 +21,7 @@ const schema = yup.object({
 });
 
 export function LoginPage() {
-  const { login, handleModalError } = useAuth();
+  const { login, handleModal } = useAuth();
   const {
     register,
     handleSubmit,
@@ -42,7 +42,7 @@ export function LoginPage() {
     } catch (err) {
       const error = err as AxiosError;
       if (error.code === "ERR_NETWORK") {
-        handleModalError?.({
+        handleModal?.({
           title: "BackEnd desligado",
           message:
             "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação",

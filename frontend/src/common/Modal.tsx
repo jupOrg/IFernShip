@@ -1,12 +1,12 @@
 export type ModalProps = {
   title?: string;
-  message: string;
-  isVisible: boolean;
+  message?: string;
+  isVisible?: boolean;
   callbackClose?: () => void;
 };
 
 export function Modal({
-  title = "Ocorreu um error",
+  title,
   message,
   isVisible,
   callbackClose,
@@ -27,7 +27,12 @@ export function Modal({
           <p className="text-lg">{message}</p>
         </span>
         <div>
-          <button className="btn btn-primary w-1/4 self-end" onClick={callbackClose}>OK</button>
+          <button
+            className="btn btn-primary w-1/4 self-end"
+            onClick={callbackClose}
+          >
+            OK
+          </button>
         </div>
       </div>
     </div>

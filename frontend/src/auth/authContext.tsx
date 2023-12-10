@@ -14,7 +14,7 @@ type AuthContext = {
   isLogged: boolean;
   logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<responseLogin>;
-  handleModalError?: (props: ModalProps) => void;
+  handleModal?: (props: ModalProps) => void;
 };
 
 const authContext = createContext({} as AuthContext);
@@ -22,6 +22,7 @@ const authContext = createContext({} as AuthContext);
 export function AuthContextProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<User>();
   const [modalData, setModalData] = useState<ModalProps>({
+    title: "Ocorreu um error",
     message: "",
     isVisible: false,
     callbackClose: closeModalError,
@@ -30,7 +31,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   const token = Cookies.get("token");
   const api = createApiInstance(token);
 
-  function handleModalError(props: ModalProps) {
+  function handleModal(props: ModalProps) {
     setModalData({ ...modalData, ...props });
   }
 
@@ -43,7 +44,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     password: string
   ): Promise<responseLogin> {
     // This is not a GET because of the body encryption
-    const res = await api.post("/login", { email, password });
+    const res = await api.post("/auth/login", { email, password });
     const { user, token } = res.data;
     Cookies.set("token", token);
     setUser(user);
@@ -64,7 +65,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   }
 
   async function logout() {
-    await api.post("/logout");
+    // await api.post("/logout");
     Cookies.set("token", "");
     setUser(undefined);
   }
@@ -83,7 +84,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         login,
         logout,
         isLogged,
-        handleModalError,
+        handleModal,
       }}
     >
       {children}
