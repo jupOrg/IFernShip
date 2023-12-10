@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { authMiddleware } from "../auth/authMIddleware";
 import { AuthReq } from "../auth/authReq";
+import { upload } from "../upload";
 
 import { getAllEnterprise } from "./getAllEnterprise";
 import { createEnterprise } from "./createEnterprise";
@@ -22,7 +23,7 @@ router.get("/:id", authMiddleware, async (req: AuthReq, res) => {
   return res.json(user);
 });
 
-router.post("/", authMiddleware, async (req: AuthReq, res) => {
+router.post("/", authMiddleware, upload.single("image"), async (req: AuthReq, res) => {
   const enterprise = await createEnterprise(req.body);
   return res.status(201).json(enterprise);
 });
@@ -36,5 +37,5 @@ router.patch("/:id", authMiddleware, async (req: AuthReq, res) => {
 router.delete("/:id", authMiddleware, async (req: AuthReq, res) => {
   const { id } = req.params;
   const enterprise = await deleteEnterprise(id);
-  return res.status(201).json(enterprise);
+  return res.status(203).json(enterprise);
 });
