@@ -1,9 +1,13 @@
+import { InputHTMLAttributes } from "react";
+
 type Props = {
   setFile?: (file: File) => void;
   file?: File | null;
 }
 
-export function ImageInput({ file, setFile }: Props) {
+type InputProps = Props & InputHTMLAttributes<HTMLInputElement>
+
+export function ImageInput({ file, setFile, ...rest }: InputProps) {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const listFiles = event.target.files as FileList;
     const fileSelect = listFiles[0];
@@ -23,6 +27,7 @@ export function ImageInput({ file, setFile }: Props) {
         type="file"
         accept="image/*"
         className="w-0 h-0 hidden"
+        {...rest}
         onChange={handleFileChange}
       />
     </label>

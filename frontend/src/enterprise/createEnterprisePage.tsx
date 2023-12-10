@@ -1,7 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import * as yup from "yup";
 
 import { createApiInstance } from "../api/api";
@@ -21,6 +20,16 @@ const schema = yup.object({
     .string()
     .email("Digite um email valido")
     .required("É nescessário informar um email"),
+  picture: yup
+    .mixed<File>()
+    .test("required", "Por favor, selecione uma imagem", (value) => {
+      return !!value && !!value.name;
+    })
+    .test(
+      "fileFormat",
+      "Formato de arquivo não suportado",
+      (value) => !value || (value && value.type.includes("image/"))
+    ),
 });
 
 export function CreateEnterprisePage() {
@@ -28,11 +37,11 @@ export function CreateEnterprisePage() {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    watch,
   } = useForm<FieldValues>({
     resolver: yupResolver(schema),
   });
-
-  const [valuePicture, setValuePicture] = useState<File | null>(null);
 
   const { token, handleModal } = useAuth();
   const api = createApiInstance(token);
@@ -40,12 +49,7 @@ export function CreateEnterprisePage() {
   const navigate = useNavigate();
 
   async function submit(fields: FieldValues) {
-    if (!valuePicture) {
-      return null;
-    }
-
     const formData = new FormData();
-    formData.append("picture", valuePicture);
 
     Object.entries(fields).forEach(([key, value]) => {
       formData.append(key, value);
@@ -114,7 +118,17 @@ export function CreateEnterprisePage() {
               <div className="error-message">{errors.email.message}</div>
             )}
           </div>
-          <ImageInput file={valuePicture} setFile={setValuePicture} />
+          <div className="gap-2">
+            <ImageInput
+              file={watch("picture")}
+              setFile={(value: File) => setValue("picture", value)}
+              {...register("picture")}
+            />
+            {errors.picture && (
+              <div className="error-message">{errors.picture.message}</div>
+            )}
+          </div>
+
           <button type="submit" className="default-submit">
             Adicionar
           </button>
