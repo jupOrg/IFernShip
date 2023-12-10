@@ -67,8 +67,7 @@ export function RegisterPage() {
         const { data, status }: AxiosResponse = error.response;
         if (status !== 201) {
           const message = data?.message || data;
-          console.log(message);
-          setError("email", { type: "customn", message });
+          setError("email", { type: "custom", message });
         }
       }
     }

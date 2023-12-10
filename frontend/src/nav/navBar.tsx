@@ -9,8 +9,6 @@ export function NavBar() {
 
   if (!user) return null;
 
-  console.log(user);
-
   return (
     <div className="items-center justify-between w-full max-w-[14rem] p-6 hidden md:flex">
       <div className="items-center">
