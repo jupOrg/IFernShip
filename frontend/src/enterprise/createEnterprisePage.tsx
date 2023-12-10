@@ -26,22 +26,13 @@ export function CreateEnterprisePage() {
     }
 
     const formData = new FormData();
-    formData.append('image', valuePicture);
+    formData.append('picture', valuePicture);
     Object.entries(fields).forEach(([key, value]) => {
       formData.append(key, value);
     });
     
-    // console.log(formData)
-
-    // const formData = {
-    //   ...fields,
-    //   picture: valuePicture
-    // }
-
-    console.log("Hello")
-    console.log(formData)
-    
     const res = await api.post("/enterprises", formData);
+    
     if (res.status === 201) {
       handleModal?.({
         title: "Empressa registrada com Sucesso",
