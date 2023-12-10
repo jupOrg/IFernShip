@@ -13,10 +13,10 @@ app.use(express.json());
 app.use(cors());
 app.use(error);
 
-app.use("/internship", internshipRouter);
-app.use("/enterprise", enterpriseRouter);
+app.use("/internships", internshipRouter);
+app.use("/enterprises", enterpriseRouter);
 app.use("/users", userRouter);
-app.use("/", authRouter);
+app.use("/auth", authRouter);
 
 const port = 3000;
 
