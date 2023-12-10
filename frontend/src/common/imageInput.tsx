@@ -3,8 +3,6 @@ type Props = {
   file: File | null;
 };
 
-interface Props extends Htmlele
-
 export function ImageInput({ file, setFile }: Props) {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const listFiles = event.target.files as FileList;
