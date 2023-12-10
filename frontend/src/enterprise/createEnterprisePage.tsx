@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 type FieldValues = Omit<Enterprise, "picture" | "id">;
 
 export function CreateEnterprisePage() {
-  const { register, handleSubmit } = useForm<FieldValues>();
+  const { register, handleSubmit, watch } = useForm<Enterprise>();
 
   const [valuePicture, setValuePicture] = useState<File | null>(null);
 
@@ -20,13 +20,27 @@ export function CreateEnterprisePage() {
 
   const navigate = useNavigate();
 
-  async function submit(fields: FieldValues) {
+  async function submit(fields: Enterprise) {
     if (!valuePicture) {
       return null;
     }
+
     const formData = new FormData();
     formData.append('image', valuePicture);
+    Object.entries(fields).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+    
+    // console.log(formData)
+
+    // const formData = {
+    //   ...fields,
+    //   picture: valuePicture
+    // }
+
+    console.log("Hello")
     console.log(formData)
+    
     const res = await api.post("/enterprises", formData);
     if (res.status === 201) {
       handleModal?.({
@@ -35,6 +49,9 @@ export function CreateEnterprisePage() {
       });
     }
   }
+
+  // const listFiles = watch("picture");
+  // const valuePicture = listFiles[0];
 
   return (
     <div className="items-center">
@@ -69,7 +86,7 @@ export function CreateEnterprisePage() {
             placeholder="E-mail"
             {...register("email")}
           />
-          <ImageInput file={valuePicture} setFile={setValuePicture} register={register} name={"picture"} />
+          <ImageInput file={valuePicture} setFile={setValuePicture} register={register} name="picture" watch={watch} />
           <button type="submit" className="default-submit">
             Adicionar
           </button>
