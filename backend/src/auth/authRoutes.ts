@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { signUp } from "./signUp";
 import { logIn } from "./logIn";
+import { signUp } from "./signUp";
 
 const router = Router();
 export const authRoutes = router;
@@ -14,5 +14,5 @@ router.post("/sign-up", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const result = await logIn({ email, password });
-  return res.status(201).json(result);
+  return res.json(result);
 });
