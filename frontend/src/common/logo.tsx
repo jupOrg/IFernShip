@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
+
 export function Logo() {
   return (
-    <img
-      src="./ifpb-logo-black.svg"
-      alt="logo"
-      className="w-24 aspect-square"
-    />
+    <Link to="/" className="fixed hidden sm:flex top-5 left-5">
+      <img
+        alt="logo"
+        src="./ifpb-logo-black.svg"
+        className="w-24 aspect-square"
+      />
+    </Link>
   );
 }

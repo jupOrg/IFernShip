@@ -66,9 +66,7 @@ export function LoginPage() {
 
   return (
     <div className="flex-1 bg-curve-left-primary justify-center p-2">
-      <picture className="self-start fixed hidden sm:flex top-5 left-5">
-        <Logo />
-      </picture>
+      <Logo />
       <div className="items-center flex-1 justify-around">
         <GradientCurve />
         <div className="items-center gap-8 max-w-md">

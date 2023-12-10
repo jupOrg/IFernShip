@@ -76,9 +76,7 @@ export function RegisterPage() {
 
   return (
     <div className="flex-1 bg-curve-left-primary justify-center p-2">
-      <picture className="self-start fixed hidden sm:flex top-5 left-5">
-        <Logo />
-      </picture>
+      <Logo />
       <div className="w-full items-center">
         <div className="items-center gap-6 flex-grow-1 w-full max-w-md">
           <div className="items-center gap-10">
