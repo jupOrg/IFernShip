@@ -13,9 +13,9 @@ import { Enterprise } from "../types/enterprise";
 type FieldValues = Omit<Enterprise, "picture" | "id">;
 
 const schema = yup.object({
-  name: yup.string().required("É nescessario informar um nome"),
-  description: yup.string().required("É nescessario escrever uma descrição"),
-  cnpj: yup.string().required("É nescessario informar um cnpj"),
+  name: yup.string().required("É necessário informar um nome"),
+  description: yup.string().required("É necessário escrever uma descrição"),
+  cnpj: yup.string().required("É necessário informar um cnpj"),
   email: yup
     .string()
     .email("Digite um email valido")
