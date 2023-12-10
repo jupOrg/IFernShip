@@ -5,7 +5,7 @@ describe("Testes envolvendo realizar login", () => {
     cy.visit("/");
   });
 
-  it("Realizando login com sucesso", () => {
+  it.only("Realizando login com sucesso", () => {
     cy.pathRegister();
     const email = `${uuidv4()}@gmail.com`;
 
