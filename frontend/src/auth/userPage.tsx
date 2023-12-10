@@ -109,7 +109,7 @@ export function UserPage() {
               />
             </div>
             {errors.name && (
-              <p className="error-message">{errors.name.message}</p>
+              <div className="error-message">{errors.name.message}</div>
             )}
           </div>
           <div className="gap-2">
@@ -125,7 +125,7 @@ export function UserPage() {
               <FaEnvelope className="input-icon" />
             </div>
             {errors.email && (
-              <p className="error-message">{errors.email.message}</p>
+              <div className="error-message">{errors.email.message}</div>
             )}
           </div>
           <div className="gap-2">
@@ -141,7 +141,7 @@ export function UserPage() {
               <FaChevronDown className="input-icon" />
             </div>
             {errors.course && (
-              <p className="error-message">{errors.course.message}</p>
+              <div className="error-message">{errors.course.message}</div>
             )}
           </div>
           <button
