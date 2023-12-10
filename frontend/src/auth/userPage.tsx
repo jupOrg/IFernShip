@@ -14,12 +14,12 @@ import { User } from "../types/user";
 import { useAuth } from "./authContext";
 
 const schema = yup.object({
-  name: yup.string().required("É nescessario informar um nome"),
+  name: yup.string().required("É necessário informar um nome"),
   email: yup
     .string()
     .email("Digite um email valido")
-    .required("É nescessário informar um email"),
-  course: yup.string().required("É nescessario informar um Curso"),
+    .required("É necessário informar um email"),
+  course: yup.string().required("É necessário informar um Curso"),
 });
 
 type FieldValues = Pick<User, "email" | "name" | "picture" | "course">;

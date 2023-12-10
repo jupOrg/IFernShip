@@ -7,6 +7,7 @@ import { useAuth } from "./auth/authContext";
 import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
 import { RegisterPage } from "./auth/signUpPage";
+import { UserPage } from "./auth/userPage";
 import { ChoiceAuthenticateMD } from "./choiceAuthenticate/choiceAuthenticatePage";
 import { ChoiceAuthenticateSM } from "./choiceAuthenticate/choiceAuthenticatePageSm";
 import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
@@ -20,7 +21,6 @@ import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
 import { SplashPage } from "./intro/splashPage";
 import { RenderVersion } from "./renderVersion";
-import { UserPage } from "./auth/userPage";
 
 const publicRoutes = createBrowserRouter([
   {
@@ -106,7 +106,6 @@ const protectedRoutes = createBrowserRouter([
 
 export function Router() {
   const { isLogged } = useAuth();
-  console.log(isLogged)
   return (
     <RouterProvider
       router={isLogged ? protectedRoutes : publicRoutes}

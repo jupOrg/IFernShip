@@ -16,8 +16,8 @@ const schema = yup.object({
   email: yup
     .string()
     .email("Digite um email valido")
-    .required("É nescessário informar um email"),
-  password: yup.string().required("É nescessário informar a senha"),
+    .required("É necessário informar um email"),
+  password: yup.string().required("É necessário informar a senha"),
 });
 
 export function LoginPage() {
