@@ -1,10 +1,9 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { AxiosError, AxiosResponse } from "axios";
 import { useForm } from "react-hook-form";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-
-import { AxiosError, AxiosResponse } from "axios";
 import { createApiInstance } from "../api/api";
 import { Logo } from "../common/logo";
 import { Role } from "../types/role";
@@ -14,12 +13,12 @@ import { useAuth } from "./authContext";
 type FieldValues = Pick<User, "email" | "name" | "password">;
 
 const schema = yup.object({
-  name: yup.string().required("É nescessario informar um nome"),
+  name: yup.string().required("É necessário informar um nome"),
   email: yup
     .string()
     .email("Digite um email valido")
-    .required("É nescessário informar um email"),
-  password: yup.string().required("É nescessário informar a senha"),
+    .required("É necessário informar um email"),
+  password: yup.string().required("É necessário informar a senha"),
 });
 
 const api = createApiInstance();

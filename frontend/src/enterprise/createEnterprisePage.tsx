@@ -1,14 +1,14 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 import { createApiInstance } from "../api/api";
+import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
 import { ImageInput } from "../common/imageInput";
 import { Enterprise } from "../types/enterprise";
-import { useAuth } from "../auth/authContext";
 
 type FieldValues = Omit<Enterprise, "picture" | "id">;
 
@@ -19,7 +19,7 @@ const schema = yup.object({
   email: yup
     .string()
     .email("Digite um email valido")
-    .required("É nescessário informar um email"),
+    .required("É necessário informar um email"),
   picture: yup
     .mixed<File>()
     .test("required", "Por favor, selecione uma imagem", (value) => {

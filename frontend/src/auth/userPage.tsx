@@ -18,7 +18,7 @@ const schema = yup.object({
   email: yup
     .string()
     .email("Digite um email valido")
-    .required("É nescessário informar um email"),
+    .required("É necessário informar um email"),
   course: yup.string().required("É nescessario informar um Curso"),
 });
 
