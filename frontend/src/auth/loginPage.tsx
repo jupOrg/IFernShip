@@ -65,11 +65,13 @@ export function LoginPage() {
   }
 
   return (
-    <div className="pl-24 py-16 min-h-screen">
-      <Logo />
-      <div className="items-center p-4 flex-1 justify-around">
+    <div className="flex-1 bg-curve-left-primary justify-center p-2">
+      <picture className="self-start fixed hidden sm:flex top-5 left-5">
+        <Logo />
+      </picture>
+      <div className="items-center flex-1 justify-around">
         <GradientCurve />
-        <div className="items-center gap-8 max-w-md 2xl:ml-[34rem]">
+        <div className="items-center gap-8 max-w-md">
           <h1 className="font-semibold text-2xl 2xl:text-4xl">
             Bem-Vindo de Volta
           </h1>

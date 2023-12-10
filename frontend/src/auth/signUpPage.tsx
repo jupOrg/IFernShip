@@ -80,7 +80,7 @@ export function RegisterPage() {
         <Logo />
       </picture>
       <div className="w-full items-center">
-        <div className="items-center gap-6 flex-grow-1 w-full max-w-sm 2xl:max-w-xl 2xl:my-auto 2xl:ml-[34rem]">
+        <div className="items-center gap-6 flex-grow-1 w-full max-w-md">
           <div className="items-center gap-10">
             <div className="gap-4">
               <h1 className="font-semibold text-center text-2xl 2xl:text-4xl">
