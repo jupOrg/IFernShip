@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
-
 const enterprise = {
   name: "Sonhin",
   picture: "cypress/images/sonhin.svg",
