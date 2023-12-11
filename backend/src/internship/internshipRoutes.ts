@@ -23,7 +23,10 @@ router.get("/:id", authMiddleware, async (req: AuthReq, res) => {
 });
 
 router.post("/", authMiddleware, async (req: AuthReq, res) => {
-  const internship = await createInternship(req.body);
+  const internship = await createInternship({
+    ...req.body,
+    isActive: false,
+  });
   return res.status(201).json(internship);
 });
 

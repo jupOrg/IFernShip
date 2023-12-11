@@ -23,7 +23,7 @@ router.get("/:id", authMiddleware, async (req: AuthReq, res) => {
   return res.json(user);
 });
 
-router.post("/", upload.single("picture"), async (req, res) => {
+router.post("/", authMiddleware, upload.single("picture"), async (req, res) => {
   const { filename } = req.file;
   const enterprise = await createEnterprise({ ...req.body, picture: filename });
   return res.status(201).json(enterprise);

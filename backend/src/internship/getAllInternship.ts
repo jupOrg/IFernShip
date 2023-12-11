@@ -1,6 +1,8 @@
 import { db } from "../db";
 
 export async function getAllInternship() {
-  const internship = await db.internship.findMany();
+  const internship = await db.internship.findMany({
+    include: { enterprise: {} },
+  });
   return internship;
 }

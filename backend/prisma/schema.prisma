@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,38 +8,40 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
-
-  role     Role
+  id       String  @id @default(uuid())
   name     String
   email    String  @unique
   picture  String?
   password String
-}
-
-enum Role {
-  student
-  coordinator
+  role     Role
 }
 
 model Enterprise {
-  id String @id @default(uuid())
-
+  id          String       @id @default(uuid())
   name        String
   cnpj        String
   email       String
   picture     String
   description String
-
   internships Internship[]
 }
 
 model Internship {
-  id String @id @default(uuid())
+  id                   String     @id @default(uuid())
+  isActive             Boolean
 
-  position String
-  isActive Boolean
+  course               String
+  description          String
+  office               String
+  profissional_profile String
+  work_style           String
+  weekly_workload      Int
 
-  enterprise   Enterprise @relation(fields: [enterpriseId], references: [id])
-  enterpriseId String
+  enterpriseId         String
+  enterprise           Enterprise @relation(fields: [enterpriseId], references: [id])
+}
+
+enum Role {
+  student
+  coordinator
 }

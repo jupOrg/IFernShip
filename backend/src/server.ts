@@ -1,6 +1,6 @@
-import cors from "cors";
 import express from "express";
 import "express-async-errors";
+import cors from "cors";
 import { authRoutes } from "./auth/authRoutes";
 import { enterpriseRoutes } from "./enterprise/enterpriseRoutes";
 import { errorMiddleware } from "./errorMiddleware";
@@ -9,6 +9,7 @@ import { userRoutes } from "./user/userRoutes";
 import "./env";
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 

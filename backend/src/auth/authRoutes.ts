@@ -14,5 +14,5 @@ router.post("/sign-up", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const result = await logIn({ email, password });
-  return res.json(result);
+  return res.status(201).json(result);
 });
