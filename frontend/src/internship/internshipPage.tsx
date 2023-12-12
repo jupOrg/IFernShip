@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { createApiInstance } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
-import { GradientCurve } from "../common/gradientCurve";
 import { Internship } from "../types/internship";
 import { useAuth } from "../auth/authContext";
-import { SplashPage } from "../intro/splashPage";
 
 export function InternshipPage() {
   const { id } = useParams();
@@ -24,11 +22,10 @@ export function InternshipPage() {
   }, []);
 
   // TODO replace it
-  if (!internship) return <SplashPage />;
+  if (!internship) return <></>;
 
   return (
     <div className="items-center p-2">
-      <GradientCurve />
       <div className="w-full max-w-xl gap-4">
         <h1 className="page-header">
           <GoBackArrow to="/estagios" />
