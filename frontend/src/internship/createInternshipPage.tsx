@@ -69,7 +69,7 @@ export function CreateInternshipPage() {
     if (res.status === 201) {
       handleModal?.({
         isVisible: true,
-        title: "Empressa registrada com Sucesso",
+        title: "Estágio registrado com sucesso",
         callbackClose: () => {
           navigate("/");
           closeModal();
@@ -87,6 +87,28 @@ export function CreateInternshipPage() {
         </h1>
         <form className="gap-2.5 flex flex-col" onSubmit={handleSubmit(submit)}>
           <div className="gap-2">
+            <input
+              type="text"
+              className="default-input"
+              placeholder="Cargo"
+              {...register("office")}
+            />
+            {errors.office && (
+              <div className="error-message">{errors.office.message}</div>
+            )}
+          </div>
+          <div className="gap-2">
+            <textarea
+              rows={3}
+              className="default-input"
+              placeholder="Descrição da Vaga"
+              {...register("description")}
+            />
+            {errors.description && (
+              <div className="error-message">{errors.description.message}</div>
+            )}
+          </div>
+          <div className="gap-2">
             <textarea
               rows={3}
               className="default-input"
@@ -100,14 +122,16 @@ export function CreateInternshipPage() {
             )}
           </div>
           <div className="gap-2">
-            <textarea
-              rows={3}
+            <input
+              type="number"
               className="default-input"
-              placeholder="Descrição da Vaga"
-              {...register("description")}
+              placeholder="Carga horária semanal"
+              {...register("weekly_workload")}
             />
-            {errors.description && (
-              <div className="error-message">{errors.description.message}</div>
+            {errors.weekly_workload && (
+              <div className="error-message">
+                {errors.weekly_workload.message}
+              </div>
             )}
           </div>
           <div className="gap-2">
@@ -134,30 +158,6 @@ export function CreateInternshipPage() {
             </select>
             {errors.course && (
               <div className="error-message">{errors.course.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <input
-              type="text"
-              className="default-input"
-              placeholder="Cargo"
-              {...register("office")}
-            />
-            {errors.office && (
-              <div className="error-message">{errors.office.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <input
-              type="number"
-              className="default-input"
-              placeholder="Carga horária semanal"
-              {...register("weekly_workload")}
-            />
-            {errors.weekly_workload && (
-              <div className="error-message">
-                {errors.weekly_workload.message}
-              </div>
             )}
           </div>
           <div className="gap-2">
