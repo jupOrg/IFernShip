@@ -23,8 +23,9 @@ import { InternshipsPage } from "./internship/internshipsPage";
 import { SplashPage } from "./intro/splashPage";
 import { RenderVersion } from "./renderVersion";
 
-import { NavBar } from "./nav/navBar";
 import { GradientCurve } from "./common/gradientCurve";
+import { EnterprisePage } from "./enterprise/enterprisePage";
+import { NavBar } from "./nav/navBar";
 import { TopBar } from "./nav/topBar";
 
 const publicRoutes = createBrowserRouter([
@@ -103,6 +104,10 @@ const protectedRoutes = createBrowserRouter([
           {
             path: "/empresas",
             element: <EnterprisesPage />,
+          },
+          {
+            path: "/empresas/:id",
+            element: <EnterprisePage />,
           },
           {
             path: "/estagios",
