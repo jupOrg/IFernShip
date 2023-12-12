@@ -8,12 +8,13 @@ datasource db {
 }
 
 model User {
-  id       String  @id @default(uuid())
-  name     String
-  email    String  @unique
-  picture  String?
-  password String
-  role     Role
+  id          String  @id @default(uuid())
+  name        String
+  email       String  @unique
+  picture     String?
+  password    String
+  role        Role
+  subscribe   Subscribe[]
 }
 
 model Enterprise {
@@ -37,6 +38,15 @@ model Internship {
   weekly_workload      Int
   enterpriseId         String
   enterprise           Enterprise @relation(fields: [enterpriseId], references: [id])
+  subscribe            Subscribe[]
+}
+
+model Subscribe {
+  id            String     @id @default(uuid())
+  userId        String
+  internshipId  String
+  user          User @relation(fields: [userId], references: [id])
+  internship    Internship @relation(fields: [internshipId], references: [id])
 }
 
 enum Role {
