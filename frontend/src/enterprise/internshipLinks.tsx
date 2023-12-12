@@ -6,6 +6,10 @@ type Props = {
 };
 
 export function InternshipLinks({ internships }: Props) {
+  if (!internships.length) {
+    return <div>Sem estágios por enquanto</div>;
+  }
+
   return (
     <div>
       {internships.map((internship) => (
