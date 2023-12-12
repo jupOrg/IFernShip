@@ -13,7 +13,7 @@ export function NavBar() {
     <div className="w-full max-w-[14rem] hidden sm:flex">
       <div className="items-center justify-between h-screen w-full max-w-[14rem] p-6 fixed left-0">
         <div className="items-center">
-          <Link to="/user/editar">
+          <Link to="/conta/editar">
             <img
               alt="user image"
               src={`https://github.com/${user.picture}.png`}

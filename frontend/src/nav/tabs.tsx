@@ -10,7 +10,7 @@ export function Tabs() {
       <TabItem to="/empresas">
         <FaBuilding /> Empresas
       </TabItem>
-      <TabItem to="/user/editar">
+      <TabItem to="/conta/editar">
         <FaUser /> Conta
       </TabItem>
     </>

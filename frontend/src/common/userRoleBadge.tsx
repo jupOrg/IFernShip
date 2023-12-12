@@ -11,7 +11,7 @@ export function UserRoleBadge({ role }: Props) {
   };
 
   return (
-    <div className="border border-solid border-white rounded-full py-0.5 px-2 text-white font-medium">
+    <div className="border border-solid border-black rounded-full py-0.5 px-2 text-black font-medium">
       {displayTexts[role]}
     </div>
   );

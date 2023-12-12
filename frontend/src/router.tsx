@@ -131,7 +131,7 @@ const protectedRoutes = createBrowserRouter([
         element: <InternshipPage />,
       },
       {
-        path: "/user/editar",
+        path: "/conta/editar",
         element: <UserPage />,
       },
     ],
