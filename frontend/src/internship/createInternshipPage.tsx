@@ -24,7 +24,7 @@ const schema = yup.object({
     .string()
     .required("Selectione um estilo de trabalho")
     .oneOf(
-      ["isPerson", "remote", "hibrid"],
+      ["isPerson", "remote", "hybrid"],
       "Selecione um estilo de trabalho válido"
     ),
   course: yup.string().required("Selecione um curso"),
@@ -116,7 +116,7 @@ export function CreateInternshipPage() {
                 Estilo de trabalho
               </option>
               <option value="isPerson">Presencial</option>
-              <option value="hibrid">Hibrido</option>
+              <option value="hybrid">Hibrido</option>
               <option value="remote">Remoto</option>
             </select>
             {errors.work_style && (
