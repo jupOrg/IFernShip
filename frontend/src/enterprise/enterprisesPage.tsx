@@ -3,6 +3,13 @@ import { createApiInstance } from "../api/api";
 import { Enterprise } from "../types/enterprise";
 import { EnterprisesItem } from "./enterpriseItem";
 import { useAuth } from "../auth/authContext";
+import { useAuth } from "../auth/authContext";
+import { GradientCurve } from "../common/gradientCurve";
+import { LoadingPlaceholder } from "../common/loadingPlaceholder";
+import { NavBar } from "../nav/navBar";
+import { TopBar } from "../nav/topBar";
+import { Enterprise } from "../types/enterprise";
+import { EnterprisesItem } from "./enterpriseItem";
 
 export function EnterprisesPage() {
   const [enterprises, setEnterprises] = useState<Enterprise[]>();

@@ -3,6 +3,13 @@ import { createApiInstance } from "../api/api";
 import { Internship } from "../types/internship";
 import { InternshipsItem } from "./internshipItem";
 import { useAuth } from "../auth/authContext";
+import { useAuth } from "../auth/authContext";
+import { GradientCurve } from "../common/gradientCurve";
+import { NavBar } from "../nav/navBar";
+import { TopBar } from "../nav/topBar";
+import { Internship } from "../types/internship";
+import { InternshipsItem } from "./internshipItem";
+import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 
 export function InternshipsPage() {
   const [internships, setInternships] = useState<Internship[]>();
