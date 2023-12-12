@@ -17,9 +17,8 @@ export async function logIn({ email, password }: LogInDto) {
     throw { status: 400, message: "Invalid email or password" };
   }
 
-  try {
-    await compare(password, user.password);
-  } catch {
+  const samePassword = await compare(password, user.password);
+  if (!samePassword) {
     throw { status: 400, message: "Invalid email or password" };
   }
 
