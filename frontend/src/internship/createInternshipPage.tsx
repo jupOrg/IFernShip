@@ -83,7 +83,7 @@ export function CreateInternshipPage() {
       <div className="w-full max-w-xl gap-6">
         <h1 className="page-header">
           <GoBackArrow to="/estagios" />
-          Cadastrar estágio
+          Adicionar estágio
         </h1>
         <form className="gap-2.5 flex flex-col" onSubmit={handleSubmit(submit)}>
           <div className="gap-2">

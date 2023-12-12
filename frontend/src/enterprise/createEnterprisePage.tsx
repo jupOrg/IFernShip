@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { api } from "../api/api";
 import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
 import { ImageInput } from "../common/imageInput";
@@ -70,7 +71,7 @@ export function CreateEnterprisePage() {
       <div className="w-full max-w-xl gap-6 ">
         <h1 className="page-header">
           <GoBackArrow to="/estagios" />
-          Cadastrar empresa
+          Adicionar empresa
         </h1>
         <form className="gap-2.5 flex flex-col" onSubmit={handleSubmit(submit)}>
           <div className="gap-2">
@@ -127,7 +128,6 @@ export function CreateEnterprisePage() {
               <div className="error-message">{errors.picture.message}</div>
             )}
           </div>
-
           <button type="submit" className="default-submit">
             Adicionar
           </button>
