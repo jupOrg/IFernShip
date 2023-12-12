@@ -3,12 +3,11 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
-import { GoBackArrow } from "../common/goBackArrow";
-import { GradientCurve } from "../common/gradientCurve";
 import { useEffect, useState } from "react";
-import { Enterprise } from "../types/enterprise";
-import { createApiInstance } from "../api/api";
+import { api } from "../api/api";
 import { useAuth } from "../auth/authContext";
+import { GoBackArrow } from "../common/goBackArrow";
+import { Enterprise } from "../types/enterprise";
 import { Internship } from "../types/internship";
 
 type Values = Omit<Internship, "id" | "enterprise" | "isActive">;
@@ -53,9 +52,8 @@ export function CreateInternshipPage() {
     "Matemática",
   ];
 
-  const { token, handleModal, closeModal } = useAuth();
+  const { handleModal, closeModal } = useAuth();
 
-  const api = createApiInstance(token);
   const navigate = useNavigate();
 
   useEffect(() => {

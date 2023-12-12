@@ -2,8 +2,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-
-import { createApiInstance } from "../api/api";
 import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
 import { ImageInput } from "../common/imageInput";
@@ -42,8 +40,7 @@ export function CreateEnterprisePage() {
     resolver: yupResolver(schema),
   });
 
-  const { token, handleModal, closeModal } = useAuth();
-  const api = createApiInstance(token);
+  const { handleModal, closeModal } = useAuth();
 
   const navigate = useNavigate();
 

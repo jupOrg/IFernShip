@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
-import { createApiInstance } from "../api/api";
+import { api } from "../api/api";
 import { Internship } from "../types/internship";
 import { InternshipsItem } from "./internshipItem";
-import { useAuth } from "../auth/authContext";
 
 export function InternshipsPage() {
   const [internships, setInternships] = useState<Internship[]>();
-
-  const { token } = useAuth();
-  const api = createApiInstance(token);
 
   async function getInternships() {
     const res = await api.get<Internship[]>("/internships");

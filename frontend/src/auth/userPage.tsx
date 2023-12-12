@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 import { useState } from "react";
-import { createApiInstance } from "../api/api";
+import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
 import { UserRoleBadge } from "../common/userRoleBadge";
@@ -37,9 +37,7 @@ export function UserPage() {
 
   const navigate = useNavigate();
 
-  const { user, handleModal, token } = useAuth();
-
-  const api = createApiInstance(token);
+  const { user, handleModal } = useAuth();
 
   useState(() => {
     setValue("course", user?.course);

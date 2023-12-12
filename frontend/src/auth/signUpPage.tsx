@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import { createApiInstance } from "../api/api";
 import { Logo } from "../common/logo";
 import { Role } from "../types/role";
 import { User } from "../types/user";
@@ -20,8 +19,6 @@ const schema = yup.object({
     .required("É necessário informar um email"),
   password: yup.string().required("É necessário informar a senha"),
 });
-
-const api = createApiInstance();
 
 export function RegisterPage() {
   const {

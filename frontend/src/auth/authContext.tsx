@@ -1,8 +1,7 @@
 import { AxiosError, AxiosResponse } from "axios";
 import Cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState } from "react";
-
-import { createApiInstance } from "../api/api";
+import { api } from "../api/api";
 import { Modal, ModalProps } from "../common/Modal";
 import { ChildrenProps } from "../common/childrenProps";
 import { responseLogin } from "../types/responseLogin";
@@ -10,7 +9,6 @@ import { User } from "../types/user";
 
 type AuthContext = {
   user?: User;
-  token?: string;
   isLogged: boolean;
   logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<responseLogin>;
@@ -28,9 +26,6 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     isVisible: false,
     callbackClose: closeModal,
   });
-
-  const token = Cookies.get("token");
-  const api = createApiInstance(token);
 
   function handleModal(props: ModalProps) {
     setModalData({ ...modalData, ...props });
@@ -65,15 +60,21 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     }
   }
 
+  function setTokenFromCookies() {
+    const token = Cookies.get("token");
+    api.defaults.headers.common.Authorization = `Bearer ${token}`;
+  }
+
   async function logout() {
     // await api.post("/logout");
     Cookies.set("token", "");
     setUser(undefined);
   }
 
-  const isLogged = !!token;
+  const isLogged = !!user;
 
   useEffect(() => {
+    setTokenFromCookies();
     getUser();
   }, []);
 
@@ -81,7 +82,6 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     <authContext.Provider
       value={{
         user,
-        token,
         login,
         logout,
         isLogged,

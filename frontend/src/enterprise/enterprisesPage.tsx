@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
-import { createApiInstance } from "../api/api";
-import { useAuth } from "../auth/authContext";
+import { api } from "../api/api";
 import { Enterprise } from "../types/enterprise";
 import { EnterprisesItem } from "./enterpriseItem";
 
 export function EnterprisesPage() {
   const [enterprises, setEnterprises] = useState<Enterprise[]>();
-
-  const { token } = useAuth();
-  const api = createApiInstance(token);
 
   async function getEnterprises() {
     const res = await api.get<Enterprise[]>("/enterprises");
