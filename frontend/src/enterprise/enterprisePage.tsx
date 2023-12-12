@@ -4,6 +4,7 @@ import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 import { Enterprise } from "../types/enterprise";
+import { InternshipLinks } from "./internshipLinks";
 
 export function EnterprisePage() {
   const { id } = useParams();
@@ -39,6 +40,10 @@ export function EnterprisePage() {
           Sobre a empresa
         </h2>
         <div>{enterprise.description}</div>
+      </section>
+      <section>
+        <h2 className="font-semibold text-xl text-green-700">Estágios</h2>
+        <InternshipLinks internships={enterprise.internships} />
       </section>
       <section>
         <div className="flex-row gap-2">

@@ -1,3 +1,5 @@
+import { Internship } from "./internship";
+
 export type Enterprise = {
   id: string;
   name: string;
@@ -5,4 +7,5 @@ export type Enterprise = {
   email: string;
   picture: string;
   description: string;
+  internships: Internship[];
 };
