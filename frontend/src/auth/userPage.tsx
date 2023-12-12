@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
-import { GradientCurve } from "../common/gradientCurve";
 import { UserRoleBadge } from "../common/userRoleBadge";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
@@ -76,8 +75,7 @@ export function UserPage() {
   }
 
   return (
-    <div className="items-center justify-between w-full p-6 hidden md:flex">
-      <GradientCurve />
+    <div className="items-center flex-1">
       <div className="w-full max-w-md gap-6">
         <h1 className="page-header">
           <GoBackArrow to="/estagios" />
@@ -85,13 +83,13 @@ export function UserPage() {
         </h1>
         <form
           onSubmit={handleSubmit(submit)}
-          className="flex flex-col gap-6 w-full"
+          className="flex flex-col gap-6 w-full p-2"
         >
           <div className="gap-2 items-center">
             <img
               alt="user image"
               src={`https://github.com/${user.picture}.png`}
-              className="rounded-full w-24 aspect-square border-2 border-white bg-black/10"
+              className="rounded-full w-24 aspect-square bg-black/10"
             />
             <UserRoleBadge role={user.role} />
           </div>
