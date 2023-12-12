@@ -11,7 +11,7 @@ export function InternshipLinks({ internships }: Props) {
   }
 
   return (
-    <div>
+    <div className="gap-2">
       {internships.map((internship) => (
         <InternshipLink internship={internship} key={internship.id} />
       ))}
