@@ -44,6 +44,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     const { user, token } = res.data;
     setUser(user);
     Cookies.set("token", token);
+    api.defaults.headers.common.Authorization = `Bearer ${token}`;
     return res.data;
   }
 
