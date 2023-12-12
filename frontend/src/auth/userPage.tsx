@@ -1,11 +1,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AxiosError, AxiosResponse } from "axios";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaChevronDown, FaEnvelope, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-
-import { useState } from "react";
 import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { GradientCurve } from "../common/gradientCurve";
@@ -98,7 +97,7 @@ export function UserPage() {
           </div>
           <div className="gap-2">
             <div className="input-icon-container">
-              <FaUser className="input-icon"></FaUser>
+              <FaUser className="input-icon" />
               <input
                 type="text"
                 placeholder="Nome"
