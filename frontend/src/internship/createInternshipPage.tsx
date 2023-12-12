@@ -90,54 +90,97 @@ export function CreateInternshipPage() {
             Cadastrar estágio
           </h1>
           <form className="gap-2 flex flex-col" onSubmit={handleSubmit(submit)}>
-            <textarea
-              rows={3}
-              className="default-input"
-              placeholder="Perfil do profissional"
-              {...register("profissional_profile")}
-            />
-            <textarea
-              rows={3}
-              className="default-input"
-              placeholder="Descrição da Vaga"
-              {...register("description")}
-            />
-            <select className="default-input" {...register("work_style")}>
-              <option value="" disabled selected>
-                Estilo de trabalho
-              </option>
-              <option value="isPerson">Presencial</option>
-              <option value="hibrid">Hibrido</option>
-              <option value="remote">Remoto</option>
-            </select>
-            <select className="default-input" {...register("course")}>
-              <option value="" disabled selected>
-                Curso
-              </option>
-              {courses.map((course) => (
-                <option value={course}>{course}</option>
-              ))}
-            </select>
-            <input
-              type="text"
-              className="default-input"
-              placeholder="Cargo"
-              {...register("office")}
-            />
-            <input
-              type="number"
-              className="default-input"
-              placeholder="Carga horária semanal"
-              {...register("weekly_workload")}
-            />
-            <select className="default-input" {...register("enterpriseId")}>
-              <option value="" disabled selected>
-                Empresa
-              </option>
-              {companies.map((company) => (
-                <option value={company.id}>{company.name}</option>
-              ))}
-            </select>
+            <div className="gap-2">
+              <textarea
+                rows={3}
+                className="default-input"
+                placeholder="Perfil do profissional"
+                {...register("profissional_profile")}
+              />
+              {errors.profissional_profile && (
+                <div className="error-message">
+                  {errors.profissional_profile.message}
+                </div>
+              )}
+            </div>
+            <div className="gap-2">
+              <textarea
+                rows={3}
+                className="default-input"
+                placeholder="Descrição da Vaga"
+                {...register("description")}
+              />
+              {errors.description && (
+                <div className="error-message">
+                  {errors.description.message}
+                </div>
+              )}
+            </div>
+            <div className="gap-2">
+              <select className="default-input" {...register("work_style")}>
+                <option value="" disabled selected>
+                  Estilo de trabalho
+                </option>
+                <option value="isPerson">Presencial</option>
+                <option value="hibrid">Hibrido</option>
+                <option value="remote">Remoto</option>
+              </select>
+              {errors.work_style && (
+                <div className="error-message">{errors.work_style.message}</div>
+              )}
+            </div>
+            <div className="gap-2">
+              <select className="default-input" {...register("course")}>
+                <option value="" disabled selected>
+                  Curso
+                </option>
+                {courses.map((course) => (
+                  <option value={course}>{course}</option>
+                ))}
+              </select>
+              {errors.course && (
+                <div className="error-message">{errors.course.message}</div>
+              )}
+            </div>
+            <div className="gap-2">
+              <input
+                type="text"
+                className="default-input"
+                placeholder="Cargo"
+                {...register("office")}
+              />
+              {errors.office && (
+                <div className="error-message">{errors.office.message}</div>
+              )}
+            </div>
+            <div className="gap-2">
+              <input
+                type="number"
+                className="default-input"
+                placeholder="Carga horária semanal"
+                {...register("weekly_workload")}
+              />
+              {errors.weekly_workload && (
+                <div className="error-message">
+                  {errors.weekly_workload.message}
+                </div>
+              )}
+            </div>
+            <div className="gap-2">
+              <select className="default-input" {...register("enterpriseId")}>
+                <option value="" disabled selected>
+                  Empresa
+                </option>
+                {companies.map((company) => (
+                  <option value={company.id}>{company.name}</option>
+                ))}
+              </select>
+              {errors.enterpriseId && (
+                <div className="error-message">
+                  {errors.enterpriseId.message}
+                </div>
+              )}
+            </div>
             <button type="submit" className="default-submit">
               Adicionar
             </button>
