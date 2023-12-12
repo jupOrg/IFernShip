@@ -15,6 +15,7 @@ import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
 import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
 import { GradientCurve } from "./common/gradientCurve";
 import { NotFoundPage } from "./common/notFoundPage";
+import { SearchInput } from "./common/searchInput";
 import { DevPage } from "./dev/devPage";
 import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
 import { EnterprisePage } from "./enterprise/enterprisePage";
@@ -23,8 +24,8 @@ import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
 import { SplashPage } from "./intro/splashPage";
+import { BottomNavBar } from "./nav/bottomNavBar";
 import { NavBar } from "./nav/navBar";
-import { TopBar } from "./nav/topBar";
 import { RenderVersion } from "./renderVersion";
 
 const publicRoutes = createBrowserRouter([
@@ -75,18 +76,21 @@ const publicRoutes = createBrowserRouter([
 
 function LayoutProtectPages() {
   return (
-    <div className="flex flex-row min-h-screen w-full">
+    <div className="flex sm:flex-row flex-1 w-full">
       <NavBar />
       <GradientCurve />
       <Outlet />
+      <BottomNavBar />
     </div>
   );
 }
 
 function LayoutProtectPagesRoot() {
   return (
-    <div className="items-center p-2 gap-4 flex-1">
-      <TopBar />
+    <div className="items-center flex-1">
+      <div className="sticky top-0 p-2">
+        <SearchInput />
+      </div>
       <Outlet />
     </div>
   );

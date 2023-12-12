@@ -10,8 +10,8 @@ export function NavBar() {
   if (!user) return null;
 
   return (
-    <div className="w-full max-w-[14rem]">
-      <div className="items-center justify-between h-screen w-full max-w-[14rem] p-6 hidden md:flex fixed left-0">
+    <div className="w-full max-w-[14rem] hidden sm:flex">
+      <div className="items-center justify-between h-screen w-full max-w-[14rem] p-6 fixed left-0">
         <div className="items-center">
           <Link to="/user/editar">
             <img
