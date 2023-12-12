@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { api } from "../api/api";
+import { useAuth } from "../auth/authContext";
 import { Enterprise } from "../types/enterprise";
 import { EnterprisesItem } from "./enterpriseItem";
 
 export function EnterprisesPage() {
+  const { isCoordinator } = useAuth();
   const [enterprises, setEnterprises] = useState<Enterprise[]>();
 
   async function getEnterprises() {
@@ -23,6 +26,16 @@ export function EnterprisesPage() {
       {enterprises.map((enterprise) => {
         return <EnterprisesItem enterprise={enterprise} key={enterprise.id} />;
       })}
+      {isCoordinator && (
+        <div className="fixed right-4 bottom-14 sm:right-8 sm:bottom-8">
+          <Link
+            to="/empresas/criar"
+            className="button bg-green-600 text-white p-2 rounded"
+          >
+            Adicionar empresa
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
