@@ -8,6 +8,7 @@ import { createEnterprise } from "./createEnterprise";
 import { updateEnterprise } from "./updateEnterprise";
 import { deleteEnterprise } from "./deleteEnterprise";
 import { getEnterprise } from "./getEnterprise";
+import { HOST_APPLICATION } from "../env";
 
 const router = Router();
 export const enterpriseRoutes = router;
@@ -25,7 +26,8 @@ router.get("/:id", authMiddleware, async (req: AuthReq, res) => {
 
 router.post("/", authMiddleware, upload.single("picture"), async (req, res) => {
   const { filename } = req.file;
-  const enterprise = await createEnterprise({ ...req.body, picture: filename });
+  const picture = `${HOST_APPLICATION}/images/${filename}`;
+  const enterprise = await createEnterprise({ ...req.body, picture });
   return res.status(201).json(enterprise);
 });
 

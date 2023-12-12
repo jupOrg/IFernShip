@@ -17,6 +17,7 @@ app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/enterprises", enterpriseRoutes);
 app.use("/internships", internshipRoutes);
+app.use("/images", express.static("uploads"));
 
 app.use(errorMiddleware);
 
