@@ -12,7 +12,7 @@ export function EnterprisesItem({ enterprise }: Props) {
         <img
           alt="enterprise"
           src={enterprise.picture}
-          className="max-h-36 w-full h-40 rounded-lg object-cover mb-2"
+          className="max-h-36 w-full h-40 rounded-lg object-cover mb-2 bg-black/10"
         />
         <div className="font-semibold text-lg">{enterprise.name}</div>
       </div>

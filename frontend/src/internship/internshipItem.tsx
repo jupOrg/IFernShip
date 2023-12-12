@@ -13,7 +13,7 @@ export function InternshipsItem({ internship }: Props) {
         <img
           alt="enterprise"
           src={internship.enterprise.picture}
-          className="max-h-36 w-full h-40 rounded-lg object-fit mb-2"
+          className="max-h-36 w-full h-40 rounded-lg object-fit mb-2 bg-black/10"
         />
         <div className="flex-row justify-between">
           <div className="font-semibold text-lg">{internship.office}</div>

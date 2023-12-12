@@ -31,7 +31,7 @@ export function InternshipPage() {
           <img
             alt="enterprise"
             src={internship.enterprise.picture}
-            className="w-full h-32 max-h-40 rounded-lg object-fit mb-2 shadow"
+            className="w-full h-32 max-h-40 rounded-lg object-fit mb-2 shadow bg-black/10"
           />
         </div>
         <h1 className="font-semibold text-xl text-green-700">

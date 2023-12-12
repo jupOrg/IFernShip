@@ -91,7 +91,7 @@ export function UserPage() {
             <img
               alt="user image"
               src={`https://github.com/${user.picture}.png`}
-              className="rounded-full w-24 aspect-square border-2 border-white"
+              className="rounded-full w-24 aspect-square border-2 border-white bg-black/10"
             />
             <UserRoleBadge role={user.role} />
           </div>

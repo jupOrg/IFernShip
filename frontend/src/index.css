@@ -30,6 +30,10 @@ body {
   .button {
     @apply flex flex-row items-center justify-center;
   }
+
+  img {
+    @apply text-center;
+  }
 }
 
 @layer components {
