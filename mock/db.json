@@ -29,25 +29,25 @@
     {
       "id": "1",
       "isActive": true,
-      "position": "Rockstar",
+      "office": "Rockstar",
       "enterpriseId": "sonhin"
     },
     {
       "id": "2",
       "isActive": true,
-      "position": "Engenheiro de Software",
+      "office": "Engenheiro de Software",
       "enterpriseId": "microsoft"
     },
     {
       "id": "3",
       "isActive": false,
-      "position": "Engenheiro de Software",
+      "office": "Engenheiro de Software",
       "enterpriseId": "samsung"
     },
     {
       "id": "4",
       "isActive": true,
-      "position": "TechLead",
+      "office": "TechLead",
       "enterpriseId": "meta"
     }
   ],

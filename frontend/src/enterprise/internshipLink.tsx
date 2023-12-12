@@ -9,7 +9,7 @@ export function InternshipLink({ internship }: Props) {
   return (
     <Link to={"/estagios/" + internship.id}>
       <div>
-        <div>{internship.position}</div>
+        <div>{internship.office}</div>
         <div>{internship.description}</div>
       </div>
     </Link>
