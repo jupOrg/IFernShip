@@ -6,7 +6,6 @@ import * as yup from "yup";
 import { createApiInstance } from "../api/api";
 import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
-import { GradientCurve } from "../common/gradientCurve";
 import { ImageInput } from "../common/imageInput";
 import { Enterprise } from "../types/enterprise";
 
@@ -70,14 +69,13 @@ export function CreateEnterprisePage() {
   }
 
   return (
-    <div className="items-center">
-      <GradientCurve />
-      <div className="w-full max-w-xl gap-6">
+    <div className="w-full items-center p-4">
+      <div className="w-full max-w-xl gap-6 ">
         <h1 className="page-header">
           <GoBackArrow to="/estagios" />
           Cadastrar empresa
         </h1>
-        <form className="gap-2 flex flex-col" onSubmit={handleSubmit(submit)}>
+        <form className="gap-2.5 flex flex-col" onSubmit={handleSubmit(submit)}>
           <div className="gap-2">
             <input
               type="text"

@@ -1,5 +1,6 @@
 import {
   Navigate,
+  Outlet,
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
@@ -21,6 +22,10 @@ import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
 import { SplashPage } from "./intro/splashPage";
 import { RenderVersion } from "./renderVersion";
+
+import { NavBar } from "./nav/navBar";
+import { GradientCurve } from "./common/gradientCurve";
+import { TopBar } from "./nav/topBar";
 
 const publicRoutes = createBrowserRouter([
   {
@@ -68,30 +73,60 @@ const publicRoutes = createBrowserRouter([
   },
 ]);
 
+const LayouProtectPages = () => {
+  return (
+    <div className="flex flex-row min-h-screen w-full">
+      <NavBar />
+      <GradientCurve />
+      <Outlet />
+    </div>
+  );
+};
+
+const LayouProtectPagesRoot = () => {
+  return (
+    <div className="items-center p-2 gap-4 flex-1">
+      <TopBar />
+      <Outlet />
+    </div>
+  );
+};
+
 const protectedRoutes = createBrowserRouter([
   {
-    path: "/empresas",
-    element: <EnterprisesPage />,
-  },
-  {
-    path: "/empresas/criar",
-    element: <CreateEnterprisePage />,
-  },
-  {
-    path: "/estagios",
-    element: <InternshipsPage />,
-  },
-  {
-    path: "/estagios/criar",
-    element: <CreateInternshipPage />,
-  },
-  {
-    path: "/estagios/:id",
-    element: <InternshipPage />,
-  },
-  {
-    path: "/user/editar",
-    element: <UserPage />,
+    element: <LayouProtectPages />,
+    loader: SplashPage,
+    children: [
+      {
+        element: <LayouProtectPagesRoot />,
+        children: [
+          {
+            path: "/empresas",
+            element: <EnterprisesPage />,
+          },
+          {
+            path: "/estagios",
+            element: <InternshipsPage />,
+          },
+        ],
+      },
+      {
+        path: "/empresas/criar",
+        element: <CreateEnterprisePage />,
+      },
+      {
+        path: "/estagios/criar",
+        element: <CreateInternshipPage />,
+      },
+      {
+        path: "/estagios/:id",
+        element: <InternshipPage />,
+      },
+      {
+        path: "/user/editar",
+        element: <UserPage />,
+      },
+    ],
   },
   // TODO add login and sign up redirects
   {
