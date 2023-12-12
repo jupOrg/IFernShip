@@ -73,7 +73,7 @@ const publicRoutes = createBrowserRouter([
   },
 ]);
 
-const LayouProtectPages = () => {
+function LayoutProtectPages() {
   return (
     <div className="flex flex-row min-h-screen w-full">
       <NavBar />
@@ -81,24 +81,24 @@ const LayouProtectPages = () => {
       <Outlet />
     </div>
   );
-};
+}
 
-const LayouProtectPagesRoot = () => {
+function LayoutProtectPagesRoot() {
   return (
     <div className="items-center p-2 gap-4 flex-1">
       <TopBar />
       <Outlet />
     </div>
   );
-};
+}
 
 const protectedRoutes = createBrowserRouter([
   {
-    element: <LayouProtectPages />,
+    element: <LayoutProtectPages />,
     loader: SplashPage,
     children: [
       {
-        element: <LayouProtectPagesRoot />,
+        element: <LayoutProtectPagesRoot />,
         children: [
           {
             path: "/empresas",
