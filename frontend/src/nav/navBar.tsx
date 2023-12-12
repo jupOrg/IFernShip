@@ -1,8 +1,8 @@
-import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/authContext";
 import { LogoutButton } from "../common/logoutButton";
 import { UserRoleBadge } from "../common/userRoleBadge";
+import { Tabs } from "./tabs";
 
 export function NavBar() {
   const { user } = useAuth();
@@ -17,26 +17,15 @@ export function NavBar() {
             <img
               alt="user image"
               src={`https://github.com/${user.picture}.png`}
-              className="rounded-full w-24 aspect-square border-2 border-white"
+              className="rounded-full w-20 aspect-square border-2 border-white"
             />
           </Link>
           <div className="text-lg font-medium">{user.name}</div>
           <UserRoleBadge role={user.role} />
         </div>
-
-        {user.role === "coordinator" && (
-          <div className="gap-2">
-            <Link to="/empresas/criar" className="button badge">
-              <FaPlus />
-              Adicionar empresa
-            </Link>
-            <Link to="/estagios/criar" className="button badge">
-              <FaPlus />
-              Adicionar estágio
-            </Link>
-          </div>
-        )}
-
+        <div className="text-lg">
+          <Tabs />
+        </div>
         <LogoutButton />
       </div>
     </div>

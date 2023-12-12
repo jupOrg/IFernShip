@@ -13,8 +13,10 @@ export function TabItem({ to, children }: Props) {
   return (
     <Link
       className={
-        "button sm:hover:bg-black/10 rounded p-2 gap-1  " +
-        (isSelected ? "border-b-4 border-black rounded-b-none" : "opacity-50")
+        "button sm:hover:bg-black/10 rounded p-2 gap-1 sm:justify-start " +
+        (isSelected
+          ? "sm:border-l-4 border-black rounded-b-none"
+          : "opacity-50")
       }
       to={to}
     >
