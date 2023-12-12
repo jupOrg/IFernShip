@@ -13,20 +13,19 @@ import { ChoiceAuthenticateMD } from "./choiceAuthenticate/choiceAuthenticatePag
 import { ChoiceAuthenticateSM } from "./choiceAuthenticate/choiceAuthenticatePageSm";
 import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
 import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
+import { GradientCurve } from "./common/gradientCurve";
 import { NotFoundPage } from "./common/notFoundPage";
 import { DevPage } from "./dev/devPage";
 import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
+import { EnterprisePage } from "./enterprise/enterprisePage";
 import { EnterprisesPage } from "./enterprise/enterprisesPage";
 import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
 import { SplashPage } from "./intro/splashPage";
-import { RenderVersion } from "./renderVersion";
-
-import { GradientCurve } from "./common/gradientCurve";
-import { EnterprisePage } from "./enterprise/enterprisePage";
 import { NavBar } from "./nav/navBar";
 import { TopBar } from "./nav/topBar";
+import { RenderVersion } from "./renderVersion";
 
 const publicRoutes = createBrowserRouter([
   {
