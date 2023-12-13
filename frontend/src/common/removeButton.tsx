@@ -18,13 +18,9 @@ export function RemoveButton({ path, redirect, resourceText }: Props) {
     navigate(redirect);
   }
 
-  function handleCancelClick() {
-    openModal();
-  }
-
   return (
     <>
-      <button className="simple-button" onClick={handleCancelClick}>
+      <button className="simple-button" onClick={openModal}>
         <FaTrash />
         Remover estágio
       </button>
