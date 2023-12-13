@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaChevronDown, FaEnvelope, FaUser } from "react-icons/fa";
 import { api } from "../api/api";
-import { ErrorMessage } from "../common/errorText";
+import { ErrorMessage } from "../common/errorMessage";
 import { GoBackArrow } from "../common/goBackArrow";
 import { useModal } from "../common/useModal";
 import { UserRoleBadge } from "../common/userRoleBadge";

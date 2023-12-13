@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/api";
-import { ErrorMessage } from "../common/errorText";
+import { ErrorMessage } from "../common/errorMessage";
 import { GoBackArrow } from "../common/goBackArrow";
 import { useModal } from "../common/useModal";
 import { courses } from "../data/courses";
