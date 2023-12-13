@@ -73,7 +73,7 @@ export function InternshipPage() {
         <section>
           <h1 className="page-header self-start">
             <GoBackArrow to="/estagios" />
-            {internship.office} - {internship.enterprise.name}
+            {internship.office}
           </h1>
           <img
             alt="enterprise"
@@ -81,26 +81,28 @@ export function InternshipPage() {
             className="w-full h-32 max-h-40 rounded-lg object-fit mb-2 shadow bg-black/10"
           />
         </section>
+        <section>
+          <h2 className="title">Descrição da vaga</h2>
+          <p>{internship.description}</p>
+        </section>
+        <section>
+          <h2 className="title">Modalidade de trabalho</h2>
+          <p>{work_style_translator[internship.work_style]}</p>
+        </section>
+        <section>
+          <h2 className="title">Perfil do profissional?</h2>
+          <p>{internship.profissional_profile}</p>
+        </section>
         <div>
-          <h2 className="title">Sobre a empresa</h2>
+          <h2 className="title">
+            Sobre a empresa {internship.enterprise.name}
+          </h2>
           <div className="gap-2">
             {internship.enterprise.description.split("\n").map((text) => (
               <p key={text}>{text}</p>
             ))}
           </div>
         </div>
-        <section>
-          <h2 className="title">Modalidade de trabalho:</h2>
-          <p>{work_style_translator[internship.work_style]}</p>
-        </section>
-        <section>
-          <h2 className="title">Descrição da vaga:</h2>
-          <p>{internship.description}</p>
-        </section>
-        <section>
-          <h2 className="title">Perfil do profissional?</h2>
-          <p>{internship.profissional_profile}</p>
-        </section>
       </div>
       <div className="fixed right-4 bottom-14 sm:right-8 sm:bottom-8">
         <button
