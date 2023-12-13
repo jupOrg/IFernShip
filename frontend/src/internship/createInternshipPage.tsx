@@ -1,15 +1,14 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-
-import { useEffect, useState } from "react";
 import { api } from "../api/api";
 import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
+import { courses } from "../data/courses";
 import { Enterprise } from "../types/enterprise";
 import { Internship } from "../types/internship";
-import { courses } from "../data/courses";
 
 type Values = Omit<Internship, "id" | "enterprise" | "isActive">;
 type FieldValues = Values & { enterpriseId: string };
