@@ -15,7 +15,6 @@ import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
 import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
 import { GradientCurve } from "./common/gradientCurve";
 import { NotFoundPage } from "./common/notFoundPage";
-import { SearchInput } from "./common/searchInput";
 import { DevPage } from "./dev/devPage";
 import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
 import { EnterprisePage } from "./enterprise/enterprisePage";
@@ -27,7 +26,6 @@ import { SplashPage } from "./intro/splashPage";
 import { BottomNavBar } from "./nav/bottomNavBar";
 import { NavBar } from "./nav/navBar";
 import { RenderVersion } from "./renderVersion";
-import { LayoutProtectPagesRoot } from "./common/LayoutProtectPagesRoot";
 
 const publicRoutes = createBrowserRouter([
   {
