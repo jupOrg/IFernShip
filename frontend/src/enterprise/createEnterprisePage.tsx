@@ -1,34 +1,14 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import * as yup from "yup";
 import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { ImageInput } from "../common/imageInput";
 import { useModal } from "../common/useModal";
 import { Enterprise } from "../types/enterprise";
+import { enterpriseSchema } from "./enterpriseSchema";
 
 type FieldValues = Omit<Enterprise, "picture" | "id">;
-
-const schema = yup.object({
-  name: yup.string().required("É necessário informar um nome"),
-  description: yup.string().required("É necessário escrever uma descrição"),
-  cnpj: yup.string().required("É necessário informar um cnpj"),
-  email: yup
-    .string()
-    .email("Digite um email valido")
-    .required("É necessário informar um email"),
-  picture: yup
-    .mixed<File>()
-    .test("required", "Por favor, selecione uma imagem", (value) => {
-      return !!value && !!value.name;
-    })
-    .test(
-      "fileFormat",
-      "Formato de arquivo não suportado",
-      (value) => !value || (value && value.type.includes("image/")),
-    ),
-});
 
 export function CreateEnterprisePage() {
   const {
@@ -38,7 +18,7 @@ export function CreateEnterprisePage() {
     setValue,
     watch,
   } = useForm<FieldValues>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(enterpriseSchema),
   });
 
   const { Modal, openModal } = useModal();
