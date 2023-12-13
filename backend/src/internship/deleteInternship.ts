@@ -5,6 +5,6 @@ export async function deleteInternship(id: string) {
   if (!internship) {
     throw { status: 404, message: "Internship not found" };
   }
-  await db.internship.delete({ where: { id } })
+  await db.internship.delete({ where: { id } });
   return internship;
 }

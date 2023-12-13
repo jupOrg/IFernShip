@@ -5,6 +5,6 @@ export async function deleteSubscribe(id: string) {
   if (!subscribe) {
     throw { status: 404, message: "subscribe not found" };
   }
-  await db.subscribe.delete({ where: { id } })
+  await db.subscribe.delete({ where: { id } });
   return subscribe;
 }

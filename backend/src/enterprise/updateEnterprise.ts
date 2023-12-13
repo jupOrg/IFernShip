@@ -14,6 +14,6 @@ export async function updateEnterprise(enterprise: Enterprise, id: string) {
     where: { id },
     data: enterprise,
   });
-  
+
   return newEnterprise;
 }

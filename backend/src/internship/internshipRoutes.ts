@@ -1,12 +1,11 @@
 import { Router } from "express";
 import { authMiddleware } from "../auth/authMIddleware";
 import { AuthReq } from "../auth/authReq";
-
 import { createInternship } from "./createInternship";
-import { getAllInternship } from "./getAllInternship";
-import { updateInternship } from "./updateInternship";
 import { deleteInternship } from "./deleteInternship";
+import { getAllInternship } from "./getAllInternship";
 import { getInternship } from "./getInternship";
+import { updateInternship } from "./updateInternship";
 
 const router = Router();
 export const internshipRoutes = router;
@@ -40,4 +39,4 @@ router.delete("/:id", authMiddleware, async (req: AuthReq, res) => {
   const { id } = req.params;
   const internship = await deleteInternship(id);
   return res.status(203).json(internship);
-})
+});

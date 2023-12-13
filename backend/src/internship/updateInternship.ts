@@ -14,6 +14,6 @@ export async function updateInternship(internship: Internship, id: string) {
     where: { id },
     data: internship,
   });
-  
+
   return newInternship;
 }
