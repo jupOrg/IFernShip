@@ -110,3 +110,13 @@ body {
 .gradient-page {
   background: linear-gradient(180deg, #00adb4 0%, #62c751 100%);
 }
+
+@keyframes animate-modal {
+  from {
+    @apply opacity-0;
+  }
+}
+
+.animate-modal {
+  animation: 100ms linear animate-modal;
+}
