@@ -45,7 +45,7 @@ export function SubscribeButton({ internship }: Props) {
     getResource();
   }, []);
 
-  if (user?.role !== "coordinator") {
+  if (user?.role !== "student") {
     return null;
   }
 
