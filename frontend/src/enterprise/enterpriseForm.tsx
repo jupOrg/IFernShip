@@ -4,6 +4,7 @@ import { ErrorMessage } from "../common/errorMessage";
 import { ImageInput } from "../common/imageInput";
 import { Enterprise } from "../types/enterprise";
 import { enterpriseSchema } from "./enterpriseSchema";
+import InputMask from 'react-input-mask';
 
 type Props = {
   enterprise?: Enterprise;
@@ -50,9 +51,10 @@ export function EnterpriseForm({ enterprise, submit }: Props) {
       />
       <ErrorMessage error={errors.description} />
 
-      <input
+      <InputMask
         type="text"
         placeholder="CNPJ"
+        mask='99.999.999/9999-99' 
         className="default-input"
         {...register("cnpj")}
       />
