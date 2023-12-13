@@ -112,9 +112,9 @@ export function UserPage() {
                 onChange={handleFileChange}
               />
               <img
-                alt="user image"
                 src={imageSrc}
-                className="w-24 aspect-square bg-black/10 cursor-pointer"
+                alt={user.name}
+                className="rounded-full w-24 aspect-square bg-black/10 cursor-pointer"
               />
             </label>
             <UserRoleBadge role={user.role} />
