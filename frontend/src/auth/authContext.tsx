@@ -95,7 +95,6 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         closeModal,
         handleModal,
         refreshPage,
-        isCoordinator,
       }}
     >
       {children}
