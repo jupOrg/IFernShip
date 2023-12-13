@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/api";
+import { ErrorMessage } from "../common/errorText";
 import { GoBackArrow } from "../common/goBackArrow";
 import { ImageInput } from "../common/imageInput";
 import { useModal } from "../common/useModal";
@@ -39,61 +40,46 @@ export function CreateEnterprisePage() {
           <GoBackArrow to="/estagios" />
           Adicionar empresa
         </h1>
-        <form className="gap-2.5 flex flex-col" onSubmit={handleSubmit(submit)}>
-          <div className="gap-2">
-            <input
-              type="text"
-              placeholder="Nome"
-              className="default-input"
-              {...register("name")}
-            />
-            {errors.name && (
-              <div className="error-message">{errors.name.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <textarea
-              rows={3}
-              className="default-input"
-              placeholder="Sobre a empresa"
-              {...register("description")}
-            />
-            {errors.description && (
-              <div className="error-message">{errors.description.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <input
-              type="text"
-              placeholder="CNPJ"
-              className="default-input"
-              {...register("cnpj")}
-            />
-            {errors.cnpj && (
-              <div className="error-message">{errors.cnpj.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <input
-              type="email"
-              className="default-input"
-              placeholder="E-mail"
-              {...register("email")}
-            />
-            {errors.email && (
-              <div className="error-message">{errors.email.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <ImageInput
-              file={watch("picture")}
-              setFile={(value: File) => setValue("picture", value)}
-              {...register("picture")}
-            />
-            {errors.picture && (
-              <div className="error-message">{errors.picture.message}</div>
-            )}
-          </div>
+        <form className="gap-2 flex flex-col" onSubmit={handleSubmit(submit)}>
+          <input
+            type="text"
+            placeholder="Nome"
+            className="default-input"
+            {...register("name")}
+          />
+          <ErrorMessage error={errors.name} />
+
+          <textarea
+            rows={3}
+            className="default-input"
+            placeholder="Sobre a empresa"
+            {...register("description")}
+          />
+          <ErrorMessage error={errors.description} />
+
+          <input
+            type="text"
+            placeholder="CNPJ"
+            className="default-input"
+            {...register("cnpj")}
+          />
+          <ErrorMessage error={errors.cnpj} />
+
+          <input
+            type="email"
+            className="default-input"
+            placeholder="E-mail"
+            {...register("email")}
+          />
+          <ErrorMessage error={errors.email} />
+
+          <ImageInput
+            file={watch("picture")}
+            setFile={(value: File) => setValue("picture", value)}
+            {...register("picture")}
+          />
+          <ErrorMessage error={errors.picture} />
+
           <button type="submit" className="default-submit">
             Adicionar
           </button>
