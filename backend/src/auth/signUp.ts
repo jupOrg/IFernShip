@@ -20,7 +20,7 @@ export async function signUp({ name, email, role, password }: SignUpDto) {
 
   const encryptedPassword = await hash(password, 10);
 
-  const picture = `${HOST_APPLICATION}/images/commom.png`;
+  const picture = `${HOST_APPLICATION}/images/common.png`;
 
   const user = await db.user.create({
     data: { role, name, email, password: encryptedPassword, picture },
