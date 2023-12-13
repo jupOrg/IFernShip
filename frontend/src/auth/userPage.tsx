@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { FaChevronDown, FaEnvelope, FaUser } from "react-icons/fa";
 import * as yup from "yup";
 import { api } from "../api/api";
+import { ErrorMessage } from "../common/errorText";
 import { GoBackArrow } from "../common/goBackArrow";
 import { useModal } from "../common/useModal";
 import { UserRoleBadge } from "../common/userRoleBadge";
@@ -30,7 +31,7 @@ const schema = yup.object({
     .test(
       "fileFormat",
       "Formato de arquivo não suportado",
-      (value) => !value || (value && value.type?.includes("image/"))
+      (value) => !value || (value && value.type?.includes("image/")),
     ),
 });
 
@@ -102,10 +103,7 @@ export function UserPage() {
           <GoBackArrow to="/estagios" />
           Editar dados
         </h1>
-        <form
-          onSubmit={handleSubmit(submit)}
-          className="flex flex-col gap-6 w-full p-2"
-        >
+        <form onSubmit={handleSubmit(submit)} className="flex flex-col gap-2">
           <div className="gap-2 items-center">
             <label {...register("picture")}>
               <input
@@ -116,67 +114,57 @@ export function UserPage() {
               <img
                 alt="user image"
                 src={imageSrc}
-                className="rounded-full w-24 aspect-square bg-black/10 cursor-pointer"
+                className="w-24 aspect-square bg-black/10 cursor-pointer"
               />
             </label>
             <UserRoleBadge role={user.role} />
           </div>
-          <div className="gap-4">
-            <div className="gap-2">
-              <div className="input-icon-container">
-                <FaUser className="input-icon" />
-                <input
-                  type="text"
-                  placeholder="Nome"
-                  {...register("name")}
-                  className="default-input rounded-full flex-1 pl-8 2xl:h-"
-                />
-              </div>
-              {errors.name && (
-                <div className="error-message">{errors.name.message}</div>
-              )}
-            </div>
-            <div className="gap-2">
-              <div className="input-icon-container">
-                <select
-                  className="default-input bg-slate-50 rounded-full flex-1 pl-8 appearance-none"
-                  {...register("course")}
-                >
-                  <option value="" disabled>
-                    Curso
-                  </option>
-                  {courses.map((course) => (
-                    <option value={course} key={course}>
-                      {course}
-                    </option>
-                  ))}
-                </select>
-                <FaChevronDown className="input-icon" />
-              </div>
-              {errors.course && (
-                <div className="error-message">{errors.course.message}</div>
-              )}
-            </div>
-            <div className="gap-2">
-              <div className="input-icon-container">
-                <input
-                  disabled
-                  type="email"
-                  placeholder="E-mail"
-                  {...register("email")}
-                  className="default-input rounded-full flex-1 pl-8"
-                />
-                <FaEnvelope className="input-icon" />
-              </div>
-              {errors.email && (
-                <div className="error-message">{errors.email.message}</div>
-              )}
-            </div>
+
+          <div className="input-icon-container">
+            <FaUser className="input-icon" />
+            <input
+              type="text"
+              placeholder="Nome"
+              {...register("name")}
+              className="default-input flex-1 pl-8 2xl:h-"
+            />
           </div>
+          <ErrorMessage error={errors.name} />
+
+          <div className="input-icon-container">
+            <select
+              className="default-input bg-slate-50 flex-1 pl-8 appearance-none"
+              {...register("course")}
+            >
+              <option value="" disabled>
+                Curso
+              </option>
+              {courses.map((course) => (
+                <option value={course} key={course}>
+                  {course}
+                </option>
+              ))}
+            </select>
+            <FaChevronDown className="input-icon" />
+          </div>
+          <ErrorMessage error={errors.course} />
+
+          <div className="input-icon-container">
+            <input
+              disabled
+              type="email"
+              placeholder="E-mail"
+              {...register("email")}
+              className="default-input flex-1 pl-8"
+            />
+            <FaEnvelope className="input-icon" />
+          </div>
+          <ErrorMessage error={errors.email} />
+
           <button
             type="submit"
-            className="default-submit btn mt-8"
             data-cy="edit-save"
+            className="default-submit btn mt-8"
           >
             Salvar
           </button>
