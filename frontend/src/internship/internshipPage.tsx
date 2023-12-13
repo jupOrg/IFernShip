@@ -4,6 +4,7 @@ import { api } from "../api/api";
 import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
+import { Modal } from "../common/modal";
 import { Internship } from "../types/internship";
 import { RemoveButton } from "./removeButton";
 
@@ -17,8 +18,9 @@ export function InternshipPage() {
   const { id } = useParams();
   const [internship, setInternship] = useState<Internship>();
   const [subscribe, setSubscribe] = useState<Subscribe>();
+  const [isFinished, setIsFinished] = useState(false);
 
-  const { user, handleModal } = useAuth();
+  const { user } = useAuth();
 
   async function getInternship() {
     const res = await api.get<Internship>("/internships/" + id);
@@ -45,11 +47,7 @@ export function InternshipPage() {
       };
       const res = await api.post<Subscribe>("/subscribes/", data);
       setSubscribe(res.data);
-      handleModal({
-        isVisible: true,
-        title: "Inscrição Registrada",
-        message: "Inscrição Realizada com sucesso, boa sorte",
-      });
+      setIsFinished(true);
     } else {
       await api.delete<Subscribe>("/subscribes/" + subscribe.id);
       setSubscribe(undefined);
@@ -116,6 +114,11 @@ export function InternshipPage() {
           {!subscribe ? "Se Inscrever" : "Cancelar Inscrição"}
         </button>
       </div>
+      <Modal
+        isVisible={isFinished}
+        title="Inscrição Registrada"
+        message="Inscrição Realizada com sucesso, boa sorte"
+      />
     </div>
   );
 }

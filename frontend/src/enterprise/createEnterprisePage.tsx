@@ -3,9 +3,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { api } from "../api/api";
-import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
 import { ImageInput } from "../common/imageInput";
+import { useModal } from "../common/useModal";
 import { Enterprise } from "../types/enterprise";
 
 type FieldValues = Omit<Enterprise, "picture" | "id">;
@@ -41,29 +41,17 @@ export function CreateEnterprisePage() {
     resolver: yupResolver(schema),
   });
 
-  const { handleModal, closeModal } = useAuth();
+  const { Modal, openModal } = useModal();
 
   const navigate = useNavigate();
 
   async function submit(fields: FieldValues) {
     const formData = new FormData();
-
     Object.entries(fields).forEach(([key, value]) => {
       formData.append(key, value);
     });
-
-    const res = await api.post("/enterprises", formData);
-
-    if (res.status === 201) {
-      handleModal({
-        isVisible: true,
-        title: "Empressa registrada com Sucesso",
-        callbackClose: () => {
-          navigate("/");
-          closeModal();
-        },
-      });
-    }
+    await api.post("/enterprises", formData);
+    openModal();
   }
 
   return (
@@ -133,6 +121,12 @@ export function CreateEnterprisePage() {
           </button>
         </form>
       </div>
+      <Modal
+        title="Empressa registrada com Sucesso"
+        callbackClose={() => {
+          navigate("/empresas");
+        }}
+      />
     </div>
   );
 }

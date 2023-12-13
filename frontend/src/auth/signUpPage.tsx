@@ -32,7 +32,7 @@ export function RegisterPage() {
   });
 
   const navigate = useNavigate();
-  const { login, handleModal } = useAuth();
+  const { login } = useAuth();
 
   const { state } = useLocation();
   const role: Role = state ? state : "student";

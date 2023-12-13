@@ -48,8 +48,7 @@ export function CreateInternshipPage() {
     resolver: yupResolver(schema),
   });
   const [companies, setCompanies] = useState<Enterprise[]>([]);
-
-  const { handleModal, closeModal } = useAuth();
+  const [isFinished, setIsFinished] = useState(false);
 
   const navigate = useNavigate();
 

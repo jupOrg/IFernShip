@@ -48,7 +48,7 @@ export function UserPage() {
 
   const [imageSrc, setImageSrc] = useState();
 
-  const { user, handleModal, closeModal } = useAuth();
+  const { user } = useAuth();
 
   useState(() => {
     setValue("course", user?.course);
@@ -82,17 +82,8 @@ export function UserPage() {
       Object.entries(fields).forEach(([key, value]) => {
         formData.append(key, value);
       });
-      const response = await api.patch(`/users/${user?.id}`, formData);
-      if (response.status === 203) {
-        handleModal({
-          isVisible: true,
-          title: "Dados atualizado com sucesso",
-          callbackClose: () => {
-            window.location.reload();
-            closeModal();
-          },
-        });
-      }
+      await api.patch(`/users/${user?.id}`, formData);
+      window.location.reload();
     } catch (err) {
       const error = err as AxiosError;
       if (error.response) {

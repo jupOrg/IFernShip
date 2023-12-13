@@ -20,7 +20,7 @@ const schema = yup.object({
 });
 
 export function LoginPage() {
-  const { login, handleModal } = useAuth();
+  const { login } = useAuth();
   const {
     register,
     handleSubmit,
