@@ -29,7 +29,7 @@ const schema = yup.object({
     .test(
       "fileFormat",
       "Formato de arquivo não suportado",
-      (value) => !value || (value && value.type?.includes("image/"))
+      (value) => !value || (value && value.type?.includes("image/")),
     ),
 });
 

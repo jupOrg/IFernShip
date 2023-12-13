@@ -3,9 +3,9 @@ import { InputHTMLAttributes } from "react";
 type Props = {
   setFile?: (file: File) => void;
   file?: File | null;
-}
+};
 
-type InputProps = Props & InputHTMLAttributes<HTMLInputElement>
+type InputProps = Props & InputHTMLAttributes<HTMLInputElement>;
 
 export function ImageInput({ file, setFile, ...rest }: InputProps) {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
