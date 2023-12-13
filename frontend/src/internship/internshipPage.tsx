@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../api/api";
+import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
 import { Internship } from "../types/internship";
-import { useAuth } from "../auth/authContext";
 
 type Subscribe = {
   id?: string;
@@ -69,38 +69,40 @@ export function InternshipPage() {
 
   return (
     <div className="w-full items-center p-2 pl-20 gap-8">
-      <h1 className="page-header self-start">
-        <GoBackArrow to="/estagios" />
-        {internship.enterprise.name}
-      </h1>
-      <div className="h-full grid grid-cols-2 auto-cols-fr gap-4">
-        <picture>
+      <div className="w-full max-w-xl gap-4">
+        <section>
+          <h1 className="page-header self-start">
+            <GoBackArrow to="/estagios" />
+            {internship.office}
+          </h1>
           <img
             alt="enterprise"
             src={internship.enterprise.picture}
             className="w-full h-32 max-h-40 rounded-lg object-fit mb-2 shadow bg-black/10"
           />
-        </picture>
+        </section>
+        <section>
+          <h2 className="title">Descrição da vaga</h2>
+          <p>{internship.description}</p>
+        </section>
+        <section>
+          <h2 className="title">Modalidade de trabalho</h2>
+          <p>{work_style_translator[internship.work_style]}</p>
+        </section>
+        <section>
+          <h2 className="title">Perfil do profissional?</h2>
+          <p>{internship.profissional_profile}</p>
+        </section>
         <div>
-          <h1 className="title">Sobre a empresa</h1>
+          <h2 className="title">
+            Sobre a empresa {internship.enterprise.name}
+          </h2>
           <div className="gap-2">
             {internship.enterprise.description.split("\n").map((text) => (
               <p key={text}>{text}</p>
             ))}
           </div>
         </div>
-        <span>
-          <h1 className="title">Modalidade de trabalho:</h1>
-          <p>{work_style_translator[internship.work_style]}</p>
-        </span>
-        <span>
-          <h1 className="title">Descrição da vaga:</h1>
-          <p>{internship.description}</p>
-        </span>
-        <span>
-          <h1 className="title">Perfil do profissional?</h1>
-          <p>{internship.profissional_profile}</p>
-        </span>
       </div>
       <div className="fixed right-4 bottom-14 sm:right-8 sm:bottom-8">
         <button

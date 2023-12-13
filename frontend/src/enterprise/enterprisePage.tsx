@@ -24,37 +24,39 @@ export function EnterprisePage() {
   }
 
   return (
-    <div className="w-full max-w-xl gap-4">
-      <section>
-        <h1 className="page-header">
-          <GoBackArrow to="/empresas" />
-          {enterprise.name}
-        </h1>
-        <img
-          src={enterprise.picture}
-          className="h-72 object-cover rounded-lg bg-black/10"
-        />
-      </section>
-      <section>
-        <h2 className="font-semibold text-xl text-green-700">
-          Sobre a empresa
-        </h2>
-        <div>{enterprise.description}</div>
-      </section>
-      <section>
-        <h2 className="font-semibold text-xl text-green-700">Estágios</h2>
-        <InternshipLinks internships={enterprise.internships} />
-      </section>
-      <section>
-        <div className="flex-row gap-2">
-          <h3 className="font-semibold text-green-700">Email:</h3>
-          {enterprise.email}
-        </div>
-        <div className="flex-row gap-2">
-          <h3 className="font-semibold text-green-700">CNPJ:</h3>
-          {enterprise.cnpj}
-        </div>
-      </section>
+    <div className="items-center flex-1">
+      <div className="w-full max-w-xl gap-4">
+        <section>
+          <h1 className="page-header">
+            <GoBackArrow to="/empresas" />
+            {enterprise.name}
+          </h1>
+          <img
+            src={enterprise.picture}
+            className="h-72 object-cover rounded-lg bg-black/10"
+          />
+        </section>
+        <section>
+          <h2 className="font-semibold text-xl text-green-700">
+            Sobre a empresa
+          </h2>
+          <div>{enterprise.description}</div>
+        </section>
+        <section>
+          <h2 className="font-semibold text-xl text-green-700">Estágios</h2>
+          <InternshipLinks internships={enterprise.internships} />
+        </section>
+        <section>
+          <div className="flex-row gap-2">
+            <h3 className="font-semibold text-green-700">Email:</h3>
+            {enterprise.email}
+          </div>
+          <div className="flex-row gap-2">
+            <h3 className="font-semibold text-green-700">CNPJ:</h3>
+            {enterprise.cnpj}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

@@ -109,10 +109,6 @@ const protectedRoutes = createBrowserRouter([
             element: <EnterprisesPage />,
           },
           {
-            path: "/empresas/:id",
-            element: <EnterprisePage />,
-          },
-          {
             path: "/estagios",
             element: <InternshipsPage />,
           },
@@ -125,6 +121,10 @@ const protectedRoutes = createBrowserRouter([
       {
         path: "/estagios/criar",
         element: <CreateInternshipPage />,
+      },
+      {
+        path: "/empresas/:id",
+        element: <EnterprisePage />,
       },
       {
         path: "/estagios/:id",

@@ -17,7 +17,7 @@ export function NavBar() {
             <img
               alt="user image"
               src={user.picture}
-              className="rounded-full w-20 aspect-square border-2 border-white"
+              className="rounded-full w-20 aspect-square border-2 border-white bg-black/10"
             />
           </Link>
           <div className="text-lg font-medium">{user.name}</div>

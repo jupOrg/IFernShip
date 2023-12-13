@@ -10,7 +10,6 @@ import { User } from "../types/user";
 type AuthContext = {
   user?: User;
   isLogged: boolean;
-  isCoordinator: boolean;
   logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<responseLogin>;
   handleModal?: (props: ModalProps) => void;
@@ -78,7 +77,6 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   }
 
   const isLogged = !!user;
-  const isCoordinator = user?.role === "coordinator";
 
   useEffect(() => {
     setTokenFromCookies();
@@ -94,7 +92,10 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         isLogged,
         closeModal,
         handleModal,
+<<<<<<< HEAD
         refreshPage,
+=======
+>>>>>>> 1ada2582ca66743183473cb66ad1129935a29446
       }}
     >
       {children}
