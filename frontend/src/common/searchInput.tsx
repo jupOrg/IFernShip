@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { FaSearch } from "react-icons/fa";
-import { api } from "../api/api";
 import { useLocation } from "react-router-dom";
+import { api } from "../api/api";
 
 const endpointForPath = {
   "/estagios": "/internships",
@@ -16,11 +16,11 @@ export function SearchInput({ setData }) {
     event.preventDefault();
     const search = getValues("search");
     const endpoint = endpointForPath[location.pathname];
-    const endpointCustomn = search === "" ? endpoint : `${endpoint}?q=${search}`;
-    const res = await api.get(endpointCustomn);
+    const endpointCustom = search === "" ? endpoint : `${endpoint}?q=${search}`;
+    const res = await api.get(endpointCustom);
     setData(res.data);
   }
-  
+
   return (
     <form className="input-icon-container" onSubmit={submit}>
       <FaSearch size={20} className="input-icon" />
