@@ -10,7 +10,6 @@ export function useBackendErrorModal() {
   }
 
   function handleError(error: any) {
-    console.log("here");
     if (error?.code === "ERR_NETWORK") {
       setIsVisible(true);
     }
