@@ -60,7 +60,9 @@ export function LoginPage() {
       <div className="items-center flex-1 justify-around">
         <GradientCurve />
         <div className="items-center gap-8 max-w-md">
-          <h1 className="font-semibold text-2xl">Bem-Vindo de Volta</h1>
+          <h1 className="font-semibold text-2xl md:text-4xl">
+            Bem-Vindo de Volta
+          </h1>
           <div className="text-center text-lg 2xl:text-2xl">
             Faça login e tenha acesso a um mundo de oportunidades profissionais
             com nosso aplicativo de vagas de estágio. Não perca mais tempo,
