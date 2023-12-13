@@ -98,6 +98,10 @@ function LayoutProtectPagesRoot() {
 
 const protectedRoutes = createBrowserRouter([
   {
+    path: "/dev",
+    element: <DevPage />,
+  },
+  {
     element: <LayoutProtectPages />,
     loader: SplashPage,
     children: [
