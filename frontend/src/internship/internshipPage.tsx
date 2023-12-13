@@ -25,7 +25,7 @@ export function InternshipPage() {
 
   async function remove() {
     await api.delete("/internships/" + id);
-    navigate("/internships");
+    navigate("/estagios");
   }
 
   async function getInternship() {

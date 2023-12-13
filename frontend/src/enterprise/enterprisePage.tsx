@@ -14,7 +14,7 @@ export function EnterprisePage() {
 
   async function remove() {
     await api.delete("/enterprises/" + id);
-    navigate("/enterprises");
+    navigate("/empresas");
   }
 
   async function getEnterprise() {
@@ -45,7 +45,7 @@ export function EnterprisePage() {
           />
 
           <div className="flex-row gap-2 pt-2">
-            <RemoveButton resourceText="esse estágio" remove={remove} />
+            <RemoveButton resourceText="essa empresa" remove={remove} />
           </div>
         </section>
         <section>
