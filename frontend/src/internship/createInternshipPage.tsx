@@ -14,13 +14,13 @@ type Values = Omit<Internship, "id" | "enterprise" | "isActive">;
 type FieldValues = Values & { enterpriseId: string };
 
 const schema = yup.object({
-  profissional_profile: yup
+  profissionalProfile: yup
     .string()
     .required("É requerido repassar um perfil de profissional"),
   description: yup
     .string()
     .required("É requerido repassar um perfil de profissional"),
-  work_style: yup
+  workStyle: yup
     .string()
     .required("Selectione um estilo de trabalho")
     .oneOf(
@@ -32,7 +32,7 @@ const schema = yup.object({
     .required("Selecione um curso")
     .oneOf(courses, "Selecione um estilo de trabalho válido"),
   office: yup.string().required("É nescessario repassar o Cargo"),
-  weekly_workload: yup
+  weeklyWorkload: yup
     .number()
     .required("É nescessario passar a quantidade de horas trabalhadas")
     .positive("A carga horária deve ser um número positivo"),
@@ -100,11 +100,11 @@ export function CreateInternshipPage() {
               rows={3}
               className="default-input"
               placeholder="Perfil do profissional"
-              {...register("profissional_profile")}
+              {...register("profissionalProfile")}
             />
-            {errors.profissional_profile && (
+            {errors.profissionalProfile && (
               <div className="error-message">
-                {errors.profissional_profile.message}
+                {errors.profissionalProfile.message}
               </div>
             )}
           </div>
@@ -113,16 +113,16 @@ export function CreateInternshipPage() {
               type="number"
               className="default-input"
               placeholder="Carga horária semanal"
-              {...register("weekly_workload")}
+              {...register("weeklyWorkload")}
             />
-            {errors.weekly_workload && (
+            {errors.weeklyWorkload && (
               <div className="error-message">
-                {errors.weekly_workload.message}
+                {errors.weeklyWorkload.message}
               </div>
             )}
           </div>
           <div className="gap-2">
-            <select className="default-input" {...register("work_style")}>
+            <select className="default-input" {...register("workStyle")}>
               <option value="" disabled selected>
                 Estilo de trabalho
               </option>
@@ -130,8 +130,8 @@ export function CreateInternshipPage() {
               <option value="hybrid">Hibrido</option>
               <option value="remote">Remoto</option>
             </select>
-            {errors.work_style && (
-              <div className="error-message">{errors.work_style.message}</div>
+            {errors.workStyle && (
+              <div className="error-message">{errors.workStyle.message}</div>
             )}
           </div>
           <div className="gap-2">

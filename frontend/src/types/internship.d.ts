@@ -7,7 +7,7 @@ export type Internship = {
   isActive: boolean;
   description: string;
   enterprise: Enterprise;
-  weekly_workload: number;
-  profissional_profile: string;
-  work_style: "isPerson" | "remote" | "hybrid";
+  weeklyWorkload: number;
+  profissionalProfile: string;
+  workStyle: "isPerson" | "remote" | "hybrid";
 };

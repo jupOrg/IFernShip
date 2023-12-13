@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearch"]
 }
 
@@ -9,14 +9,14 @@ datasource db {
 }
 
 model User {
-  id          String  @id @default(uuid())
-  name        String
-  email       String  @unique
-  picture     String?
-  password    String
-  course      String?
-  role        Role
-  subscribe   Subscribe[]
+  id        String      @id @default(uuid())
+  name      String
+  email     String      @unique
+  picture   String?
+  password  String
+  course    String?
+  role      Role
+  subscribe Subscribe[]
 }
 
 model Enterprise {
@@ -30,25 +30,25 @@ model Enterprise {
 }
 
 model Internship {
-  id                   String     @id @default(uuid())
-  isActive             Boolean
-  course               String
-  description          String
-  office               String
-  profissional_profile String
-  work_style           WorkStyle
-  weekly_workload      Int
-  enterpriseId         String
-  enterprise           Enterprise @relation(fields: [enterpriseId], references: [id])
-  subscribe            Subscribe[]
+  id                  String      @id @default(uuid())
+  isActive            Boolean
+  course              String
+  description         String
+  office              String
+  profissionalProfile String
+  workStyle           WorkStyle
+  weeklyWorkload      Int
+  enterpriseId        String
+  enterprise          Enterprise  @relation(fields: [enterpriseId], references: [id])
+  subscribe           Subscribe[]
 }
 
 model Subscribe {
-  id            String     @id @default(uuid())
-  userId        String
-  internshipId  String
-  user          User @relation(fields: [userId], references: [id])
-  internship    Internship @relation(fields: [internshipId], references: [id])
+  id           String     @id @default(uuid())
+  userId       String
+  internshipId String
+  user         User       @relation(fields: [userId], references: [id])
+  internship   Internship @relation(fields: [internshipId], references: [id])
 
   @@unique([userId, internshipId])
 }

@@ -17,12 +17,17 @@ type Subscribe = {
 
 export function InternshipPage() {
   const { id } = useParams();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [internship, setInternship] = useState<Internship>();
   const [subscribe, setSubscribe] = useState<Subscribe>();
   const [isFinished, setIsFinished] = useState(false);
 
-  const { user } = useAuth();
+  const workStyleDisplayText = {
+    isPerson: "Presencial",
+    hybrid: "Hibrido",
+    remote: "Remoto",
+  };
 
   async function remove() {
     await api.delete("/internships/" + id);
@@ -65,12 +70,6 @@ export function InternshipPage() {
     getInternship();
   }, []);
 
-  const work_style_translator = {
-    isPerson: "Presencial",
-    hybrid: "Hibrido",
-    remote: "Remoto",
-  };
-
   if (!internship) return <LoadingPlaceholder />;
 
   return (
@@ -96,11 +95,11 @@ export function InternshipPage() {
         </section>
         <section>
           <h2 className="title">Modalidade de trabalho</h2>
-          <p>{work_style_translator[internship.work_style]}</p>
+          <p>{workStyleDisplayText[internship.workStyle]}</p>
         </section>
         <section>
           <h2 className="title">Perfil do profissional?</h2>
-          <p>{internship.profissional_profile}</p>
+          <p>{internship.profissionalProfile}</p>
         </section>
         <div>
           <h2 className="title">
