@@ -24,7 +24,7 @@ export function EnterprisesPage() {
 
   return (
     <div className="items-center flex-1">
-      <div className="sticky top-0 p-2">
+      <div className="sticky top-0 p-2 w-4/12">
         <SearchInput setData={setEnterprises} />
       </div>
       <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl">
@@ -37,7 +37,7 @@ export function EnterprisesPage() {
           <div className="fixed right-4 bottom-14 sm:right-8 sm:bottom-8">
             <Link
               to="/empresas/criar"
-              className="button bg-green-600 text-white p-2 rounded"
+              className="button button-primary"
             >
               Adicionar empresa
             </Link>

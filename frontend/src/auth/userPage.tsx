@@ -30,7 +30,7 @@ const schema = yup.object({
     .test(
       "fileFormat",
       "Formato de arquivo não suportado",
-      (value) => !value || (value && value.type?.includes("image/")),
+      (value) => !value || (value && value.type?.includes("image/"))
     ),
 });
 
@@ -121,55 +121,57 @@ export function UserPage() {
             </label>
             <UserRoleBadge role={user.role} />
           </div>
-          <div className="gap-2">
-            <div className="input-icon-container">
-              <FaUser className="input-icon" />
-              <input
-                type="text"
-                placeholder="Nome"
-                {...register("name")}
-                className="default-input rounded-full flex-1 pl-8 2xl:h-"
-              />
+          <div className="gap-4">
+            <div className="gap-2">
+              <div className="input-icon-container">
+                <FaUser className="input-icon" />
+                <input
+                  type="text"
+                  placeholder="Nome"
+                  {...register("name")}
+                  className="default-input rounded-full flex-1 pl-8 2xl:h-"
+                />
+              </div>
+              {errors.name && (
+                <div className="error-message">{errors.name.message}</div>
+              )}
             </div>
-            {errors.name && (
-              <div className="error-message">{errors.name.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <div className="input-icon-container">
-              <select
-                className="default-input bg-slate-50 rounded-full flex-1 pl-8 appearance-none"
-                {...register("course")}
-              >
-                <option value="" disabled>
-                  Curso
-                </option>
-                {courses.map((course, index) => (
-                  <option value={course} key={course + index}>
-                    {course}
+            <div className="gap-2">
+              <div className="input-icon-container">
+                <select
+                  className="default-input bg-slate-50 rounded-full flex-1 pl-8 appearance-none"
+                  {...register("course")}
+                >
+                  <option value="" disabled>
+                    Curso
                   </option>
-                ))}
-              </select>
-              <FaChevronDown className="input-icon" />
+                  {courses.map((course, index) => (
+                    <option value={course} key={course + index}>
+                      {course}
+                    </option>
+                  ))}
+                </select>
+                <FaChevronDown className="input-icon" />
+              </div>
+              {errors.course && (
+                <div className="error-message">{errors.course.message}</div>
+              )}
             </div>
-            {errors.course && (
-              <div className="error-message">{errors.course.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <div className="input-icon-container">
-              <input
-                disabled
-                type="email"
-                placeholder="E-mail"
-                {...register("email")}
-                className="default-input rounded-full flex-1 pl-8"
-              />
-              <FaEnvelope className="input-icon" />
+            <div className="gap-2">
+              <div className="input-icon-container">
+                <input
+                  disabled
+                  type="email"
+                  placeholder="E-mail"
+                  {...register("email")}
+                  className="default-input rounded-full flex-1 pl-8"
+                />
+                <FaEnvelope className="input-icon" />
+              </div>
+              {errors.email && (
+                <div className="error-message">{errors.email.message}</div>
+              )}
             </div>
-            {errors.email && (
-              <div className="error-message">{errors.email.message}</div>
-            )}
           </div>
           <button
             type="submit"

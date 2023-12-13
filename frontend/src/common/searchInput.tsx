@@ -27,7 +27,7 @@ export function SearchInput({ setData }) {
       <input
         type="text"
         placeholder="Pesquisar"
-        className="default-input rounded-full pl-9"
+        className="default-input rounded-full pl-9 w-full"
         {...register("search")}
       />
       <button className="invisible h-0 w-0"></button>

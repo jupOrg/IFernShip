@@ -108,7 +108,7 @@ export function InternshipPage() {
       </div>
       <div className="fixed right-4 bottom-14 sm:right-8 sm:bottom-8">
         <button
-          className="button bg-green-600 text-white p-2 rounded"
+          className="button button-primary"
           onClick={handleSubscribe}
         >
           {!subscribe ? "Se Inscrever" : "Cancelar Inscrição"}

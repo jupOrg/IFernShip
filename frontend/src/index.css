@@ -31,14 +31,22 @@ body {
     @apply flex flex-row items-center justify-center;
   }
 
+  .button-primary {
+    @apply bg-green-600 text-white p-2 rounded-xl;
+  }
+
   img {
     @apply text-center;
+  }
+
+  select.default-input option {
+    @apply bg-slate-200 w-10/12 rounded-full;
   }
 }
 
 @layer components {
   .default-input {
-    @apply rounded-lg p-2 border w-full bg-slate-100 border-gray-400 shadow-md placeholder-gray-500 2xl:p-3;
+    @apply rounded-lg p-2 border w-full bg-slate-100 border-none border-gray-400 shadow-md placeholder-gray-500 2xl:p-3;
   }
 
   .title {
@@ -70,7 +78,7 @@ body {
   }
 
   .input-icon {
-    @apply absolute left-3 opacity-50 pointer-events-none;
+    @apply absolute left-2.5 opacity-50 pointer-events-none;
   }
 
   .input-icon-rigth {
@@ -78,7 +86,7 @@ body {
   }
 
   .input-icon-container {
-    @apply relative items-center flex flex-col justify-center flex-row;
+    @apply relative items-center flex flex-col justify-center flex-row w-full;
   }
 
   .page-header {
