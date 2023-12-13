@@ -36,7 +36,7 @@ export function RegisterPage() {
 
   async function submit({ name, email, password }: FieldValues) {
     try {
-      await api.post("/auth/sign-up", {
+      const res = await api.post("/auth/sign-up", {
         name,
         role,
         email,
@@ -44,18 +44,17 @@ export function RegisterPage() {
         confirmPassword: password,
         course: "ADS",
       });
+      if (!res) {
+        throw { message: "Email já está em uso" };
+      }
       const response = await login(email, password);
       if (response.token) {
         navigate("/internships");
       }
     } catch (err) {
-      const error = err as AxiosError;
-      if (error.response) {
-        const { data, status }: AxiosResponse = error.response;
-        if (status !== 201) {
-          const message = data?.message || data;
-          setError("email", { type: "custom", message });
-        }
+      const { message } = err;
+      if (message) {
+        setError("email", { type: "custom", message });
       }
     }
   }
@@ -67,10 +66,10 @@ export function RegisterPage() {
         <div className="items-center gap-6 flex-grow-1 w-full max-w-md">
           <div className="items-center gap-10">
             <div className="gap-4">
-              <h1 className="font-semibold text-center text-2xl 2xl:text-4xl">
+              <h1 className="font-semibold text-center text-4xl ">
                 Se cadastre
               </h1>
-              <p className="text-black text-center 2xl:text-2xl">
+              <p className="text-black text-center text-lg 2xl:text-2xl">
                 Se cadastre e tenha acesso a um mundo de oportunidades
                 profissionais com nosso aplicativo de vagas de estágio. Não
                 perca mais tempo, comece agora a buscar a vaga perfeita para

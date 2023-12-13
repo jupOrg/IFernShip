@@ -25,7 +25,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   ): Promise<responseLogin> {
     // This is not a GET because of the body encryption
     const res = await api.post("/auth/login", { email, password });
-    if (res.status !== 201) throw { message: res.data, status: 201 };
+    if (res.status !== 201) throw { message: res.data, status: res.status };
     const { user, token } = res.data;
     setUser(user);
     Cookies.set("token", token);
