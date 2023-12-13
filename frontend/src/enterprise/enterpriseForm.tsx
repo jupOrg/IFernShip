@@ -19,8 +19,18 @@ export function EnterpriseForm({ enterprise, submit }: Props) {
     formState: { errors },
   } = useForm<Enterprise>({
     resolver: yupResolver(enterpriseSchema),
-    defaultValues: enterprise,
+    defaultValues: {
+      ...enterprise,
+      picture: createObjFile(enterprise?.picture),
+    },
   });
+
+  function createObjFile(url) {
+    const filename = url.split("/").pop();
+    const extension = filename.split(".").pop();
+    const file = new File([url], filename, { type: `image/${extension}` });
+    return file;
+  }
 
   return (
     <form className="gap-2 flex flex-col" onSubmit={handleSubmit(submit)}>
