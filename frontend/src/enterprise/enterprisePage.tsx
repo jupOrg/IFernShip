@@ -30,7 +30,6 @@ export function EnterprisePage() {
             src={enterprise.picture}
             className="h-72 object-cover rounded-lg bg-black/10"
           />
-
           <div className="flex-row gap-2 pt-2 justify-around">
             <UpdateButton path={path} resource="enterprise" />
             <RemoveButton
