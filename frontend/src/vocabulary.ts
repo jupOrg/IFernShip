@@ -11,4 +11,7 @@ export const vocabulary = {
   weeklyWorkload: "carga horária semanal",
   profissionalProfile: "perfil profissional",
   workStyle: "estilo de trabalho",
+  isPerson: "presencial",
+  hybrid: "híbrido",
+  remote: "remoto",
 };
