@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
+import { RemoveButton } from "../common/removeButton";
 import { useResource } from "../common/useResource";
 import { SeparateParagraphs } from "../separateParagraphs";
 import { Internship } from "../types/internship";
 import { vocabulary } from "../vocabulary";
-import { RemoveButton } from "./removeButton";
 import { SubscribeButton } from "./subscribeButton";
 
 export function InternshipPage() {

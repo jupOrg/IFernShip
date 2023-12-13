@@ -1,7 +1,7 @@
 import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/api";
-import { useModal } from "../common/useModal";
+import { useModal } from "./useModal";
 
 type Props = {
   path: string;

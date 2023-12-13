@@ -7,7 +7,7 @@ import { EnterpriseForm } from "./enterpriseForm";
 
 type FieldValues = Omit<Enterprise, "picture" | "id">;
 
-export function CreateEnterprisePage() {
+export function UpdateEnterprisePage() {
   const navigate = useNavigate();
   const { Modal, openModal } = useModal();
 
@@ -25,7 +25,7 @@ export function CreateEnterprisePage() {
       <div className="w-full max-w-xl gap-6 ">
         <h1 className="page-header">
           <GoBackArrow to="/estagios" />
-          Adicionar empresa
+          Editar empresa
         </h1>
         <EnterpriseForm submit={submit} enterprise={{} as Enterprise} />
       </div>
