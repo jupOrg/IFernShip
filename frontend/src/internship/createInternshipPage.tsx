@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { api } from "../api/api";
-import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
+import { useModal } from "../common/useModal";
 import { courses } from "../data/courses";
 import { Enterprise } from "../types/enterprise";
 import { Internship } from "../types/internship";
@@ -48,7 +48,7 @@ export function CreateInternshipPage() {
     resolver: yupResolver(schema),
   });
   const [companies, setCompanies] = useState<Enterprise[]>([]);
-  const [isFinished, setIsFinished] = useState(false);
+  const { Modal, openModal } = useModal();
 
   const navigate = useNavigate();
 
@@ -61,17 +61,8 @@ export function CreateInternshipPage() {
   }, []);
 
   async function submit(interneship: FieldValues) {
-    const res = await api.post("/internships", interneship);
-    if (res.status === 201) {
-      handleModal({
-        isVisible: true,
-        title: "Estágio registrado com sucesso",
-        callbackClose: () => {
-          navigate("/");
-          closeModal();
-        },
-      });
-    }
+    await api.post("/internships", interneship);
+    openModal();
   }
 
   return (
@@ -174,6 +165,12 @@ export function CreateInternshipPage() {
           </button>
         </form>
       </div>
+      <Modal
+        title="Estágio registrado com sucesso"
+        callbackClose={() => {
+          navigate("/estagios");
+        }}
+      />
     </div>
   );
 }
