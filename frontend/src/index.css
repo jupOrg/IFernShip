@@ -42,7 +42,11 @@ body {
   }
 
   .title {
-    @apply font-semibold text-xl text-green-700
+    @apply font-semibold text-xl text-green-700;
+  }
+
+  .simple-button {
+    @apply hover:bg-black/10 rounded gap-1 p-2;
   }
 
   .btn {

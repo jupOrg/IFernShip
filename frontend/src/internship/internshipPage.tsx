@@ -5,6 +5,7 @@ import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 import { Internship } from "../types/internship";
+import { RemoveButton } from "./removeButton";
 
 type Subscribe = {
   id?: string;
@@ -75,12 +76,14 @@ export function InternshipPage() {
             <GoBackArrow to="/estagios" />
             {internship.office}
           </h1>
-
           <img
             alt={internship.enterprise.name}
             src={internship.enterprise.picture}
             className="h-72 object-cover rounded-lg bg-black/10"
           />
+          <div className="flex-row gap-2">
+            <RemoveButton />
+          </div>
         </section>
         <section>
           <h2 className="title">Descrição da vaga</h2>
