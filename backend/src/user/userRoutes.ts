@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { authMiddleware } from "../auth/authMIddleware";
 import { AuthReq } from "../auth/authReq";
+import { HOST_APPLICATION } from "../env";
+import { upload } from "../upload";
 import { getUser } from "./getUser";
 import { updateUser } from "./updateUser";
-import { upload } from "../upload";
-import { HOST_APPLICATION } from "../env";
 
 const router = Router();
 export const userRoutes = router;

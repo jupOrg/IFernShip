@@ -34,10 +34,6 @@ const publicRoutes = createBrowserRouter([
     element: <DevPage />,
   },
   {
-    path: "/splash",
-    element: <SplashPage />,
-  },
-  {
     path: "/entrar",
     element: <LoginPage />,
   },
@@ -65,12 +61,8 @@ const publicRoutes = createBrowserRouter([
     ),
   },
   {
-    path: "/",
-    element: <Navigate to="/escolher-autenticacao" />,
-  },
-  {
     path: "/*",
-    element: <NotFoundPage />,
+    element: <Navigate to="/escolher-autenticacao" />,
   },
 ]);
 
@@ -138,6 +130,10 @@ const protectedRoutes = createBrowserRouter([
         path: "/conta/editar",
         element: <UserPage />,
       },
+      {
+        path: "/*",
+        element: <Navigate to="/" />,
+      },
     ],
   },
   // TODO add login and sign up redirects
@@ -152,7 +148,12 @@ const protectedRoutes = createBrowserRouter([
 ]);
 
 export function Router() {
-  const { isLogged } = useAuth();
+  const { isLogged, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <SplashPage />;
+  }
+
   return (
     <RouterProvider
       router={isLogged ? protectedRoutes : publicRoutes}

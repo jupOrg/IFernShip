@@ -1,4 +1,3 @@
-import { AxiosError, AxiosResponse } from "axios";
 import Cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../api/api";
@@ -10,6 +9,7 @@ import { User } from "../types/user";
 type AuthContext = {
   user?: User;
   isLogged: boolean;
+  isLoading: boolean;
   logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<responseLogin>;
   handleModal?: (props: ModalProps) => void;
@@ -20,6 +20,7 @@ const authContext = createContext({} as AuthContext);
 
 export function AuthContextProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<User>();
+  const [isLoading, setIsLoading] = useState(true);
   const [modalData, setModalData] = useState<ModalProps>({
     title: "Ocorreu um error",
     message: "",
@@ -52,18 +53,17 @@ export function AuthContextProvider({ children }: ChildrenProps) {
     try {
       const res = await api.get<User | undefined>("/users/me");
       setUser(res.data);
-    } catch (err) {
-      const error = err as AxiosError;
-      const { status } = error.response as AxiosResponse;
-      if (status === 401) {
-        console.error(error);
-      }
+    } catch {
+      setUser(undefined);
     }
+    setIsLoading(false);
   }
 
   function setTokenFromCookies() {
     const token = Cookies.get("token");
-    api.defaults.headers.common.Authorization = `Bearer ${token}`;
+    if (token) {
+      api.defaults.headers.common.Authorization = `Bearer ${token}`;
+    }
   }
 
   async function logout() {
@@ -85,6 +85,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         login,
         logout,
         isLogged,
+        isLoading,
         closeModal,
         handleModal,
       }}
