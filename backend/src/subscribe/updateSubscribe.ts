@@ -14,6 +14,6 @@ export async function updateSubscribe(subscribe: Subscribe, id: string) {
     where: { id },
     data: subscribe,
   });
-  
+
   return newSubscribe;
 }
