@@ -8,6 +8,7 @@ export const vocabulary: { [key: string]: string } = {
   isActive: "ativo",
   enterprise: "empresa",
   enterpriseId: "empresa",
+  "this enterprise": "essa empresa",
   weeklyWorkload: "carga horária semanal",
   profissionalProfile: "perfil profissional",
   workStyle: "estilo de trabalho",
@@ -15,4 +16,5 @@ export const vocabulary: { [key: string]: string } = {
   hybrid: "híbrido",
   remote: "remoto",
   internship: "estágio",
+  "this internship": "esse estágio",
 };
