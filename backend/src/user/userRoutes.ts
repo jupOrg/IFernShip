@@ -29,5 +29,5 @@ router.patch(
     const picture = `${HOST_APPLICATION}/images/${filename}`;
     const user = await updateUser({ ...req.body, picture }, id);
     return res.status(203).json(user);
-  }
+  },
 );
