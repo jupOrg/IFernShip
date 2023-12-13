@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../api/api";
 import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
@@ -16,11 +16,17 @@ type Subscribe = {
 
 export function InternshipPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [internship, setInternship] = useState<Internship>();
   const [subscribe, setSubscribe] = useState<Subscribe>();
   const [isFinished, setIsFinished] = useState(false);
 
   const { user } = useAuth();
+
+  async function remove() {
+    await api.delete("/internships/" + id);
+    navigate("/internships");
+  }
 
   async function getInternship() {
     const res = await api.get<Internship>("/internships/" + id);
@@ -80,7 +86,7 @@ export function InternshipPage() {
             className="h-72 object-cover rounded-lg bg-black/10"
           />
           <div className="flex-row gap-2 pt-2">
-            <RemoveButton />
+            <RemoveButton resourceText="esse estágio" remove={remove} />
           </div>
         </section>
         <section>
