@@ -11,19 +11,17 @@ import { enterpriseSchema } from "./enterpriseSchema";
 type FieldValues = Omit<Enterprise, "picture" | "id">;
 
 export function CreateEnterprisePage() {
+  const navigate = useNavigate();
+  const { Modal, openModal } = useModal();
   const {
+    watch,
+    setValue,
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
-    watch,
   } = useForm<FieldValues>({
     resolver: yupResolver(enterpriseSchema),
   });
-
-  const { Modal, openModal } = useModal();
-
-  const navigate = useNavigate();
 
   async function submit(fields: FieldValues) {
     const formData = new FormData();
