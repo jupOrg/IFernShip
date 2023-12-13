@@ -12,6 +12,7 @@ import { courses } from "../data/courses";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
 import { userSchema } from "./userSchema";
+import { createObjFile } from "../common/createObjFile";
 
 type FieldValues = Pick<User, "email" | "name" | "picture" | "course">;
 
@@ -27,12 +28,10 @@ export function UserPage() {
     setValue,
   } = useForm<FieldValues>({
     resolver: yupResolver(userSchema),
+    defaultValues: { ...user, picture: createObjFile(user?.picture) },
   });
 
   useState(() => {
-    setValue("course", user?.course);
-    setValue("email", user?.email);
-    setValue("name", user?.name);
     setImageSrc(user?.picture);
   }, []);
 

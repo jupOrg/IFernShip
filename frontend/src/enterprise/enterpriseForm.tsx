@@ -5,6 +5,7 @@ import { ImageInput } from "../common/imageInput";
 import { Enterprise } from "../types/enterprise";
 import { enterpriseSchema } from "./enterpriseSchema";
 import InputMask from 'react-input-mask';
+import { createObjFile } from "../common/createObjFile";
 
 type Props = {
   enterprise?: Enterprise;
@@ -25,13 +26,6 @@ export function EnterpriseForm({ enterprise, submit }: Props) {
       picture: createObjFile(enterprise?.picture),
     },
   });
-
-  function createObjFile(url) {
-    const filename = url.split("/").pop();
-    const extension = filename.split(".").pop();
-    const file = new File([url], filename, { type: `image/${extension}` });
-    return file;
-  }
 
   return (
     <form className="gap-2 flex flex-col" onSubmit={handleSubmit(submit)}>
