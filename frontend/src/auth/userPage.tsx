@@ -3,7 +3,6 @@ import { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaChevronDown, FaEnvelope, FaUser } from "react-icons/fa";
-import * as yup from "yup";
 import { api } from "../api/api";
 import { ErrorMessage } from "../common/errorText";
 import { GoBackArrow } from "../common/goBackArrow";
@@ -12,28 +11,7 @@ import { UserRoleBadge } from "../common/userRoleBadge";
 import { courses } from "../data/courses";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
-
-const schema = yup.object({
-  name: yup.string().required("É necessário informar um nome"),
-  email: yup
-    .string()
-    .email("Digite um email valido")
-    .required("É necessário informar um email"),
-  course: yup
-    .string()
-    .required("É necessário informar um Curso")
-    .oneOf(courses, "Selecione um estilo de trabalho válido"),
-  picture: yup
-    .mixed<File>()
-    .test("required", "Por favor, selecione uma imagem", (value) => {
-      return !!value && !!value.name;
-    })
-    .test(
-      "fileFormat",
-      "Formato de arquivo não suportado",
-      (value) => !value || (value && value.type?.includes("image/")),
-    ),
-});
+import { userSchema } from "./userSchema";
 
 type FieldValues = Pick<User, "email" | "name" | "picture" | "course">;
 
@@ -48,7 +26,7 @@ export function UserPage() {
     setError,
     setValue,
   } = useForm<FieldValues>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(userSchema),
   });
 
   useState(() => {
