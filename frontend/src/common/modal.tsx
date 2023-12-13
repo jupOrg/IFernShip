@@ -11,11 +11,11 @@ export function Modal({
   isVisible,
   callbackClose,
 }: ModalProps) {
-  const classVisible = isVisible ? "fixed opacity-100" : "hidden opacity-0";
+  const classVisible = isVisible ? "" : "invisible opacity-0";
   return (
     <div
       data-cy="modal-error"
-      className={`${classVisible} duration-200 ease-linear transition bg-black bg-opacity-80 fixed inset-0 justify-center items-center`}
+      className={`${classVisible} fixed inset-0 duration-100 ease-linear transition-modal bg-black bg-opacity-80 justify-center items-center`}
     >
       <div className="bg-white p-4 gap-2 shadow-common rounded-xl w-full max-w-lg">
         <h1 className="text-xl font-medium">{title}</h1>
