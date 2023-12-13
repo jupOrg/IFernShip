@@ -81,6 +81,7 @@ export function UserPage() {
         formData.append(key, value);
       });
       await api.patch(`/users/${user?.id}`, formData);
+      console.log("here");
       openModal();
     } catch (err) {
       const error = err as AxiosError;

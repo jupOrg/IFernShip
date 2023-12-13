@@ -24,7 +24,7 @@ export function EnterprisePage() {
   }
 
   return (
-    <div className="items-center flex-1">
+    <div className="items-center flex-1 p-2">
       <div className="w-full max-w-xl gap-4">
         <section>
           <h1 className="page-header">
@@ -32,6 +32,7 @@ export function EnterprisePage() {
             {enterprise.name}
           </h1>
           <img
+            alt={enterprise.name}
             src={enterprise.picture}
             className="h-72 object-cover rounded-lg bg-black/10"
           />
