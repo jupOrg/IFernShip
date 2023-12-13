@@ -6,6 +6,7 @@ import { FaChevronDown, FaEnvelope, FaUser } from "react-icons/fa";
 import * as yup from "yup";
 import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
+import { useModal } from "../common/useModal";
 import { UserRoleBadge } from "../common/userRoleBadge";
 import { courses } from "../data/courses";
 import { User } from "../types/user";
@@ -36,6 +37,9 @@ const schema = yup.object({
 type FieldValues = Pick<User, "email" | "name" | "picture" | "course">;
 
 export function UserPage() {
+  const [imageSrc, setImageSrc] = useState();
+  const { user } = useAuth();
+  const { Modal, openModal } = useModal();
   const {
     register,
     handleSubmit,
@@ -45,10 +49,6 @@ export function UserPage() {
   } = useForm<FieldValues>({
     resolver: yupResolver(schema),
   });
-
-  const [imageSrc, setImageSrc] = useState();
-
-  const { user } = useAuth();
 
   useState(() => {
     setValue("course", user?.course);
@@ -68,11 +68,9 @@ export function UserPage() {
 
   async function convert2base64(file: File) {
     const reader = new FileReader();
-
     reader.onload = () => {
       setImageSrc(reader.result?.toString());
     };
-
     reader.readAsDataURL(file);
   }
 
@@ -83,7 +81,7 @@ export function UserPage() {
         formData.append(key, value);
       });
       await api.patch(`/users/${user?.id}`, formData);
-      window.location.reload();
+      openModal();
     } catch (err) {
       const error = err as AxiosError;
       if (error.response) {
@@ -181,6 +179,10 @@ export function UserPage() {
           </button>
         </form>
       </div>
+      <Modal
+        title="Dados atualizado com sucesso"
+        callbackClose={() => window.location.reload()}
+      />
     </div>
   );
 }
