@@ -7,9 +7,9 @@ import * as yup from "yup";
 import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { UserRoleBadge } from "../common/userRoleBadge";
+import { courses } from "../data/courses";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
-import { courses } from "../data/courses";
 
 const schema = yup.object({
   name: yup.string().required("É necessário informar um nome"),
@@ -29,7 +29,7 @@ const schema = yup.object({
     .test(
       "fileFormat",
       "Formato de arquivo não suportado",
-      (value) => !value || (value && value.type?.includes("image/")),
+      (value) => !value || (value && value.type?.includes("image/"))
     ),
 });
 
@@ -48,7 +48,7 @@ export function UserPage() {
 
   const [imageSrc, setImageSrc] = useState();
 
-  const { user, handleModal, closeModal, refreshPage } = useAuth();
+  const { user, handleModal, closeModal } = useAuth();
 
   useState(() => {
     setValue("course", user?.course);
@@ -88,7 +88,7 @@ export function UserPage() {
           isVisible: true,
           title: "Dados atualizado com sucesso",
           callbackClose: () => {
-            refreshPage?.();
+            window.location.reload();
             closeModal?.();
           },
         });
