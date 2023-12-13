@@ -1,8 +1,11 @@
 import { setLocale } from "yup";
+import { pt } from "yup-locales";
 import { vocabulary } from "./vocabulary";
 
 setLocale({
+  ...pt,
   mixed: {
+    ...pt.mixed,
     required: ({ path }) => {
       let noun = vocabulary[path] as string;
 
