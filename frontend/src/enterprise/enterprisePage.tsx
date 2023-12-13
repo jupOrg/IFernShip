@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
+import { useResource } from "../common/useResource";
 import { RemoveButton } from "../internship/removeButton";
 import { SeparateParagraphs } from "../separateParagraphs";
 import { Enterprise } from "../types/enterprise";
@@ -10,22 +10,13 @@ import { InternshipLinks } from "./internshipLinks";
 
 export function EnterprisePage() {
   const { id } = useParams();
-  const [enterprise, setEnterprise] = useState<Enterprise>();
   const navigate = useNavigate();
+  const enterprise = useResource<Enterprise>("/enterprises/" + id);
 
   async function remove() {
     await api.delete("/enterprises/" + id);
     navigate("/empresas");
   }
-
-  async function getEnterprise() {
-    const res = await api.get("/enterprises/" + id);
-    setEnterprise(res.data);
-  }
-
-  useEffect(() => {
-    getEnterprise();
-  }, []);
 
   if (!enterprise) {
     return <LoadingPlaceholder />;
