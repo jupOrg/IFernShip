@@ -1,4 +1,4 @@
-export type ModalProps = {
+type ModalProps = {
   title?: string;
   message?: string;
   isVisible: boolean;

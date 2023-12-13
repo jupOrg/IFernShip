@@ -2,7 +2,6 @@ import Cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../api/api";
 import { ChildrenProps } from "../common/childrenProps";
-import { Modal, ModalProps } from "../common/modal";
 import { responseLogin } from "../types/responseLogin";
 import { User } from "../types/user";
 
@@ -12,8 +11,6 @@ type AuthContext = {
   isLoading: boolean;
   logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<responseLogin>;
-  handleModal: (props: ModalProps) => void;
-  closeModal: () => void;
 };
 
 const authContext = createContext({} as AuthContext);
@@ -21,20 +18,6 @@ const authContext = createContext({} as AuthContext);
 export function AuthContextProvider({ children }: ChildrenProps) {
   const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState(true);
-  const [modalData, setModalData] = useState<ModalProps>({
-    title: "Ocorreu um error",
-    message: "",
-    isVisible: false,
-    callbackClose: closeModal,
-  });
-
-  function handleModal(props: ModalProps) {
-    setModalData({ ...modalData, ...props });
-  }
-
-  function closeModal() {
-    setModalData({ ...modalData, isVisible: false });
-  }
 
   async function login(
     email: string,
@@ -86,12 +69,9 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         logout,
         isLogged,
         isLoading,
-        closeModal,
-        handleModal,
       }}
     >
       {children}
-      <Modal {...modalData} />
     </authContext.Provider>
   );
 }

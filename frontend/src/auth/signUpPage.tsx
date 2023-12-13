@@ -53,14 +53,7 @@ export function RegisterPage() {
       }
     } catch (err) {
       const error = err as AxiosError;
-      if (error.code === "ERR_NETWORK") {
-        handleModal({
-          title: "BackEnd desligado",
-          message:
-            "A aplicação não consegue se comunicar com nenhum backend, impossibilitando essa operação",
-          isVisible: true,
-        });
-      } else if (error.response) {
+      if (error.response) {
         const { data, status }: AxiosResponse = error.response;
         if (status !== 201) {
           const message = data?.message || data;

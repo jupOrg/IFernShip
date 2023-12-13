@@ -40,14 +40,7 @@ export function LoginPage() {
       }
     } catch (err) {
       const error = err as AxiosError;
-      if (error.code === "ERR_NETWORK") {
-        handleModal({
-          title: "BackEnd desligado",
-          message:
-            "A aplicação não consegue se comunicar com nenhum backend, impossibilitando essa operação",
-          isVisible: true,
-        });
-      } else if (error.response) {
+      if (error.response) {
         const { status } = error.response;
         if (status !== 201) {
           setError("email", {
