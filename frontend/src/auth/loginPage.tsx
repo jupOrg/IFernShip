@@ -3,7 +3,7 @@ import { AxiosError } from "axios";
 import { useForm } from "react-hook-form";
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import * as yup from "yup";
+import { object, string } from "yup";
 import { GradientCurve } from "../common/gradientCurve";
 import { Logo } from "../common/logo";
 import { User } from "../types/user";
@@ -11,12 +11,9 @@ import { useAuth } from "./authContext";
 
 type FieldValues = Pick<User, "email" | "password">;
 
-const schema = yup.object({
-  email: yup
-    .string()
-    .email("Digite um email valido")
-    .required("É necessário informar um email"),
-  password: yup.string().required("É necessário informar a senha"),
+const schema = object({
+  email: string().required().email(),
+  password: string().required(),
 });
 
 export function LoginPage() {

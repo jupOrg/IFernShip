@@ -3,7 +3,7 @@ import { AxiosError, AxiosResponse } from "axios";
 import { useForm } from "react-hook-form";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import * as yup from "yup";
+import { object, string } from "yup";
 import { api } from "../api/api";
 import { Logo } from "../common/logo";
 import { Role } from "../types/role";
@@ -12,13 +12,10 @@ import { useAuth } from "./authContext";
 
 type FieldValues = Pick<User, "email" | "name" | "password">;
 
-const schema = yup.object({
-  name: yup.string().required("É necessário informar um nome"),
-  email: yup
-    .string()
-    .email("Digite um email valido")
-    .required("É necessário informar um email"),
-  password: yup.string().required("É necessário informar a senha"),
+const schema = object({
+  name: string().required(),
+  password: string().required(),
+  email: string().required().email(),
 });
 
 export function RegisterPage() {

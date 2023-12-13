@@ -1,3 +1,7 @@
+// should be imported first
+import "./yupConfig";
+// should be imported first
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./app";
