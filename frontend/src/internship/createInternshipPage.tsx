@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/api";
+import { ErrorMessage } from "../common/errorText";
 import { GoBackArrow } from "../common/goBackArrow";
 import { useModal } from "../common/useModal";
 import { courses } from "../data/courses";
@@ -47,95 +48,70 @@ export function CreateInternshipPage() {
           Adicionar estágio
         </h1>
         <form className="gap-2.5 flex flex-col" onSubmit={handleSubmit(submit)}>
-          <div className="gap-2">
-            <input
-              type="text"
-              className="default-input"
-              placeholder="Cargo"
-              {...register("office")}
-            />
-            {errors.office && (
-              <div className="error-message">{errors.office.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <textarea
-              rows={3}
-              className="default-input"
-              placeholder="Descrição da Vaga"
-              {...register("description")}
-            />
-            {errors.description && (
-              <div className="error-message">{errors.description.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <textarea
-              rows={3}
-              className="default-input"
-              placeholder="Perfil do profissional"
-              {...register("profissionalProfile")}
-            />
-            {errors.profissionalProfile && (
-              <div className="error-message">
-                {errors.profissionalProfile.message}
-              </div>
-            )}
-          </div>
-          <div className="gap-2">
-            <input
-              type="number"
-              className="default-input"
-              placeholder="Carga horária semanal"
-              {...register("weeklyWorkload")}
-            />
-            {errors.weeklyWorkload && (
-              <div className="error-message">
-                {errors.weeklyWorkload.message}
-              </div>
-            )}
-          </div>
-          <div className="gap-2">
-            <select className="default-input" {...register("workStyle")}>
-              <option value="" disabled selected>
-                Estilo de trabalho
+          <input
+            type="text"
+            className="default-input"
+            placeholder="Cargo"
+            {...register("office")}
+          />
+          <ErrorMessage error={errors.office} />
+
+          <textarea
+            rows={3}
+            className="default-input"
+            placeholder="Descrição da Vaga"
+            {...register("description")}
+          />
+          <ErrorMessage error={errors.description} />
+
+          <textarea
+            rows={3}
+            className="default-input"
+            placeholder="Perfil do profissional"
+            {...register("profissionalProfile")}
+          />
+          <ErrorMessage error={errors.profissionalProfile} />
+
+          <input
+            type="number"
+            className="default-input"
+            placeholder="Carga horária semanal"
+            {...register("weeklyWorkload")}
+          />
+          <ErrorMessage error={errors.weeklyWorkload} />
+
+          <select className="default-input" {...register("workStyle")}>
+            <option value="" disabled selected>
+              Estilo de trabalho
+            </option>
+            <option value="isPerson">Presencial</option>
+            <option value="hybrid">Hibrido</option>
+            <option value="remote">Remoto</option>
+          </select>
+          <ErrorMessage error={errors.workStyle} />
+
+          <select className="default-input" {...register("course")}>
+            <option value="" disabled selected>
+              Curso
+            </option>
+            {courses.map((course) => (
+              <option value={course}>{course}</option>
+            ))}
+          </select>
+          <ErrorMessage error={errors.course} />
+
+          <select className="default-input" {...register("enterpriseId")}>
+            <option value="" disabled selected>
+              Empresa
+            </option>
+            {companies.map((company) => (
+              <option value={company.id} key={company.id}>
+                {company.name}
               </option>
-              <option value="isPerson">Presencial</option>
-              <option value="hybrid">Hibrido</option>
-              <option value="remote">Remoto</option>
-            </select>
-            {errors.workStyle && (
-              <div className="error-message">{errors.workStyle.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <select className="default-input" {...register("course")}>
-              <option value="" disabled selected>
-                Curso
-              </option>
-              {courses.map((course) => (
-                <option value={course}>{course}</option>
-              ))}
-            </select>
-            {errors.course && (
-              <div className="error-message">{errors.course.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <select className="default-input" {...register("enterpriseId")}>
-              <option value="" disabled selected>
-                Empresa
-              </option>
-              {companies.map((company) => (
-                <option value={company.id} key={company.id}>
-                  {company.name}
-                </option>
-              ))}
-            </select>
-            {errors.enterpriseId && (
-              <div className="error-message">{errors.enterpriseId.message}</div>
-            )}
-          </div>
+            ))}
+          </select>
+          <ErrorMessage error={errors.enterpriseId} />
+
           <button type="submit" className="default-submit">
             Adicionar
           </button>
