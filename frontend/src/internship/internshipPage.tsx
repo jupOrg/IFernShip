@@ -67,7 +67,7 @@ export function InternshipPage() {
   if (!internship) return <LoadingPlaceholder />;
 
   return (
-    <div className="w-full items-center p-2 pl-20 gap-8">
+    <div className="items-center flex-1 p-2">
       <div className="w-full max-w-xl gap-4">
         <section>
           <h1 className="page-header self-start">
