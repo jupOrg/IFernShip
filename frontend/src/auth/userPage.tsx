@@ -81,6 +81,7 @@ export function UserPage() {
         formData.append(key, value);
       });
       await api.patch(`/users/${user?.id}`, formData);
+      console.log("here");
       openModal();
     } catch (err) {
       const error = err as AxiosError;
@@ -140,7 +141,7 @@ export function UserPage() {
                 className="default-input bg-slate-50 rounded-full flex-1 pl-8 appearance-none"
                 {...register("course")}
               >
-                <option value="" disabled selected>
+                <option value="" disabled>
                   Curso
                 </option>
                 {courses.map((course, index) => (
