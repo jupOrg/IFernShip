@@ -39,7 +39,7 @@ model Internship {
   workStyle           WorkStyle
   weeklyWorkload      Int
   enterpriseId        String
-  enterprise          Enterprise  @relation(fields: [enterpriseId], references: [id])
+  enterprise          Enterprise  @relation(fields: [enterpriseId], references: [id], onDelete: Cascade)
   subscribe           Subscribe[]
 }
 
@@ -47,8 +47,8 @@ model Subscribe {
   id           String     @id @default(uuid())
   userId       String
   internshipId String
-  user         User       @relation(fields: [userId], references: [id])
-  internship   Internship @relation(fields: [internshipId], references: [id])
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  internship   Internship @relation(fields: [internshipId], references: [id], onDelete: Cascade)
 
   @@unique([userId, internshipId])
 }

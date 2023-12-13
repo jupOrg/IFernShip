@@ -37,8 +37,8 @@ export function LoginPage() {
       }
     } catch (err) {
       const error = err as AxiosError;
-      if (error.response) {
-        const { status } = error.response;
+      if (error.status !== 201) {
+        const { status } = error;
         if (status !== 201) {
           setError("email", {
             type: "custom",
