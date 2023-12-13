@@ -7,10 +7,8 @@ export const internshipSchema = object({
   description: string().required(),
   workStyle: string()
     .required()
-    .oneOf(workStyles, "Selecione um estilo de trabalho válido"),
-  course: string()
-    .required()
-    .oneOf(courses, "Selecione um estilo de trabalho válido"),
+    .oneOf(workStyles, "Selecione um estilo de trabalho"),
+  course: string().required().oneOf(courses, "Selecione um curso"),
   office: string().required(),
   weeklyWorkload: number().required().positive(),
   enterpriseId: string().required(),
