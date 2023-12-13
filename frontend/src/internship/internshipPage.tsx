@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { api } from "../api/api";
 import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
+import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 import { Internship } from "../types/internship";
 
 type Subscribe = {
@@ -64,8 +65,7 @@ export function InternshipPage() {
     remote: "Remoto",
   };
 
-  // TODO replace it
-  if (!internship) return <></>;
+  if (!internship) return <LoadingPlaceholder />;
 
   return (
     <div className="w-full items-center p-2 pl-20 gap-8">
@@ -75,10 +75,11 @@ export function InternshipPage() {
             <GoBackArrow to="/estagios" />
             {internship.office}
           </h1>
+
           <img
-            alt="enterprise"
+            alt={internship.enterprise.name}
             src={internship.enterprise.picture}
-            className="w-full h-32 max-h-40 rounded-lg object-fit mb-2 shadow bg-black/10"
+            className="h-72 object-cover rounded-lg bg-black/10"
           />
         </section>
         <section>
