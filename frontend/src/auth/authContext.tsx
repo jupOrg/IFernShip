@@ -68,7 +68,12 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         login,
         logout,
         isLogged,
+<<<<<<< Updated upstream
         isLoading,
+=======
+        closeModal,
+        handleModal,
+>>>>>>> Stashed changes
       }}
     >
       {children}

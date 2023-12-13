@@ -78,7 +78,7 @@ body {
   }
 
   .input-icon-container {
-    @apply relative items-center flex-row;
+    @apply relative items-center flex flex-col justify-center flex-row;
   }
 
   .page-header {

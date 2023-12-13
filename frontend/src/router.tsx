@@ -27,6 +27,7 @@ import { SplashPage } from "./intro/splashPage";
 import { BottomNavBar } from "./nav/bottomNavBar";
 import { NavBar } from "./nav/navBar";
 import { RenderVersion } from "./renderVersion";
+import { LayoutProtectPagesRoot } from "./common/LayoutProtectPagesRoot";
 
 const publicRoutes = createBrowserRouter([
   {
@@ -77,17 +78,6 @@ function LayoutProtectPages() {
   );
 }
 
-function LayoutProtectPagesRoot() {
-  return (
-    <div className="items-center flex-1">
-      <div className="sticky top-0 p-2">
-        <SearchInput />
-      </div>
-      <Outlet />
-    </div>
-  );
-}
-
 const protectedRoutes = createBrowserRouter([
   {
     path: "/dev",
@@ -98,17 +88,12 @@ const protectedRoutes = createBrowserRouter([
     loader: SplashPage,
     children: [
       {
-        element: <LayoutProtectPagesRoot />,
-        children: [
-          {
-            path: "/empresas",
-            element: <EnterprisesPage />,
-          },
-          {
-            path: "/estagios",
-            element: <InternshipsPage />,
-          },
-        ],
+        path: "/empresas",
+        element: <EnterprisesPage />,
+      },
+      {
+        path: "/estagios",
+        element: <InternshipsPage />,
       },
       {
         path: "/empresas/criar",

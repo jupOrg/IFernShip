@@ -14,7 +14,8 @@ const router = Router();
 export const enterpriseRoutes = router;
 
 router.get("/", authMiddleware, async (req: AuthReq, res) => {
-  const user = await getAllEnterprise();
+  const { q } = req.query;
+  const user = await getAllEnterprise({ name: q as string });
   return res.json(user);
 });
 

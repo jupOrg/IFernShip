@@ -11,7 +11,8 @@ const router = Router();
 export const internshipRoutes = router;
 
 router.get("/", authMiddleware, async (req: AuthReq, res) => {
-  const internship = await getAllInternship();
+  const { q } = req.query;
+  const internship = await getAllInternship({ office: q as string });
   return res.json(internship);
 });
 
