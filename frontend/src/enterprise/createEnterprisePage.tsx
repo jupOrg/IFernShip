@@ -122,7 +122,7 @@ export function CreateEnterprisePage() {
         </form>
       </div>
       <Modal
-        title="Empressa registrada com Sucesso"
+        title="Empresa registrada com Sucesso"
         callbackClose={() => {
           navigate("/empresas");
         }}

@@ -22,7 +22,7 @@ const schema = yup.object({
     .required("É requerido repassar um perfil de profissional"),
   workStyle: yup
     .string()
-    .required("Selectione um estilo de trabalho")
+    .required("Selecione um estilo de trabalho")
     .oneOf(
       ["isPerson", "remote", "hybrid"],
       "Selecione um estilo de trabalho válido",
@@ -31,10 +31,10 @@ const schema = yup.object({
     .string()
     .required("Selecione um curso")
     .oneOf(courses, "Selecione um estilo de trabalho válido"),
-  office: yup.string().required("É nescessario repassar o Cargo"),
+  office: yup.string().required("É necessário repassar o Cargo"),
   weeklyWorkload: yup
     .number()
-    .required("É nescessario passar a quantidade de horas trabalhadas")
+    .required("É necessário passar a quantidade de horas trabalhadas")
     .positive("A carga horária deve ser um número positivo"),
   enterpriseId: yup.string().required("Selecione uma empresa"),
 });
