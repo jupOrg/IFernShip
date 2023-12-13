@@ -1,15 +1,16 @@
 import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/api";
+import { vocabulary } from "../vocabulary";
 import { useModal } from "./useModal";
 
 type Props = {
   path: string;
   redirect: string;
-  resourceText: string;
+  resource: string;
 };
 
-export function RemoveButton({ path, redirect, resourceText }: Props) {
+export function RemoveButton({ path, redirect, resource }: Props) {
   const { Modal, openModal, closeModal } = useModal();
   const navigate = useNavigate();
 
@@ -22,11 +23,13 @@ export function RemoveButton({ path, redirect, resourceText }: Props) {
     <>
       <button className="simple-button" onClick={openModal}>
         <FaTrash />
-        Remover estágio
+        Remover {vocabulary[resource]}
       </button>
       <Modal
         hideOkButton
-        title={`Tem certeza que quer remover ${resourceText}?`}
+        title={`Tem certeza que quer remover ${
+          vocabulary["this " + resource]
+        }?`}
         message="Isso não pode ser desfeito"
       >
         <div className="sm:flex-row sm:justify-end gap-2">

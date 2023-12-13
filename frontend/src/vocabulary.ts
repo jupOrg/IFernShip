@@ -1,4 +1,4 @@
-export const vocabulary = {
+export const vocabulary: { [key: string]: string } = {
   name: "nome",
   description: "descrição",
   cnpj: "CNPJ",
@@ -14,4 +14,5 @@ export const vocabulary = {
   isPerson: "presencial",
   hybrid: "híbrido",
   remote: "remoto",
+  internship: "estágio",
 };

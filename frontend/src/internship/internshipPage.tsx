@@ -32,7 +32,7 @@ export function InternshipPage() {
             <RemoveButton
               path={path}
               redirect="/estagios"
-              resourceText="esse estágio"
+              resource="internship"
             />
           </div>
         </section>

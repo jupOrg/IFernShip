@@ -1,8 +1,8 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { api } from "../api/api";
+import { useParams } from "react-router-dom";
 import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 import { RemoveButton } from "../common/removeButton";
+import { UpdateButton } from "../common/updateButton";
 import { useResource } from "../common/useResource";
 import { SeparateParagraphs } from "../separateParagraphs";
 import { Enterprise } from "../types/enterprise";
@@ -10,13 +10,8 @@ import { InternshipLinks } from "./internshipLinks";
 
 export function EnterprisePage() {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const enterprise = useResource<Enterprise>("/enterprises/" + id);
-
-  async function remove() {
-    await api.delete("/enterprises/" + id);
-    navigate("/empresas");
-  }
+  const path = "/enterprises/" + id;
+  const enterprise = useResource<Enterprise>(path);
 
   if (!enterprise) {
     return <LoadingPlaceholder />;
@@ -36,8 +31,13 @@ export function EnterprisePage() {
             className="h-72 object-cover rounded-lg bg-black/10"
           />
 
-          <div className="flex-row gap-2 pt-2">
-            <RemoveButton resourceText="essa empresa" remove={remove} />
+          <div className="flex-row gap-2 pt-2 justify-around">
+            <UpdateButton path={path} resource="enterprise" />
+            <RemoveButton
+              path={path}
+              redirect="/empresas"
+              resource="enterprise"
+            />
           </div>
         </section>
         <section>
