@@ -2,8 +2,8 @@ import { AxiosError, AxiosResponse } from "axios";
 import Cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../api/api";
-import { Modal, ModalProps } from "../common/Modal";
 import { ChildrenProps } from "../common/childrenProps";
+import { Modal, ModalProps } from "../common/modal";
 import { responseLogin } from "../types/responseLogin";
 import { User } from "../types/user";
 
@@ -37,7 +37,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
 
   async function login(
     email: string,
-    password: string
+    password: string,
   ): Promise<responseLogin> {
     // This is not a GET because of the body encryption
     const res = await api.post("/auth/login", { email, password });
