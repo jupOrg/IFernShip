@@ -19,14 +19,14 @@ export function SubscribeButton({ internship }: Props) {
   const { Modal, openModal } = useModal();
   const [subscribe, setSubscribe] = useState<Subscribe>();
 
-  async function getResource() {
+  async function getSubscribe() {
     const res = await api.get<Subscribe>(
       `/subscribes?userId=${user?.id}&&internshipId=${internship.id}`,
     );
     setSubscribe(res.data);
   }
 
-  async function handleSubscribe() {
+  async function handleClick() {
     if (!subscribe) {
       const data: Omit<Subscribe, "id"> = {
         userId: user?.id,
@@ -42,7 +42,7 @@ export function SubscribeButton({ internship }: Props) {
   }
 
   useEffect(() => {
-    getResource();
+    getSubscribe();
   }, []);
 
   if (user?.role !== "student") {
@@ -51,7 +51,7 @@ export function SubscribeButton({ internship }: Props) {
 
   return (
     <>
-      <button className="button button-primary" onClick={handleSubscribe}>
+      <button className="button button-primary" onClick={handleClick}>
         {!subscribe ? "Se Inscrever" : "Cancelar Inscrição"}
       </button>
       <Modal
