@@ -25,5 +25,5 @@ app.use(errorMiddleware);
 
 const port = 3000;
 app.listen(port, () =>
-  console.info(`Server running at http://localhost:${port}`)
+  console.info(`Server running at http://localhost:${port}`),
 );

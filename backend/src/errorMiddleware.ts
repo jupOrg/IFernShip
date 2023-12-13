@@ -4,7 +4,7 @@ export function errorMiddleware(
   error: any,
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   console.error("error", error);
   res.status(400);
