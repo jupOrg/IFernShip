@@ -29,7 +29,7 @@ const schema = yup.object({
     .test(
       "fileFormat",
       "Formato de arquivo não suportado",
-      (value) => !value || (value && value.type?.includes("image/"))
+      (value) => !value || (value && value.type?.includes("image/")),
     ),
 });
 
@@ -84,19 +84,19 @@ export function UserPage() {
       });
       const response = await api.patch(`/users/${user?.id}`, formData);
       if (response.status === 203) {
-        handleModal?.({
+        handleModal({
           isVisible: true,
           title: "Dados atualizado com sucesso",
           callbackClose: () => {
             window.location.reload();
-            closeModal?.();
+            closeModal();
           },
         });
       }
     } catch (err) {
       const error = err as AxiosError;
       if (error.code === "ERR_NETWORK") {
-        handleModal?.({
+        handleModal({
           title: "BackEnd desligado",
           message:
             "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação",

@@ -1,10 +1,9 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { AxiosError } from "axios";
 import { useForm } from "react-hook-form";
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-
-import { AxiosError } from "axios";
 import { GradientCurve } from "../common/gradientCurve";
 import { Logo } from "../common/logo";
 import { User } from "../types/user";
@@ -42,21 +41,21 @@ export function LoginPage() {
     } catch (err) {
       const error = err as AxiosError;
       if (error.code === "ERR_NETWORK") {
-        handleModal?.({
+        handleModal({
           title: "BackEnd desligado",
           message:
-            "A aplicação não consegue se comunicar com nenhum backend, imposibilitando essa operação",
+            "A aplicação não consegue se comunicar com nenhum backend, impossibilitando essa operação",
           isVisible: true,
         });
       } else if (error.response) {
         const { status } = error.response;
         if (status !== 201) {
           setError("email", {
-            type: "customn",
+            type: "custom",
             message: "Usuário ou senha incorreto",
           });
           setError("password", {
-            type: "customn",
+            type: "custom",
             message: "Usuário ou senha incorreto",
           });
         }

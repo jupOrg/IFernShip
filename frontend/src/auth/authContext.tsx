@@ -12,8 +12,8 @@ type AuthContext = {
   isLoading: boolean;
   logout: () => Promise<void>;
   login: (email: string, password: string) => Promise<responseLogin>;
-  handleModal?: (props: ModalProps) => void;
-  closeModal?: () => void;
+  handleModal: (props: ModalProps) => void;
+  closeModal: () => void;
 };
 
 const authContext = createContext({} as AuthContext);

@@ -55,7 +55,7 @@ export function CreateEnterprisePage() {
     const res = await api.post("/enterprises", formData);
 
     if (res.status === 201) {
-      handleModal?.({
+      handleModal({
         isVisible: true,
         title: "Empressa registrada com Sucesso",
         callbackClose: () => {

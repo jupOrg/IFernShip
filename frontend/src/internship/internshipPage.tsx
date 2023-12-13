@@ -45,7 +45,7 @@ export function InternshipPage() {
       };
       const res = await api.post<Subscribe>("/subscribes/", data);
       setSubscribe(res.data);
-      handleModal?.({
+      handleModal({
         isVisible: true,
         title: "Inscrição Registrada",
         message: "Inscrição Realizada com sucesso, boa sorte",

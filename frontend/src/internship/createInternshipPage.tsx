@@ -64,12 +64,12 @@ export function CreateInternshipPage() {
   async function submit(interneship: FieldValues) {
     const res = await api.post("/internships", interneship);
     if (res.status === 201) {
-      handleModal?.({
+      handleModal({
         isVisible: true,
         title: "Estágio registrado com sucesso",
         callbackClose: () => {
           navigate("/");
-          closeModal?.();
+          closeModal();
         },
       });
     }

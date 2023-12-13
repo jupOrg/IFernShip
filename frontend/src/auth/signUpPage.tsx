@@ -4,11 +4,11 @@ import { useForm } from "react-hook-form";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { api } from "../api/api";
 import { Logo } from "../common/logo";
 import { Role } from "../types/role";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
-import { api } from "../api/api";
 
 type FieldValues = Pick<User, "email" | "name" | "password">;
 
@@ -54,7 +54,7 @@ export function RegisterPage() {
     } catch (err) {
       const error = err as AxiosError;
       if (error.code === "ERR_NETWORK") {
-        handleModal?.({
+        handleModal({
           title: "BackEnd desligado",
           message:
             "A aplicação não consegue se comunicar com nenhum backend, impossibilitando essa operação",
