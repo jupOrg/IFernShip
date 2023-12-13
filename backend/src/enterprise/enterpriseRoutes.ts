@@ -32,14 +32,17 @@ router.post("/", authMiddleware, upload.single("picture"), async (req, res) => {
   return res.status(201).json(enterprise);
 });
 
-router.patch("/:id", authMiddleware, async (req: AuthReq, res) => {
+router.patch("/:id", authMiddleware, upload.single("picture"), async (req: AuthReq, res) => {
   const { id } = req.params;
-  const enterprise = await updateEnterprise(req.body, id);
-  return res.status(201).json(enterprise);
+  const { filename } = req?.file ? req.file : "";
+  const picture = filename ? `${HOST_APPLICATION}/images/${filename}`: null;
+  const data = picture ? {...req.body, picture} : req.body;
+  const enterprise = await updateEnterprise(data, id);
+  return res.status(203).json(enterprise);
 });
 
 router.delete("/:id", authMiddleware, async (req: AuthReq, res) => {
   const { id } = req.params;
   const enterprise = await deleteEnterprise(id);
-  return res.status(203).json(enterprise);
+  return res.status(204).json(enterprise);
 });

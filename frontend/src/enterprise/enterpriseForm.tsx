@@ -4,6 +4,7 @@ import { ErrorMessage } from "../common/errorMessage";
 import { ImageInput } from "../common/imageInput";
 import { Enterprise } from "../types/enterprise";
 import { enterpriseSchema } from "./enterpriseSchema";
+import InputMask from 'react-input-mask';
 
 type Props = {
   enterprise?: Enterprise;
@@ -19,8 +20,18 @@ export function EnterpriseForm({ enterprise, submit }: Props) {
     formState: { errors },
   } = useForm<Enterprise>({
     resolver: yupResolver(enterpriseSchema),
-    defaultValues: enterprise,
+    defaultValues: {
+      ...enterprise,
+      picture: createObjFile(enterprise?.picture),
+    },
   });
+
+  function createObjFile(url) {
+    const filename = url.split("/").pop();
+    const extension = filename.split(".").pop();
+    const file = new File([url], filename, { type: `image/${extension}` });
+    return file;
+  }
 
   return (
     <form className="gap-2 flex flex-col" onSubmit={handleSubmit(submit)}>
@@ -40,9 +51,10 @@ export function EnterpriseForm({ enterprise, submit }: Props) {
       />
       <ErrorMessage error={errors.description} />
 
-      <input
+      <InputMask
         type="text"
         placeholder="CNPJ"
+        mask='99.999.999/9999-99' 
         className="default-input"
         {...register("cnpj")}
       />

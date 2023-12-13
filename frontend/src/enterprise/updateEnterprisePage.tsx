@@ -16,10 +16,13 @@ export function UpdateEnterprisePage() {
   async function submit(fields: Enterprise) {
     const formData = new FormData();
     Object.entries(fields).forEach(([key, value]) => {
+      if (key === "internships") return null
       formData.append(key, value);
     });
-    await api.post("/enterprises", formData);
-    openModal();
+    const res = await api.patch(`/enterprises/${enterprise?.id}`, formData);
+    if (res.status === 203) {
+      openModal();
+    }
   }
 
   if (!enterprise) {

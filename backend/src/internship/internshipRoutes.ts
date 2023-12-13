@@ -33,11 +33,11 @@ router.post("/", authMiddleware, async (req: AuthReq, res) => {
 router.patch("/:id", authMiddleware, async (req: AuthReq, res) => {
   const { id } = req.params;
   const internship = await updateInternship(req.body, id);
-  return res.status(201).json(internship);
+  return res.status(203).json(internship);
 });
 
 router.delete("/:id", authMiddleware, async (req: AuthReq, res) => {
   const { id } = req.params;
   const internship = await deleteInternship(id);
-  return res.status(203).json(internship);
+  return res.status(204).json(internship);
 });
