@@ -2,8 +2,7 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
 import { RegisterPage } from "./auth/signUpPage";
-import { ChoiceAuthenticateMD } from "./choiceAuthenticate/choiceAuthenticatePage";
-import { ChoiceAuthenticateSM } from "./choiceAuthenticate/choiceAuthenticatePageSm";
+import { ChoiceAuthenticatePage } from "./choiceAuthenticate/choiceAuthenticatePage";
 import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
 import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
 import { DevPage } from "./dev/devPage";
@@ -28,12 +27,7 @@ export const publicRoutes = createBrowserRouter([
   },
   {
     path: "/escolher-autenticacao",
-    element: (
-      <RenderVersion
-        PageMd={<ChoiceAuthenticateMD />}
-        PageSm={<ChoiceAuthenticateSM />}
-      />
-    ),
+    element: <ChoiceAuthenticatePage />,
   },
   {
     path: "/escolher-pessoa",
