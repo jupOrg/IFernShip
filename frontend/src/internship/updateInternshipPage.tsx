@@ -4,25 +4,21 @@ import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 import { useModal } from "../common/useModal";
 import { useResource } from "../common/useResource";
-import { Enterprise } from "../types/enterprise";
-import { EnterpriseForm } from "./enterpriseForm";
+import { Internship } from "../types/internship";
+import { InternshipForm } from "./internshipForm";
 
-export function UpdateEnterprisePage() {
+export function UpdateInternshipPage() {
   const navigate = useNavigate();
   const { Modal, openModal } = useModal();
   const { id } = useParams();
-  const enterprise = useResource<Enterprise>("/enterprises/" + id);
+  const internship = useResource<Internship>("/internships/" + id);
 
-  async function submit(fields: Enterprise) {
-    const formData = new FormData();
-    Object.entries(fields).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-    await api.post("/enterprises", formData);
+  async function submit(data: Internship) {
+    await api.patch("/internships/" + id, { ...data, enterprise: undefined });
     openModal();
   }
 
-  if (!enterprise) {
+  if (!internship) {
     return <LoadingPlaceholder />;
   }
 
@@ -31,14 +27,14 @@ export function UpdateEnterprisePage() {
       <div className="w-full max-w-xl gap-6 ">
         <h1 className="page-header">
           <GoBackArrow to="/internships" />
-          Editar empresa
+          Editar estágio
         </h1>
-        <EnterpriseForm submit={submit} enterprise={enterprise} />
+        <InternshipForm submit={submit} internship={internship} />
       </div>
       <Modal
-        title="Empresa atualizada com sucesso"
+        title="Estágio atualizado com sucesso"
         callbackClose={() => {
-          navigate("/enterprises/" + id);
+          navigate("/internships/" + id);
         }}
       />
     </div>

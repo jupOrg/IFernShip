@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 import { RemoveButton } from "../common/removeButton";
+import { UpdateButton } from "../common/updateButton";
 import { useResource } from "../common/useResource";
 import { SeparateParagraphs } from "../separateParagraphs";
 import { Internship } from "../types/internship";
@@ -28,11 +29,12 @@ export function InternshipPage() {
             src={internship.enterprise.picture}
             className="h-72 object-cover rounded-lg bg-black/10"
           />
-          <div className="flex-row gap-2 pt-2">
+          <div className="flex-row gap-2 pt-2 justify-around">
+            <UpdateButton path={path} resource="internship" />
             <RemoveButton
               path={path}
-              redirect="/internships"
               resource="internship"
+              redirect="/internships"
             />
           </div>
         </section>

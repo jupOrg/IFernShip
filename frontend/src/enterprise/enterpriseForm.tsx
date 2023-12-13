@@ -22,8 +22,6 @@ export function EnterpriseForm({ enterprise, submit }: Props) {
     defaultValues: enterprise,
   });
 
-  console.log(enterprise);
-
   return (
     <form className="gap-2 flex flex-col" onSubmit={handleSubmit(submit)}>
       <input
