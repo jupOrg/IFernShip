@@ -19,6 +19,9 @@ export default {
       },
       transitionProperty: {
         'modal': 'opacity, visibility',
+      },
+      gridAutoColumns: {
+        '2fr': 'minmax(0, 2fr)'
       }
     },
   },

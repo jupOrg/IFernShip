@@ -13,6 +13,7 @@ model User {
   email       String  @unique
   picture     String?
   password    String
+  course      String?
   role        Role
   subscribe   Subscribe[]
 }
@@ -34,7 +35,7 @@ model Internship {
   description          String
   office               String
   profissional_profile String
-  work_style           String
+  work_style           WorkStyle
   weekly_workload      Int
   enterpriseId         String
   enterprise           Enterprise @relation(fields: [enterpriseId], references: [id])
@@ -47,9 +48,17 @@ model Subscribe {
   internshipId  String
   user          User @relation(fields: [userId], references: [id])
   internship    Internship @relation(fields: [internshipId], references: [id])
+
+  @@unique([userId, internshipId])
 }
 
 enum Role {
   student
   coordinator
+}
+
+enum WorkStyle {
+  isPerson
+  remote
+  hybrid
 }

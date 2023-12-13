@@ -8,6 +8,7 @@ import { Logo } from "../common/logo";
 import { Role } from "../types/role";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
+import { api } from "../api/api";
 
 type FieldValues = Pick<User, "email" | "name" | "password">;
 

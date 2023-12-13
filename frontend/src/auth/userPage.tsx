@@ -10,6 +10,7 @@ import { GoBackArrow } from "../common/goBackArrow";
 import { UserRoleBadge } from "../common/userRoleBadge";
 import { User } from "../types/user";
 import { useAuth } from "./authContext";
+import { courses } from "../data/courses";
 
 const schema = yup.object({
   name: yup.string().required("É necessário informar um nome"),
@@ -18,6 +19,16 @@ const schema = yup.object({
     .email("Digite um email valido")
     .required("É necessário informar um email"),
   course: yup.string().required("É necessário informar um Curso"),
+  picture: yup
+    .mixed<File>()
+    .test("required", "Por favor, selecione uma imagem", (value) => {
+      return !!value && !!value.name;
+    })
+    .test(
+      "fileFormat",
+      "Formato de arquivo não suportado",
+      (value) => !value || (value && value.type.includes("image/"))
+    ),
 });
 
 type FieldValues = Pick<User, "email" | "name" | "picture" | "course">;
@@ -33,27 +44,54 @@ export function UserPage() {
     resolver: yupResolver(schema),
   });
 
+  const [imageSrc, setImageSrc] = useState()
+
   const navigate = useNavigate();
 
-  const { user, handleModal } = useAuth();
+  const { user, handleModal, closeModal } = useAuth();
 
   useState(() => {
     setValue("course", user?.course);
     setValue("email", user?.email);
     setValue("name", user?.name);
+    setImageSrc(user?.picture)
   }, []);
 
   if (!user) return null;
 
-  async function submit({ name, email, course }: FieldValues) {
+  function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const listFiles = event.target.files as FileList;
+    const fileSelect = listFiles[0];
+    setValue("picture", fileSelect);
+    convert2base64(fileSelect);
+  }
+
+  async function convert2base64(file: File) {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setImageSrc(reader.result?.toString())
+    };
+
+    reader.readAsDataURL(file);
+  }
+
+  async function submit(fields: FieldValues) {
     try {
-      const response = await api.patch(`/users/${user?.id}`, {
-        name,
-        email,
-        course,
+      const formData = new FormData();
+      Object.entries(fields).forEach(([key, value]) => {
+        formData.append(key, value);
       });
-      if (response.status === 201) {
-        navigate("/estagios");
+      const response = await api.patch(`/users/${user?.id}`, formData);
+      if (response.status === 203) {
+        handleModal?.({
+          isVisible: true,
+          title: "Dados atualizado com sucesso",
+          callbackClose: () => {
+            navigate("/");
+            closeModal?.();
+          },
+        });
       }
     } catch (err) {
       const error = err as AxiosError;
@@ -86,11 +124,18 @@ export function UserPage() {
           className="flex flex-col gap-6 w-full p-2"
         >
           <div className="gap-2 items-center">
-            <img
-              alt="user image"
-              src={`https://github.com/${user.picture}.png`}
-              className="rounded-full w-24 aspect-square bg-black/10"
-            />
+            <label {...register("picture")}>
+              <input
+                type="file"
+                className="h-0 w-0 opacity-0"
+                onChange={handleFileChange}
+              />
+              <img
+                alt="user image"
+                src={imageSrc}
+                className="rounded-full w-24 aspect-square bg-black/10"
+              />
+            </label>
             <UserRoleBadge role={user.role} />
           </div>
           <div className="gap-2">
@@ -99,7 +144,6 @@ export function UserPage() {
               <input
                 type="text"
                 placeholder="Nome"
-                data-cy="edit-name"
                 {...register("name")}
                 className="default-input rounded-full flex-1 pl-8 2xl:h-"
               />
@@ -110,11 +154,29 @@ export function UserPage() {
           </div>
           <div className="gap-2">
             <div className="input-icon-container">
+              <select
+                className="default-input bg-slate-50 rounded-full flex-1 pl-8 appearance-none"
+                {...register("course")}
+              >
+                <option value="" disabled selected>
+                  Curso
+                </option>
+                {courses.map((course) => (
+                  <option value={course}>{course}</option>
+                ))}
+              </select>
+              <FaChevronDown className="input-icon" />
+            </div>
+            {errors.course && (
+              <div className="error-message">{errors.course.message}</div>
+            )}
+          </div>
+          <div className="gap-2">
+            <div className="input-icon-container">
               <input
                 disabled
                 type="email"
                 placeholder="E-mail"
-                data-cy="edit-email"
                 {...register("email")}
                 className="default-input rounded-full flex-1 pl-8"
               />
@@ -122,22 +184,6 @@ export function UserPage() {
             </div>
             {errors.email && (
               <div className="error-message">{errors.email.message}</div>
-            )}
-          </div>
-          <div className="gap-2">
-            <div className="input-icon-container">
-              <input
-                disabled
-                type="course"
-                placeholder="Curso"
-                data-cy="edit-course"
-                {...register("course")}
-                className="default-input rounded-full flex-1 pl-8"
-              />
-              <FaChevronDown className="input-icon" />
-            </div>
-            {errors.course && (
-              <div className="error-message">{errors.course.message}</div>
             )}
           </div>
           <button

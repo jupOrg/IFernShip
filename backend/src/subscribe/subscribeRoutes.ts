@@ -12,13 +12,18 @@ const router = Router();
 export const subscribeRoutes = router;
 
 router.get("/", authMiddleware, async (req: AuthReq, res) => {
+  const { userId, internshipId } = req.query;
+  if (userId || internshipId) {
+    const subscribe = await getSubscribe({ userId, internshipId });
+    return res.json(subscribe);
+  }
   const subscribe = await getAllSubscribe();
   return res.json(subscribe);
 });
 
 router.get("/:id", authMiddleware, async (req: AuthReq, res) => {
   const { id } = req.params;
-  const subscribe = await getSubscribe(id);
+  const subscribe = await getSubscribe({ id });
   return res.json(subscribe);
 });
 

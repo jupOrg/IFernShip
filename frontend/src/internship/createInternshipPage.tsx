@@ -9,6 +9,7 @@ import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
 import { Enterprise } from "../types/enterprise";
 import { Internship } from "../types/internship";
+import { courses } from "../data/courses";
 
 type Values = Omit<Internship, "id" | "enterprise" | "isActive">;
 type FieldValues = Values & { enterpriseId: string };
@@ -45,12 +46,6 @@ export function CreateInternshipPage() {
     resolver: yupResolver(schema),
   });
   const [companies, setCompanies] = useState<Enterprise[]>([]);
-  const courses = [
-    "ADS",
-    "Engenharia e Controle de Automação",
-    "Engenharia Civil",
-    "Matemática",
-  ];
 
   const { handleModal, closeModal } = useAuth();
 
