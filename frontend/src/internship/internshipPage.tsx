@@ -29,7 +29,7 @@ export function InternshipPage() {
   async function getSubscribe(internshipId: string) {
     try {
       const res = await api.get<Subscribe>(
-        `/subscribes?userId=${user?.id}&&internshipId=${internshipId}`
+        `/subscribes?userId=${user?.id}&&internshipId=${internshipId}`,
       );
       setSubscribe(res.data);
     } catch {

@@ -18,11 +18,11 @@ export default {
         "4xl": "2000px",
       },
       transitionProperty: {
-        'modal': 'opacity, visibility',
+        modal: "opacity, visibility",
       },
       gridAutoColumns: {
-        '2fr': 'minmax(0, 2fr)'
-      }
+        "2fr": "minmax(0, 2fr)",
+      },
     },
   },
 };

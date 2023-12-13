@@ -25,7 +25,7 @@ const schema = yup.object({
     .required("Selectione um estilo de trabalho")
     .oneOf(
       ["isPerson", "remote", "hybrid"],
-      "Selecione um estilo de trabalho válido"
+      "Selecione um estilo de trabalho válido",
     ),
   course: yup
     .string()
