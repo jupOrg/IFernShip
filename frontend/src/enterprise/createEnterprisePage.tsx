@@ -27,7 +27,7 @@ export function CreateEnterprisePage() {
           <GoBackArrow to="/internships" />
           Adicionar empresa
         </h1>
-        <EnterpriseForm submit={submit} enterprise={{} as Enterprise} />
+        <EnterpriseForm submit={submit} />
       </div>
       <Modal
         title="Empresa registrada com Sucesso"

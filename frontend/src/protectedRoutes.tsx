@@ -5,6 +5,7 @@ import { DevPage } from "./dev/devPage";
 import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
 import { EnterprisePage } from "./enterprise/enterprisePage";
 import { EnterprisesPage } from "./enterprise/enterprisesPage";
+import { UpdateEnterprisePage } from "./enterprise/updateEnterprisePage";
 import { CreateInternshipPage } from "./internship/createInternshipPage";
 import { InternshipPage } from "./internship/internshipPage";
 import { InternshipsPage } from "./internship/internshipsPage";
@@ -37,6 +38,10 @@ export const protectedRoutes = createBrowserRouter([
       {
         path: "/enterprises/create",
         element: <CreateEnterprisePage />,
+      },
+      {
+        path: "/enterprises/:id/update",
+        element: <UpdateEnterprisePage />,
       },
       {
         path: "/enterprises/:id",

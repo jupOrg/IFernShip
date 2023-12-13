@@ -6,7 +6,7 @@ import { Enterprise } from "../types/enterprise";
 import { enterpriseSchema } from "./enterpriseSchema";
 
 type Props = {
-  enterprise: Enterprise;
+  enterprise?: Enterprise;
   submit: (enterprise: Enterprise) => void;
 };
 
@@ -19,8 +19,10 @@ export function EnterpriseForm({ enterprise, submit }: Props) {
     formState: { errors },
   } = useForm<Enterprise>({
     resolver: yupResolver(enterpriseSchema),
-    enterprise,
+    defaultValues: enterprise,
   });
+
+  console.log(enterprise);
 
   return (
     <form className="gap-2 flex flex-col" onSubmit={handleSubmit(submit)}>
@@ -64,7 +66,7 @@ export function EnterpriseForm({ enterprise, submit }: Props) {
       <ErrorMessage error={errors.picture} />
 
       <button type="submit" className="default-submit">
-        Adicionar
+        Salvar
       </button>
     </form>
   );
