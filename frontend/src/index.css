@@ -69,6 +69,10 @@ body {
     @apply bg-gray-500 hover:bg-gray-700;
   }
 
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-700;
+  }
+
   .default-submit {
     @apply text-white p-2 bg-sky-600 hover:brightness-110 rounded-full font-medium;
   }

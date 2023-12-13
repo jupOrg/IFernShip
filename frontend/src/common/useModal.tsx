@@ -12,6 +12,10 @@ export function useModal() {
     setIsVisible(true);
   }
 
+  function closeModal() {
+    setIsVisible(false);
+  }
+
   function LinkedModal(props: ModalProps) {
     return (
       <Modal
@@ -25,6 +29,7 @@ export function useModal() {
   return {
     isVisible,
     openModal,
+    closeModal,
     setIsVisible,
     Modal: LinkedModal,
   };

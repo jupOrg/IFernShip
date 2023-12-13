@@ -145,8 +145,8 @@ export function UserPage() {
                   <option value="" disabled>
                     Curso
                   </option>
-                  {courses.map((course, index) => (
-                    <option value={course} key={course + index}>
+                  {courses.map((course) => (
+                    <option value={course} key={course}>
                       {course}
                     </option>
                   ))}
