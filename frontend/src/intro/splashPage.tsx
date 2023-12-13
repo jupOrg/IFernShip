@@ -5,7 +5,7 @@ export function SplashPage() {
         <h1 className="text-white text-4xl font-bold text-center hidden sm:flex">
           IFernShip
         </h1>
-        <img alt="IFPB" width={150} src="/ifpb-logo-white.svg" />
+        <img alt="IFPB" width={100} src="/ifpb-logo-white.svg" />
       </div>
     </div>
   );

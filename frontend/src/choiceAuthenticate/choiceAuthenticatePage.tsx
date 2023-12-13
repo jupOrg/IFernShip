@@ -10,7 +10,7 @@ export function ChoiceAuthenticatePage() {
           <div className="items-center gap-2  sm:hidden">
             <img
               alt="logo"
-              src="./ifpb-logo-black.svg"
+              src="./ifpb-logo.svg"
               className="w-20 aspect-square"
             />
             <h1 className="font-semibold text-2xl text-center">IFernShip</h1>
