@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../api/api";
 import { useAuth } from "../auth/authContext";
+import { SearchInput } from "../common/searchInput";
 import { Internship } from "../types/internship";
 import { InternshipsItem } from "./internshipItem";
-import { SearchInput } from "../common/searchInput";
 
 export function InternshipsPage() {
   const { user } = useAuth();
@@ -35,10 +35,7 @@ export function InternshipsPage() {
         })}
         {user?.role === "coordinator" && (
           <div className="fixed right-4 bottom-14 sm:right-8 sm:bottom-8">
-            <Link
-              to="/estagios/criar"
-              className="button button-primary"
-            >
+            <Link to="/internships/create" className="button button-primary">
               Adicionar estágio
             </Link>
           </div>

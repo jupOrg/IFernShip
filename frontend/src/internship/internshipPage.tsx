@@ -20,7 +20,7 @@ export function InternshipPage() {
       <div className="w-full max-w-xl gap-4">
         <section>
           <h1 className="page-header self-start">
-            <GoBackArrow to="/estagios" />
+            <GoBackArrow to="/internships" />
             {internship.office}
           </h1>
           <img
@@ -31,7 +31,7 @@ export function InternshipPage() {
           <div className="flex-row gap-2 pt-2">
             <RemoveButton
               path={path}
-              redirect="/estagios"
+              redirect="/internships"
               resource="internship"
             />
           </div>

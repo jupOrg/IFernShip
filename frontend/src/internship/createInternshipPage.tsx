@@ -44,7 +44,7 @@ export function CreateInternshipPage() {
     <div className="w-full items-center p-4">
       <div className="w-full max-w-xl gap-6">
         <h1 className="page-header">
-          <GoBackArrow to="/estagios" />
+          <GoBackArrow to="/internships" />
           Adicionar estágio
         </h1>
         <form className="gap-2.5 flex flex-col" onSubmit={handleSubmit(submit)}>
@@ -120,7 +120,7 @@ export function CreateInternshipPage() {
       <Modal
         title="Estágio registrado com sucesso"
         callbackClose={() => {
-          navigate("/estagios");
+          navigate("/internships");
         }}
       />
     </div>

@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom";
 import { api } from "../api/api";
 
 const endpointForPath = {
-  "/estagios": "/internships",
-  "/empresas": "/enterprises",
+  "/internships": "/internships",
+  "/enterprises": "/enterprises",
 };
 
 export function SearchInput({ setData }) {

@@ -9,7 +9,7 @@ type Props = {
 
 export function UpdateButton({ path, resource }: Props) {
   return (
-    <Link to={path + "/editar"} className="button simple-button">
+    <Link to={path + "/update"} className="button simple-button">
       <FaPen />
       Editar {vocabulary[resource]}
     </Link>

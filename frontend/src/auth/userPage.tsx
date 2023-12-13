@@ -78,7 +78,7 @@ export function UserPage() {
     <div className="items-center flex-1">
       <div className="w-full max-w-md gap-6">
         <h1 className="page-header">
-          <GoBackArrow to="/estagios" />
+          <GoBackArrow to="/internships" />
           Editar dados
         </h1>
         <form onSubmit={handleSubmit(submit)} className="flex flex-col gap-2">

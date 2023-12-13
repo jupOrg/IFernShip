@@ -33,7 +33,7 @@ export function LoginPage() {
     try {
       const response = await login(email, password);
       if (response.token) {
-        navigate("/estagios");
+        navigate("/internships");
       }
     } catch (err) {
       const error = err as AxiosError;

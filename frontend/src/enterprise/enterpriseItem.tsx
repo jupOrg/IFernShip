@@ -7,7 +7,7 @@ type Props = {
 
 export function EnterprisesItem({ enterprise }: Props) {
   return (
-    <Link to={`/empresas/${enterprise.id}`}>
+    <Link to={`/enterprises/${enterprise.id}`}>
       <div className="bg-white rounded-xl p-2 hover:shadow-xl transition duration-75">
         <img
           alt="enterprise"

@@ -4,13 +4,13 @@ import { TabItem } from "./tabItem";
 export function Tabs() {
   return (
     <>
-      <TabItem to="/estagios">
+      <TabItem to="/internships">
         <FaBriefcase /> Estágios
       </TabItem>
-      <TabItem to="/empresas">
+      <TabItem to="/enterprises">
         <FaBuilding /> Empresas
       </TabItem>
-      <TabItem to="/conta/editar">
+      <TabItem to="/me/update">
         <FaUser /> Conta
       </TabItem>
     </>

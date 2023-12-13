@@ -8,7 +8,7 @@ type Props = {
 
 export function InternshipLink({ internship }: Props) {
   return (
-    <Link to={`/estagios/${internship.id}`}>
+    <Link to={`/internships/${internship.id}`}>
       <div className="bg-white rounded-xl p-2 hover:shadow-xl transition duration-75">
         <div className="flex-row justify-between">
           <div className="font-semibold">{internship.office}</div>

@@ -37,7 +37,7 @@ export function CreateEnterprisePage() {
     <div className="w-full items-center p-4">
       <div className="w-full max-w-xl gap-6 ">
         <h1 className="page-header">
-          <GoBackArrow to="/estagios" />
+          <GoBackArrow to="/internships" />
           Adicionar empresa
         </h1>
         <form className="gap-2 flex flex-col" onSubmit={handleSubmit(submit)}>
@@ -88,7 +88,7 @@ export function CreateEnterprisePage() {
       <Modal
         title="Empresa registrada com Sucesso"
         callbackClose={() => {
-          navigate("/empresas");
+          navigate("/enterprises");
         }}
       />
     </div>

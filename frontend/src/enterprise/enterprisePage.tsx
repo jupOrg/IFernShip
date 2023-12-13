@@ -22,7 +22,7 @@ export function EnterprisePage() {
       <div className="w-full max-w-xl gap-4">
         <section>
           <h1 className="page-header">
-            <GoBackArrow to="/empresas" />
+            <GoBackArrow to="/enterprises" />
             {enterprise.name}
           </h1>
           <img
@@ -35,7 +35,7 @@ export function EnterprisePage() {
             <UpdateButton path={path} resource="enterprise" />
             <RemoveButton
               path={path}
-              redirect="/empresas"
+              redirect="/enterprises"
               resource="enterprise"
             />
           </div>

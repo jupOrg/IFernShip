@@ -18,33 +18,33 @@ export const protectedRoutes = createBrowserRouter([
     children: [
       // internship
       {
-        path: "/estagios",
+        path: "/internships",
         element: <InternshipsPage />,
       },
       {
-        path: "/estagios/criar",
+        path: "/internships/create",
         element: <CreateInternshipPage />,
       },
       {
-        path: "/estagios/:id",
+        path: "/internships/:id",
         element: <InternshipPage />,
       },
       // enterprise
       {
-        path: "/empresas",
+        path: "/enterprises",
         element: <EnterprisesPage />,
       },
       {
-        path: "/empresas/criar",
+        path: "/enterprises/create",
         element: <CreateEnterprisePage />,
       },
       {
-        path: "/empresas/:id",
+        path: "/enterprises/:id",
         element: <EnterprisePage />,
       },
       // user
       {
-        path: "/conta/editar",
+        path: "/me/update",
         element: <UserPage />,
       },
       {
@@ -59,7 +59,7 @@ export const protectedRoutes = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Navigate to="/estagios" />,
+    element: <Navigate to="/internships" />,
   },
   {
     path: "/*",
