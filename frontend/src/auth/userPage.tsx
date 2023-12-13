@@ -140,7 +140,7 @@ export function UserPage() {
                 className="default-input bg-slate-50 rounded-full flex-1 pl-8 appearance-none"
                 {...register("course")}
               >
-                <option value="" disabled selected>
+                <option value="" disabled>
                   Curso
                 </option>
                 {courses.map((course, index) => (
