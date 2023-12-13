@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
+import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 import { Internship } from "../types/internship";
 
 export function InternshipPage() {
@@ -17,15 +18,14 @@ export function InternshipPage() {
     getInternship();
   }, []);
 
-  // TODO replace it
-  if (!internship) return <></>;
+  if (!internship) return <LoadingPlaceholder />;
 
   return (
-    <div className="items-center p-2">
+    <div className="items-center flex-1">
       <div className="w-full max-w-xl gap-4">
         <h1 className="page-header">
           <GoBackArrow to="/estagios" />
-          {internship.enterprise.name}
+          {internship.office}
         </h1>
         <div>
           <img
