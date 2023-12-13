@@ -2,42 +2,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import * as yup from "yup";
 import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { useModal } from "../common/useModal";
 import { courses } from "../data/courses";
 import { Enterprise } from "../types/enterprise";
 import { Internship } from "../types/internship";
+import { internshipSchema } from "./internshipSchema";
 
 type Values = Omit<Internship, "id" | "enterprise" | "isActive">;
 type FieldValues = Values & { enterpriseId: string };
-
-const schema = yup.object({
-  profissionalProfile: yup
-    .string()
-    .required("É requerido repassar um perfil de profissional"),
-  description: yup
-    .string()
-    .required("É requerido repassar um perfil de profissional"),
-  workStyle: yup
-    .string()
-    .required("Selecione um estilo de trabalho")
-    .oneOf(
-      ["isPerson", "remote", "hybrid"],
-      "Selecione um estilo de trabalho válido",
-    ),
-  course: yup
-    .string()
-    .required("Selecione um curso")
-    .oneOf(courses, "Selecione um estilo de trabalho válido"),
-  office: yup.string().required("É necessário repassar o Cargo"),
-  weeklyWorkload: yup
-    .number()
-    .required("É necessário passar a quantidade de horas trabalhadas")
-    .positive("A carga horária deve ser um número positivo"),
-  enterpriseId: yup.string().required("Selecione uma empresa"),
-});
 
 export function CreateInternshipPage() {
   const {
@@ -45,7 +19,7 @@ export function CreateInternshipPage() {
     handleSubmit,
     formState: { errors },
   } = useForm<FieldValues>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(internshipSchema),
   });
   const [companies, setCompanies] = useState<Enterprise[]>([]);
   const { Modal, openModal } = useModal();
