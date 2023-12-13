@@ -30,5 +30,5 @@ server.use(router);
 
 const port = 3000;
 server.listen(port, () => {
-  console.log(`JSON Server is running in http://localhost:${port}`);
+  console.info(`JSON Server is running in http://localhost:${port}`);
 });
