@@ -73,7 +73,7 @@ export function InternshipPage() {
         <section>
           <h1 className="page-header self-start">
             <GoBackArrow to="/estagios" />
-            {internship.office}
+            {internship.office} - {internship.enterprise.name}
           </h1>
           <img
             alt="enterprise"
