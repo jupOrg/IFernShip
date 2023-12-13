@@ -12,11 +12,11 @@ export function ChoiceAuthenticateMD() {
             manualmente, baixe agora e comece a construir seu futuro!
           </p>
           <div className="gap-4 w-80">
-            <a href="/entrar">
-              <button className="btn btn-primary">Entrar</button>
+            <a href="/entrar" className="button btn btn-primary">
+              Entrar
             </a>
-            <a href="/escolher-pessoa">
-              <button className="btn btn-secondary">Registrar-se</button>
+            <a href="/escolher-pessoa" className="button btn btn-secondary">
+              Registrar-se
             </a>
           </div>
         </div>
