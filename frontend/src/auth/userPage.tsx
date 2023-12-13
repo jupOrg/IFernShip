@@ -3,7 +3,6 @@ import { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaChevronDown, FaEnvelope, FaUser } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
@@ -18,7 +17,10 @@ const schema = yup.object({
     .string()
     .email("Digite um email valido")
     .required("É necessário informar um email"),
-  course: yup.string().required("É necessário informar um Curso"),
+  course: yup
+    .string()
+    .required("É necessário informar um Curso")
+    .oneOf(courses, "Selecione um estilo de trabalho válido"),
   picture: yup
     .mixed<File>()
     .test("required", "Por favor, selecione uma imagem", (value) => {
@@ -27,7 +29,7 @@ const schema = yup.object({
     .test(
       "fileFormat",
       "Formato de arquivo não suportado",
-      (value) => !value || (value && value.type.includes("image/"))
+      (value) => !value || (value && value.type?.includes("image/"))
     ),
 });
 
@@ -44,17 +46,15 @@ export function UserPage() {
     resolver: yupResolver(schema),
   });
 
-  const [imageSrc, setImageSrc] = useState()
+  const [imageSrc, setImageSrc] = useState();
 
-  const navigate = useNavigate();
-
-  const { user, handleModal, closeModal } = useAuth();
+  const { user, handleModal, closeModal, refreshPage } = useAuth();
 
   useState(() => {
     setValue("course", user?.course);
     setValue("email", user?.email);
     setValue("name", user?.name);
-    setImageSrc(user?.picture)
+    setImageSrc(user?.picture);
   }, []);
 
   if (!user) return null;
@@ -70,7 +70,7 @@ export function UserPage() {
     const reader = new FileReader();
 
     reader.onload = () => {
-      setImageSrc(reader.result?.toString())
+      setImageSrc(reader.result?.toString());
     };
 
     reader.readAsDataURL(file);
@@ -88,7 +88,7 @@ export function UserPage() {
           isVisible: true,
           title: "Dados atualizado com sucesso",
           callbackClose: () => {
-            navigate("/");
+            refreshPage?.();
             closeModal?.();
           },
         });
@@ -133,7 +133,7 @@ export function UserPage() {
               <img
                 alt="user image"
                 src={imageSrc}
-                className="rounded-full w-24 aspect-square bg-black/10"
+                className="rounded-full w-24 aspect-square bg-black/10 cursor-pointer"
               />
             </label>
             <UserRoleBadge role={user.role} />
@@ -161,8 +161,10 @@ export function UserPage() {
                 <option value="" disabled selected>
                   Curso
                 </option>
-                {courses.map((course) => (
-                  <option value={course}>{course}</option>
+                {courses.map((course, index) => (
+                  <option value={course} key={course + index}>
+                    {course}
+                  </option>
                 ))}
               </select>
               <FaChevronDown className="input-icon" />

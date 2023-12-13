@@ -15,6 +15,7 @@ type AuthContext = {
   login: (email: string, password: string) => Promise<responseLogin>;
   handleModal?: (props: ModalProps) => void;
   closeModal?: () => void;
+  refreshPage?: () => void
 };
 
 const authContext = createContext({} as AuthContext);
@@ -68,9 +69,12 @@ export function AuthContextProvider({ children }: ChildrenProps) {
   }
 
   async function logout() {
-    // await api.post("/logout");
     Cookies.set("token", "");
     setUser(undefined);
+  }
+
+  function refreshPage() {
+    window.location.reload()
   }
 
   const isLogged = !!user;
@@ -90,6 +94,7 @@ export function AuthContextProvider({ children }: ChildrenProps) {
         isLogged,
         closeModal,
         handleModal,
+        refreshPage,
         isCoordinator,
       }}
     >

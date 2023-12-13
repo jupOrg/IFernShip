@@ -28,7 +28,10 @@ const schema = yup.object({
       ["isPerson", "remote", "hybrid"],
       "Selecione um estilo de trabalho válido"
     ),
-  course: yup.string().required("Selecione um curso"),
+  course: yup
+    .string()
+    .required("Selecione um curso")
+    .oneOf(courses, "Selecione um estilo de trabalho válido"),
   office: yup.string().required("É nescessario repassar o Cargo"),
   weekly_workload: yup
     .number()
@@ -67,7 +70,7 @@ export function CreateInternshipPage() {
         title: "Estágio registrado com sucesso",
         callbackClose: () => {
           navigate("/");
-          closeModal();
+          closeModal?.();
         },
       });
     }

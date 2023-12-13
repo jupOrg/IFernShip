@@ -16,7 +16,7 @@ export function NavBar() {
           <Link to="/conta/editar">
             <img
               alt="user image"
-              src={`https://github.com/${user.picture}.png`}
+              src={user.picture}
               className="rounded-full w-20 aspect-square border-2 border-white"
             />
           </Link>
