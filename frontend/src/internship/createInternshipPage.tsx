@@ -153,7 +153,9 @@ export function CreateInternshipPage() {
                 Empresa
               </option>
               {companies.map((company) => (
-                <option value={company.id}>{company.name}</option>
+                <option value={company.id} key={company.id}>
+                  {company.name}
+                </option>
               ))}
             </select>
             {errors.enterpriseId && (
