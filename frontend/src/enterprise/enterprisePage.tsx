@@ -4,6 +4,7 @@ import { api } from "../api/api";
 import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 import { RemoveButton } from "../internship/removeButton";
+import { SeparateParagraphs } from "../separateParagraphs";
 import { Enterprise } from "../types/enterprise";
 import { InternshipLinks } from "./internshipLinks";
 
@@ -52,7 +53,7 @@ export function EnterprisePage() {
           <h2 className="font-semibold text-xl text-green-700">
             Sobre a empresa
           </h2>
-          <div>{enterprise.description}</div>
+          <SeparateParagraphs text={enterprise.description} />
         </section>
         <section>
           <h2 className="font-semibold text-xl text-green-700">Estágios</h2>

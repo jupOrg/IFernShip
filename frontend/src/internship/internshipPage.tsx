@@ -5,6 +5,7 @@ import { useAuth } from "../auth/authContext";
 import { GoBackArrow } from "../common/goBackArrow";
 import { LoadingPlaceholder } from "../common/loadingPlaceholder";
 import { Modal } from "../common/modal";
+import { SeparateParagraphs } from "../separateParagraphs";
 import { Internship } from "../types/internship";
 import { RemoveButton } from "./removeButton";
 
@@ -105,18 +106,11 @@ export function InternshipPage() {
           <h2 className="title">
             Sobre a empresa {internship.enterprise.name}
           </h2>
-          <div className="gap-2">
-            {internship.enterprise.description.split("\n").map((text) => (
-              <p key={text}>{text}</p>
-            ))}
-          </div>
+          <SeparateParagraphs text={internship.enterprise.description} />
         </div>
       </div>
       <div className="fixed right-4 bottom-14 sm:right-8 sm:bottom-8">
-        <button
-          className="button button-primary"
-          onClick={handleSubscribe}
-        >
+        <button className="button button-primary" onClick={handleSubscribe}>
           {!subscribe ? "Se Inscrever" : "Cancelar Inscrição"}
         </button>
       </div>
