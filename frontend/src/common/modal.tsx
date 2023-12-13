@@ -15,7 +15,6 @@ export function Modal({
 
   return (
     <div
-      data-cy="modal-error"
       className="animate-modal fixed inset-0 duration-100 ease-linear transition-modal bg-black bg-opacity-80 justify-center items-center z-50"
     >
       <div className="bg-white p-4 gap-2 shadow-common rounded-xl w-full max-w-lg">
