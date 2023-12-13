@@ -19,9 +19,9 @@ export function InternshipPage() {
   const { id } = useParams();
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [internship, setInternship] = useState<Internship>();
-  const [subscribe, setSubscribe] = useState<Subscribe>();
   const [isFinished, setIsFinished] = useState(false);
+  const [subscribe, setSubscribe] = useState<Subscribe>();
+  const [internship, setInternship] = useState<Internship>();
 
   const workStyleDisplayText = {
     isPerson: "Presencial",
@@ -108,11 +108,13 @@ export function InternshipPage() {
           <SeparateParagraphs text={internship.enterprise.description} />
         </div>
       </div>
-      <div className="fixed right-4 bottom-14 sm:right-8 sm:bottom-8">
-        <button className="button button-primary" onClick={handleSubscribe}>
-          {!subscribe ? "Se Inscrever" : "Cancelar Inscrição"}
-        </button>
-      </div>
+      {user?.role === "student" && (
+        <div className="fixed right-4 bottom-14 sm:right-8 sm:bottom-8">
+          <button className="button button-primary" onClick={handleSubscribe}>
+            {!subscribe ? "Se Inscrever" : "Cancelar Inscrição"}
+          </button>
+        </div>
+      )}
       <Modal
         isVisible={isFinished}
         title="Inscrição Registrada"
