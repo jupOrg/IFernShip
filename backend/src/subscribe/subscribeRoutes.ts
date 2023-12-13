@@ -1,12 +1,11 @@
 import { Router } from "express";
 import { authMiddleware } from "../auth/authMIddleware";
 import { AuthReq } from "../auth/authReq";
-
 import { createSubscribe } from "./createSubscribe";
-import { getAllSubscribe } from "./getAllSubscribe";
-import { updateSubscribe } from "./updateSubscribe";
 import { deleteSubscribe } from "./deleteSubscribe";
+import { getAllSubscribe } from "./getAllSubscribe";
 import { getSubscribe } from "./getSubscribe";
+import { updateSubscribe } from "./updateSubscribe";
 
 const router = Router();
 export const subscribeRoutes = router;
@@ -28,7 +27,7 @@ router.get("/:id", authMiddleware, async (req: AuthReq, res) => {
 });
 
 router.post("/", authMiddleware, async (req: AuthReq, res) => {
-  const subscribe = await createSubscribe({...req.body});
+  const subscribe = await createSubscribe({ ...req.body });
   return res.status(201).json(subscribe);
 });
 

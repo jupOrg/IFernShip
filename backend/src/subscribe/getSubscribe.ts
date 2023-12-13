@@ -1,7 +1,11 @@
 import { Subscribe } from "@prisma/client";
 import { db } from "../db";
 
-export async function getSubscribe({ id, userId, internshipId }: Partial<Subscribe>) {
+export async function getSubscribe({
+  id,
+  userId,
+  internshipId,
+}: Partial<Subscribe>) {
   const subscribe = await db.subscribe.findFirst({
     where: { id, userId, internshipId },
   });
