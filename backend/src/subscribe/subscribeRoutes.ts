@@ -34,7 +34,7 @@ router.post("/", authMiddleware, async (req: AuthReq, res) => {
 router.patch("/:id", authMiddleware, async (req: AuthReq, res) => {
   const { id } = req.params;
   const subscribe = await updateSubscribe(req.body, id);
-  return res.status(201).json(subscribe);
+  return res.status(203).json(subscribe);
 });
 
 router.delete("/:id", authMiddleware, async (req: AuthReq, res) => {
