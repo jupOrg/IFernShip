@@ -25,9 +25,10 @@ router.patch(
     if (userId !== id) {
       throw { status: 401, message: "Unauthorized access" };
     }
-    const { filename } = req.file;
-    const picture = `${HOST_APPLICATION}/images/${filename}`;
-    const user = await updateUser({ ...req.body, picture }, id);
+    const { filename } = req?.file ? req.file : "";
+    const picture = filename ? `${HOST_APPLICATION}/images/${filename}` : null;
+    const data = picture ? { ...req.body, picture } : req.body;
+    const user = await updateUser(data, id);
     return res.status(203).json(user);
   },
 );
