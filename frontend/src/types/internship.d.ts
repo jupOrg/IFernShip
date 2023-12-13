@@ -6,6 +6,7 @@ export type Internship = {
   course: string;
   isActive: boolean;
   description: string;
+  enterpriseId: string;
   enterprise: Enterprise;
   weeklyWorkload: number;
   profissionalProfile: string;
