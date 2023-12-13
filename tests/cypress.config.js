@@ -7,10 +7,10 @@ module.exports = defineConfig({
     username: process.env.USERNAME,
     password: process.env.PASSWORD,
     email_coordinator: process.env.EMAIL_COORDINATOR,
-    password_coordinator: process.env.PASSWORD_COORDINATOR
+    password_coordinator: process.env.PASSWORD_COORDINATOR,
   },
   e2e: {
     setupNodeEvents(on, config) {},
-    baseUrl: process.env.BASE_URL
+    baseUrl: process.env.BASE_URL,
   },
 });

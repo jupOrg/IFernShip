@@ -14,7 +14,7 @@ describe("Testes envolvendo pagina de estágios para usuários comuns", () => {
 
     cy.login(
       Cypress.env("email_coordinator"),
-      Cypress.env("password_coordinator")
+      Cypress.env("password_coordinator"),
     );
 
     cy.wait("@routerPost").its("response.statusCode").should("eq", 201);
@@ -29,9 +29,9 @@ describe("Testes envolvendo pagina de estágios para usuários comuns", () => {
   it("Registrando nova empresa com sucesso", () => {
     cy.fillInputs(enterprise);
     cy.get(`input[type=file]`).selectFile(enterprise.picture, { force: true });
-    
+
     cy.findByText("Adicionar").should("exist").click();
-    
+
     cy.intercept({ method: "POST" }).as("routerPost");
     cy.wait("@routerPost").its("response.statusCode").should("eq", 201);
   });

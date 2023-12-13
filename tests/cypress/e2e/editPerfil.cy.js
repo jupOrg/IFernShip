@@ -43,8 +43,8 @@ describe("Testes envolvendo edição de perfil", () => {
     cy.get(`[data-cy="edit-name]`).clear().type("new_name");
     cy.findByText("Salvar").should("exist").click();
 
-    cy.wait("@routerPatch").its("response.statusCode").should("201")
-    cy.wait(500)
+    cy.wait("@routerPatch").its("response.statusCode").should("201");
+    cy.wait(500);
   });
 
   it("Editando o email do usuário do perfil com sucesso", () => {
@@ -52,7 +52,7 @@ describe("Testes envolvendo edição de perfil", () => {
     cy.get(`[data-cy="edit-email]`).clear().type(newEmail);
     cy.findByText("Salvar").should("exist").click();
 
-    cy.wait("@routerPatch").its("response.statusCode").should("201")
-    cy.wait(500)
+    cy.wait("@routerPatch").its("response.statusCode").should("201");
+    cy.wait(500);
   });
 });

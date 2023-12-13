@@ -32,15 +32,15 @@ describe("Testes envolvendo registro de usuário", () => {
 
     cy.wait("@routerPost").its("response.statusCode").should("not.eq", 201);
     cy.wait(500);
-    
+
     cy.waitUntil(() => cy.get(`[data-cy="modal-error"]`).should("exists"));
   });
 
-//   it("Verificando se as permissões estão sendo obedecidas", () => {
-//     cy.findByRole(/Adicionar estágio/i).should("not.exist")
-//     cy.findByRole(/Adicionar empresa/i).should("not.exist")
-//     cy.findByRole(/Estágios adicionados/i).should("not.exist")
-//     cy.findByRole(/Coordenador/).should("not.exist")
-//     cy.findByRole(/Estudante/).should("exist")
-//   })
+  //   it("Verificando se as permissões estão sendo obedecidas", () => {
+  //     cy.findByRole(/Adicionar estágio/i).should("not.exist")
+  //     cy.findByRole(/Adicionar empresa/i).should("not.exist")
+  //     cy.findByRole(/Estágios adicionados/i).should("not.exist")
+  //     cy.findByRole(/Coordenador/).should("not.exist")
+  //     cy.findByRole(/Estudante/).should("exist")
+  //   })
 });

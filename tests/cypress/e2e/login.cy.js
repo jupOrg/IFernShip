@@ -33,7 +33,7 @@ describe("Testes envolvendo realizar login", () => {
     cy.wait("@routerPost").its("response.statusCode").should("not.eq", 201);
     cy.wait(500);
 
-    cy.findAllByText("Usuário ou senha incorreto").should("exist")
+    cy.findAllByText("Usuário ou senha incorreto").should("exist");
 
     // cy.waitUntil(() => cy.get(`[data-cy="modal-error"]`).should("exists"))
   });

@@ -27,7 +27,7 @@ Cypress.Commands.add("fillInputs", (objValues) => {
     } else if (tag === "SELECT") {
       cy.get("select option").then((options) => {
         const optionValid = options.filter(
-          (index) => options[index].textContent == objValues[name]
+          (index) => options[index].textContent == objValues[name],
         );
         cy.wrap(input).select(optionValid[0].value);
       });
