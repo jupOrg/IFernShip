@@ -1,11 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import InputMask from "react-input-mask";
+import { createObjFile } from "../common/createObjFile";
 import { ErrorMessage } from "../common/errorMessage";
 import { ImageInput } from "../common/imageInput";
 import { Enterprise } from "../types/enterprise";
 import { enterpriseSchema } from "./enterpriseSchema";
-import InputMask from 'react-input-mask';
-import { createObjFile } from "../common/createObjFile";
 
 type Props = {
   enterprise?: Enterprise;
@@ -48,7 +48,7 @@ export function EnterpriseForm({ enterprise, submit }: Props) {
       <InputMask
         type="text"
         placeholder="CNPJ"
-        mask='99.999.999/9999-99' 
+        mask="99.999.999/9999-99"
         className="default-input"
         {...register("cnpj")}
       />
