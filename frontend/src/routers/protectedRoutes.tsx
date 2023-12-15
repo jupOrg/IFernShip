@@ -1,17 +1,17 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { UserPage } from "./auth/userPage";
-import { NotFoundPage } from "./common/notFoundPage";
-import { DevPage } from "./dev/devPage";
-import { CreateEnterprisePage } from "./enterprise/createEnterprisePage";
-import { EnterprisePage } from "./enterprise/enterprisePage";
-import { EnterprisesPage } from "./enterprise/enterprisesPage";
-import { UpdateEnterprisePage } from "./enterprise/updateEnterprisePage";
-import { CreateInternshipPage } from "./internship/createInternshipPage";
-import { InternshipPage } from "./internship/internshipPage";
-import { InternshipsPage } from "./internship/internshipsPage";
-import { UpdateInternshipPage } from "./internship/updateInternshipPage";
-import { SplashPage } from "./intro/splashPage";
-import { LayoutProtectPages } from "./layoutProtectPages";
+import { UserPage } from "../auth/userPage";
+import { NotFoundPage } from "../common/notFoundPage";
+import { DevPage } from "../dev/devPage";
+import { CreateEnterprisePage } from "../enterprise/createEnterprisePage";
+import { EnterprisePage } from "../enterprise/enterprisePage";
+import { EnterprisesPage } from "../enterprise/enterprisesPage";
+import { UpdateEnterprisePage } from "../enterprise/updateEnterprisePage";
+import { CreateInternshipPage } from "../internship/createInternshipPage";
+import { InternshipPage } from "../internship/internshipPage";
+import { InternshipsPage } from "../internship/internshipsPage";
+import { UpdateInternshipPage } from "../internship/updateInternshipPage";
+import { SplashPage } from "../intro/splashPage";
+import { LayoutProtectPages } from "../layoutProtectPages";
 
 export const protectedRoutes = createBrowserRouter([
   {

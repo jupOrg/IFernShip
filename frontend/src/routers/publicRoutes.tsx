@@ -1,10 +1,10 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
-import { LoginPage } from "./auth/loginPage";
-import { RegisterPage } from "./auth/signUpPage";
-import { ChoiceAuthenticatePage } from "./choiceAuthenticate/choiceAuthenticatePage";
-import { ChoicePerson } from "./choicePerson/choicePersonPage";
-import { DevPage } from "./dev/devPage";
+import { ForgotPasswordPage } from "../auth/forgotPasswordPage";
+import { LoginPage } from "../auth/loginPage";
+import { RegisterPage } from "../auth/signUpPage";
+import { ChoiceAuthenticatePage } from "../choiceAuthenticate/choiceAuthenticatePage";
+import { ChoicePerson } from "../choicePerson/choicePersonPage";
+import { DevPage } from "../dev/devPage";
 
 export const publicRoutes = createBrowserRouter([
   {

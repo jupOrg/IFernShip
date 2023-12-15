@@ -1,6 +1,6 @@
 import { RouterProvider } from "react-router-dom";
-import { useAuth } from "./auth/authContext";
-import { SplashPage } from "./intro/splashPage";
+import { useAuth } from "../auth/authContext";
+import { SplashPage } from "../intro/splashPage";
 import { protectedRoutes } from "./protectedRoutes";
 import { publicRoutes } from "./publicRoutes";
 
