@@ -3,10 +3,8 @@ import { ForgotPasswordPage } from "./auth/forgotPasswordPage";
 import { LoginPage } from "./auth/loginPage";
 import { RegisterPage } from "./auth/signUpPage";
 import { ChoiceAuthenticatePage } from "./choiceAuthenticate/choiceAuthenticatePage";
-import { ChoicePersonMD } from "./choicePerson/choicePersonPage";
-import { ChoicePersonSM } from "./choicePerson/choicePersonPageSm";
+import { ChoicePerson } from "./choicePerson/choicePersonPage";
 import { DevPage } from "./dev/devPage";
-import { RenderVersion } from "./renderVersion";
 
 export const publicRoutes = createBrowserRouter([
   {
@@ -31,9 +29,7 @@ export const publicRoutes = createBrowserRouter([
   },
   {
     path: "/escolher-pessoa",
-    element: (
-      <RenderVersion PageMd={<ChoicePersonMD />} PageSm={<ChoicePersonSM />} />
-    ),
+    element: <ChoicePerson />,
   },
   {
     path: "/*",

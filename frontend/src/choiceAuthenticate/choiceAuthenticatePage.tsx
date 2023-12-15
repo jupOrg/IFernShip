@@ -3,11 +3,11 @@ import { Logo } from "../common/logo";
 
 export function ChoiceAuthenticatePage() {
   return (
-    <div className="flex-row flex-1 bg-curve-right p-2">
-      <Logo />
+    <div className="flex-row flex-1 bg-curve-right p-6 gradient-page">
+      <Logo hiddenBreakpoint="md" />
       <div className="flex-1 items-center justify-center">
         <div className="gap-20 w-full max-w-md">
-          <div className="items-center gap-2  sm:hidden">
+          <div className="items-center gap-2 md:hidden">
             <img
               alt="logo"
               src="./ifpb-logo.svg"
@@ -29,7 +29,7 @@ export function ChoiceAuthenticatePage() {
           </div>
         </div>
       </div>
-      <div className="flex-1 hidden sm:flex">
+      <div className="flex-1 hidden md:flex">
         <div className="h-1/2 justify-center gap-4">
           <h1 className="text-[#5CFFCE] text-3xl font-bold text-center">
             IFernShip
